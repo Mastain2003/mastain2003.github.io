@@ -1,0 +1,20 @@
+{	
+	"title":"Smile",
+	"subnaviationList": [{
+			"name": "Home",
+			"href": "homeSection"
+		},
+		{
+			"name": "About",
+			"href": "aboutSection"
+		},
+		{
+			"name": "Archive",
+			"href": "archiveSection"
+		},
+		{
+			"name": "Contact",
+			"href": "contactSection"
+		}
+	]
+}

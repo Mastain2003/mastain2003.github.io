@@ -1,0 +1,21 @@
+{
+	"title":"web developer",
+	"subnaviationList": [{
+			"name": "About",
+			"href": "about"
+		},
+		{
+			"name": "Services",
+			"href": "services"
+		},
+		{
+			"name": "Skills",
+			"href": "skills"
+		},
+		{
+			"name": "Contact",
+			"href": "contactSection"
+		}
+		
+	]
+}

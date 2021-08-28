@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<subnaviationList>
+	<subnaviationItem>
+		<name>About</name>
+		<value>about</value>
+	</subnaviationItem>
+	<subnaviationItem>
+		<name>Services</name>
+		<value>services</value>
+	</subnaviationItem>
+	<subnaviationItem>
+		<name>Skills</name>
+		<value>skills</value>
+	</subnaviationItem>
+	<subnaviationItem>
+		<name>Contact</name>
+		<value>contactSection</value>
+	</subnaviationItem>
+</subnaviationList>

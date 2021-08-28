@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<subnaviationList>
+	<subnaviationItem>
+		<name>Home</name>
+		<value>homeSection</value>
+	</subnaviationItem>
+	<subnaviationItem>
+		<name>About</name>
+		<value>aboutSection</value>
+	</subnaviationItem>
+	<subnaviationItem>
+		<name>Archive</name>
+		<value>archiveSection</value>
+	</subnaviationItem>
+	<subnaviationItem>
+		<name>Contact</name>
+		<value>contactSection</value>
+	</subnaviationItem>
+</subnaviationList>

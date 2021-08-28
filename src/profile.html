@@ -1,0 +1,158 @@
+<section id="about">
+	<div style="width: 100%;text-align: center;">
+		<div class="sectionHeading">
+			<h2>About Me</h2>
+			<div class="tagline underStrock">
+				<p>Who am i</p>
+			</div>
+		</div>
+	</div>
+	<div class=" article right flex space-around">
+		<div class="article-graphics" style="height: 20vw;">
+			<img src="/img/icon.png">
+		</div>
+		<div class="article-text details">
+			<p class="large-font bold">I'm Prakhar and <br/>i'm a <span id="typeWritter-primary" class="typeWritter" data-typeWritter-list="Web Dveloper-social-teacher"></span></p>
+			<p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet volutpat quam, non accumsan nibh. Vestibulum et molestie sem. Etiam sed egestas urna. Donec turpis augue, interdum sit amet arcu eget, feugiat suscipit lectus. Sed luctus quis justo id scelerisque. Donec rhoncus urna accumsan neque pretium pellentesque. Nunc malesuada purus eu ultrices bibendum. In semper bibendum justo, ac varius enim lacinia id. In venenatis magna a nunc aliquam, ut tempor ante suscipit. Nulla feugiat metus et quam pellentesque accumsan.</p>
+			<div class="ButtonBox left">
+				<a href="#" class="button primary">
+					<span>ResumeV</span>
+					<i class="fas fa-file-download"></i>
+				</a>
+			</div>
+		</div>
+	</div>
+</section>
+<section id="services">
+	<div style="width: 100%;text-align: center;">
+		<div class="sectionHeading">
+			<h2>My Services</h2>
+			<div class="tagline underStrock">
+				<p>What i Provide</p>
+			</div>
+		</div>
+		</div>
+	<div class="flex space-around">
+		<div class="card">
+			<h3>Service Heading</h3>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet volutpat quam, non accumsan nibh. Vestibulum et molestie sem. Etiam sed egestas urna</p>
+		</div>
+		<div class="card">
+			<h3>Service Heading</h3>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet volutpat quam, non accumsan nibh. Vestibulum et molestie sem. Etiam sed egestas urna
+			</p>
+		</div>
+		<div class="card">
+			<h3>Service Heading</h3>
+			<p>	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet volutpat quam, non accumsan nibh. Vestibulum et molestie sem. Etiam sed egestas urna</p>
+		</div>
+	</div>
+</section>
+<section id="skills">
+	<div style="width: 100%;text-align: center;">
+		<div class="sectionHeading">
+			<h2>My Skills</h2>
+			<div class="tagline underStrock">
+				<p>What i know</p>
+			</div>
+		</div>
+	</div>
+	<div class=" article right flex space-around">
+		<div class=" article-text details">
+			<p class="large-font bold">I am good at <span id="typed" class="typeWritter" data-typeWritter-list="Web Dveloper-social-teacher"></span></p>
+			<p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet volutpat quam, non accumsan nibh. Vestibulum et molestie sem. Etiam sed egestas urna. Donec turpis augue, interdum sit amet arcu eget, feugiat suscipit lectus. Sed luctus quis justo id scelerisque. Donec rhoncus urna accumsan neque pretium pellentesque. Nunc malesuada purus eu ultrices bibendum. In semper bibendum justo, ac varius enim lacinia id. In venenatis magna a nunc aliquam, ut tempor ante suscipit. Nulla feugiat metus et quam pellentesque accumsan.</p>
+			<div class="ButtonBox left">
+				<a href="#" class="button primary">
+					<span>Read More</span>
+					<i class="fas fa-sign-in-alt"></i>
+				</a>
+			</div>
+		</div>
+		<div class="article-graphics skills">
+			<div class="skill">
+				<span class="skillName">HTML</span>
+				<span class="skillValue">95%</span>
+				<div class="skillBar">
+					<div class="skillBarValue"></div>
+				</div>
+			</div>
+			<div class="skill">
+				<span class="skillName">HTML</span>
+				<span class="skillValue">80%</span>
+				<div class="skillBar">
+					<div class="skillBarValue"></div>
+				</div>
+			</div>
+			<div class="skill">
+				<span class="skillName">HTML</span>
+				<span class="skillValue">90%</span>
+				<div class="skillBar">
+					<div class="skillBarValue"></div>
+				</div>
+			</div>
+			<div class="skill">
+				<span class="skillName">HTML</span>
+				<span class="skillValue">70%</span>
+				<div class="skillBar">
+					<div class="skillBarValue"></div>
+				</div>
+			</div>
+			<div class="skill">
+				<span class="skillName">HTML</span>
+				<span class="skillValue">85%</span>
+				<div class="skillBar">
+					<div class="skillBarValue"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section id="contactSection">
+</section>
+<script type="text/javascript">
+	console.log(document.getElementById('skills').offsetTop);
+	var subNavLinks ={
+		About:'about',
+		Services:'services',
+		Skills:'skills',
+		Contact:'contactSection'
+	};
+	var list = $('ul.menuList');
+	list.empty();
+	$.each(subNavLinks,function(name,value){
+		list.append('<li class="subNavLink"><a href="#'+value+'">'+name+'</a></li>');
+	})
+	$('.subNavLink').on('click',function(){
+		$('.subNav').removeClass('active');
+	})
+	$('.subNav .header>p').text(('Profile').toUpperCase());
+	$('.skillValue').each(function(){
+		let value = this.innerHTML;
+		this.nextElementSibling.firstElementChild.style.width = value;
+	})
+	/*$('head').prepend('<link rel="stylesheet" class="pageCss" type="text/css" href="/css/contact.css">');
+	$.get('/src/contact.html',function(data){
+		let toRemove = $('section').last();
+		let id = toRemove.attr('id');
+		toRemove.remove();
+		$('section').last().after(data);
+		$('section').last().attr('id',id);
+
+	})*/
+	/*var headerHeight = $('header').css('height');
+	$('div>section').css('paddingTop',headerHeight);*/
+	//var gallaries = $('.imageGallary');
+	/*let observer = new IntersectionObserver(handleIntersection,{threshold:0.8});
+	for (let i = gallaries.length - 1; i >= 0; i--){
+		observer.observe(gallaries[i]);
+	}
+	function handleIntersection(entries,observer){
+		entries.forEach((entry)=>{
+			let gallary = new ImagesGallary(entry.target);
+			if(entry.isIntersecting){
+				gallary.run();
+				observer.unobserve(entry.target);
+			}
+		})
+	}*/
+</script>

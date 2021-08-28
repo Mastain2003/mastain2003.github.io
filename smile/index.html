@@ -1,0 +1,98 @@
+<section id="homeSection">
+	<!--<div class="imageGallary">
+		<div class="image">
+			<div class="imageContainer">
+				<img src="/inc/image/image (1).jpg">
+			</div>
+		</div>
+		<div class="gallary">
+			<div class="imageContainer">
+				<img src="/inc/image/image (1).jpg">
+			</div>
+			<div class="imageContainer">
+				<img src="/inc/image/image (2).jpg">
+			</div>
+			<div class="imageContainer">
+				<img src="/inc/image/image (3).jpg">
+			</div>
+			<div class="imageContainer">
+				<img src="/inc/image/image (4).jpg">
+			</div>
+			<div class="imageContainer">
+				<img src="/inc/image/image (5).jpg">
+			</div>
+			<div class="imageContainer">
+				<img src="/inc/image/image (6).jpg">
+			</div>			
+		</div>
+	</div>-->
+	<div class="flex space-around">
+		<div class="card">
+			<h3>Total Drive: <span>3</span></h3>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet volutpat quam, non accumsan nibh. Vestibulum et molestie sem.</p>
+		</div>
+		<div class="card">
+			<h3>Smile Count: <span>55</span></h3>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet volutpat quam, non accumsan nibh. Vestibulum et molestie sem.</p>
+		</div>
+		<div class="card">
+			<h3>Total Donation: <span>2800</span></h3>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet volutpat quam, non accumsan nibh. Vestibulum et molestie sem.</p>
+		</div>
+	</div>
+	<!--<div class="card">
+		<h3>: <span>35</span></h3>
+		<p class="details">
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet volutpat quam, non accumsan nibh. Vestibulum et molestie sem.
+		</p>
+	</div>-->
+</section>
+<section id="aboutSection">
+	<div style="width: 100%;text-align: center;">
+		<div class="sectionHeading">
+			<h2>About Me</h2>
+			<div class="tagline underStrock">
+				<p>Who am i</p>
+			</div>
+		</div>
+	</div>
+	<div class="article right flex">
+		<div class="article-graphics">
+			<img src="/img/icon.png">
+		</div>
+		<div class="article-text">
+			<p class="large-font bold">I'm Prakhar and i'm a <span id="typed"></span></p>
+			<p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet volutpat quam, non accumsan nibh. Vestibulum et molestie sem. Etiam sed egestas urna. Donec turpis augue, interdum sit amet arcu eget, feugiat suscipit lectus. Sed luctus quis justo id scelerisque. Donec rhoncus urna accumsan neque pretium pellentesque. Nunc malesuada purus eu ultrices bibendum. In semper bibendum justo, ac varius enim lacinia id. In venenatis magna a nunc aliquam, ut tempor ante suscipit. Nulla feugiat metus et quam pellentesque accumsan.</p>
+			<div class="ButtonBox left">
+				<a href="#" class="button primary">
+					<span>Resume</span>
+					<i class="fas fa-file-download"></i>
+				</a>
+			</div>
+		</div>
+	</div>
+</section>
+<section id="archiveSection">
+	
+</section>
+<section id="contactSection"></section>
+<script type="text/javascript">
+	console.log(document.getElementById('archiveSection').offsetTop);
+	var list = document.getElementsByTagName('html')[0].classList;
+	list.remove('theme-A');
+	list.add('theme-B');
+	
+	/*var varInterval;
+	var img = $('.imageGallary .image img');
+	var children = $('.gallary').children();
+	var length	 = children.length;
+	var i = length-1;
+	varInterval = setInterval(function(){
+		let active = $('.gallary .imageContainer#active');
+		active = children[i];
+		active.removeAttribute('id');
+		i=(i+1)%length;
+		children[i].setAttribute('id','active');
+		img.attr('src',children[i].children[0].getAttribute('src'));
+	},1000);*/
+</script>
