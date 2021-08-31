@@ -8,6 +8,7 @@ var appData = {
 		darkMode:false,
 	},
 	currURL:location.href,
+	currPAGE:null,
 	online:true,
 	scrollPos:{
 		top:0,
@@ -40,7 +41,13 @@ $('document').ready(function(){
 
 	$(document).on('click','li.subNavLink',function(e){
 		e.preventDefault();
-		gotoPos(e.target.getAttribute('href').substr(1));
+		let  url = new URL(appData.currURL);
+		//console.log(e.target.hash);
+		//location.hash = e.target.hash;
+		appData.currURL = e.target.href;
+		window.history.pushState(appData,'',appData.currURL);
+		//console.log(appData.currURL)
+		gotoPos(e.target.hash.substr(1));
 	});
 
 	$(window).on('resize',function(){
@@ -75,7 +82,7 @@ $('document').ready(function(){
 	})
 	subNavSwipe.run();
 	window.onpopstate = function(evt){
-		console.log(evt);
+		//console.log(evt);
 		if(evt.state)
 			appData = evt.state,routeToUrl(appData);
 	}
@@ -121,7 +128,6 @@ function routeToUrl(appData){
 	if(location.search){
 		urlPara = getUrlQueryParams(url.search);
 	}
-	//console.log(urlPara["page"]);
 	//let path =url.pathname;
 	//let arr = path.split("/");
     $('link.pageCss').remove();
@@ -132,30 +138,34 @@ function routeToUrl(appData){
 		case 'home':
 		case undefined:
 		case 'index.html':
+			appData.currPAGE= "home";
 			$('title').text("home");
 			$('head').append('<link rel="stylesheet" class="pageCss" type="text/css" href="/css/home.css">');
 			document.getElementById("home").parentElement.className+=(" active");
-			$('.page-content').load('/src/home.html',processPage('home'));
+			$('.page-content').load('/src/home.html',processPage);
 			//document.getElementsByTagName('html')[0].className="theme-A";
 			break;
 		case 'profile':
 			$('title').text("profile");
+			appData.currPAGE= "profile";
 			$('head').append('<link rel="stylesheet" class="pageCss" type="text/css" href="/profile/css/profile.css">');
-			$('.page-content').load('/profile/index.html',processPage('profile'));
+			$('.page-content').load('/profile/index.html',processPage);
 			document.getElementById("profile").parentElement.className+=(" active");
 			//document.getElementsByTagName('html')[0].className="theme-A";
 			break;
 		case 'charity':
 			$('title').text("smile");
+			appData.currPAGE= "smile";
 			$('head').append('<link rel="stylesheet" class="pageCss" type="text/css" href="/smile/css/smile.css">');
-			$('.page-content').load('/smile/index.html',processPage('smile'));
+			$('.page-content').load('/smile/index.html',processPage);
 			document.getElementById("smile").parentElement.className+=(" active");
 			//document.getElementsByTagName('html')[0].className="theme-B";
 			break;
 		case 'contact':
 			$('title').text("contact");
+			appData.currPAGE= "contact";
 			$('head').append('<link rel="stylesheet" class="pageCss" type="text/css" href="/css/contact.css">');
-			$('.page-content').load('/src/contact.html',processPage('contact'));
+			$('.page-content').load('/src/contact.html',processPage);
 			document.getElementById("contact").parentElement.className+=(" active");
 			//document.getElementsByTagName('html')[0].className="theme-A";
 			break;
@@ -164,22 +174,24 @@ function routeToUrl(appData){
 			$('.page-content').load('/src/error/404.html');
 			//document.getElementsByTagName('html')[0].className="theme-A";
 	}
-	//gotoPos(url.hash.substr(1));
+	
 }
 function gotoPos(id){
+	location.hash = "#"+id;
 	let ele = document.getElementById(id)
+	console.log(ele);
 	if(ele){
 		let pos = ele.offsetTop;
 		console.log(pos);
 		window.scrollTo(0,pos);
 	}
 }
-function processPage(folder){
+function processPage(){
 	let fla = false;
 	var list = $('ul.menuList');
 	list.empty();
 	$.ajax({
-		url:'/'+folder+'/structure.json',
+		url:'/'+appData.currPAGE+'/structure.json',
 		success:(result,str,xf)=>{
 			console.log(result)
 			let navList = result.subnaviationList;
@@ -194,7 +206,7 @@ function processPage(folder){
 			console.log('error: '+e.xhr);
 		},
 		complete:(xhr)=>{
-			//console.log(xhr.responseJSON.title)
+			console.log(xhr.responseJSON.title)
 			if(!fla){
 				$('.subNav-header-content-title>p').text(' ');
 				$('.subNavIcon').css('display','none');
@@ -208,6 +220,11 @@ function processPage(folder){
 			}
 		}
 	})
+	let url = new URL(appData.currURL);
+	if(url.hash){
+		//console.log("hjkh");
+		gotoPos(url.hash.substr(1));
+	}
 	
 }
 function toggleDarkMode(element){
