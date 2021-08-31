@@ -87,9 +87,19 @@ $('document').ready(function(){
 function init(){
 	setUI();
 	appData.currURL = location.href;
-	//state.loc = location.href;
 	history.replaceState(appData,"",location.href);
 	routeToUrl(appData);
+}
+function getUrlQueryParams(url) {
+  var queryString = url.split("?")[1];
+  var keyValuePairs = queryString.split("&");
+  var keyValue = [];
+  var queryParams = {};
+  keyValuePairs.forEach(function(pair) {
+    keyValue = pair.split("=");
+    queryParams[keyValue[0]] = decodeURIComponent(keyValue[1]).replace(/\+/g, " ");
+  });
+  return queryParams;
 }
 function setUI(){
 	var headerHeight = $('.app-header').css('height');
@@ -106,17 +116,21 @@ function setUI(){
 	}*/
 }
 function routeToUrl(appData){
-	let url = new URL(appData.currURL);
+	let urlPara=[], url = new URL(appData.currURL);
 	$('.menu.active').removeClass('active');
-	let path =url.pathname;
-	let arr = path.split("/");
+	if(location.search){
+		urlPara = getUrlQueryParams(url.search);
+	}
+	//console.log(urlPara["page"]);
+	//let path =url.pathname;
+	//let arr = path.split("/");
     $('link.pageCss').remove();
     let list = document.getElementsByTagName('html')[0].classList
     list.remove("theme-B");
     list.add("theme-A");
-	switch (arr[1]) {
+	switch (urlPara["page"]) {
 		case 'home':
-		case '':
+		case undefined:
 		case 'index.html':
 			$('title').text("home");
 			$('head').append('<link rel="stylesheet" class="pageCss" type="text/css" href="/css/home.css">');
