@@ -139,12 +139,7 @@
 	$('document').ready(function(){
 		$(window).scroll(setHeader);
 		let section = document.getElementById('homeCharity');
-		let  gallary= document.getElementsByClassName('gallary')[0];
-		
-			let gallaryHandler = new GallaryHandler({
-				container:gallary
-			});
-		
+		gallaryHandle = new GallaryHandler();
 		getNoOfPeopleServed().then((data)=>{
 			document.getElementById("totalPeople").innerHTML =data;
 		});
