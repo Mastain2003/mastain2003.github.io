@@ -100,7 +100,11 @@
 		<div class="imageContainer item placeol"></div>
 		<template class="gallaryItemTemplate">
 			<div class="imageContainer item">
-				<img src="/inc/image/image (1).jpg">
+				<picture>
+					<source type="image/webp" srcset="/img/gallaryImageName/gallaryImageNamex268.webp 268w, /img/gallaryImageName/gallaryImageNamex400.webp 400w, /img/gallaryImageName/gallaryImageNamex536.webp 536w, /img/gallaryImageName/gallaryImageNamex805.webp 805w, /img/gallaryImageName/gallaryImageNamex1102.webp 1102w,  /img/gallaryImageName/gallaryImageNamex805.webp" sizes="(min-width: 1200px) 369px,  (min-width: 992px) 33vw, (min-width: 786px) 36vw,(min-width: 560px) 48vw, (min-width: 437px) 60vw, 75vw">
+					<source  type="image/jpeg" srcset="/img/gallaryImageName/gallaryImageNamex268.jpg 268w, /img/gallaryImageName/gallaryImageNamex400.jpg 400w, /img/gallaryImageName/gallaryImageNamex536.jpg 536w, /img/gallaryImageName/gallaryImageNamex805.jpg 805w, /img/gallaryImageName/gallaryImageNamex1102.jpg 1102w,  /img/gallaryImageName/gallaryImageNamex805.jpg" sizes="(min-width: 1200px) 369px,  (min-width: 992px) 33vw, (min-width: 786px) 36vw,(min-width: 560px) 48vw, (min-width: 437px) 60vw, 75vw">
+					<img  type="image/jpeg"  src="/img/gallaryImageName/gallaryImageNamex805.jpg" srcset="/img/gallaryImageName/gallaryImageNamex268.jpg 268w, /img/gallaryImageName/gallaryImageNamex400.jpg 400w, /img/gallaryImageName/gallaryImageNamex536.jpg 536w, /img/gallaryImageName/gallaryImageNamex805.jpg 805w, /img/gallaryImageName/gallaryImageNamex1102.jpg 1102w,  /img/gallaryImageName/gallaryImageNamex805.jpg" sizes="(min-width: 1200px) 369px,  (min-width: 992px) 33vw, (min-width: 786px) 36vw,(min-width: 560px) 48vw, (min-width: 437px) 60vw, 75vw" alt="distribution drive image">
+				</picture>
 				<div>
 					<span>12th August 2021</span>
 					<span>By-Prakhar Mastain</span>
@@ -148,20 +152,41 @@
 			document.getElementById("totalMoney").innerHTML =data;
 		});
 		getDrivesMainImages().then((data)=>{
-			let gallary = $(".gallary").eq(0);
-			let template = gallary.find("template")[0].content;
-			console.log(template)
-			gallary.empty();
-			let length = data.length;
-			for(let i = 0;i<length;++i){
-				template.querySelector("img").src=data[i].img;
-				let span = template.querySelectorAll("span");
-				let date = new Date(dataFromServer.drivesData.driveArr[data[i].locationInArr].driveData.timestamp);
-				span[0].innerHTML = date.toDateString();
-				span[1].innerHTML = dataFromServer.drivesData.driveArr[data[i].locationInArr].driveData.donateBy;
-				gallary.append(template.cloneNode(true));
-			}
-		})	
+				let gallary = $(".gallary").eq(0);
+				let template = gallary.find("template")[0].content;
+				gallary.empty();
+				let length = data.length;
+				let prevName = "gallaryImageName";
+				for(let i = 0;i<length;++i){
+					var replaceRegExp = new RegExp(prevName,"g");
+					source = template.querySelectorAll("picture source");//.srcset=data[i].img;
+					let webp_srcset = source[0].srcset.replace(replaceRegExp,data[i].img);
+					let jpg_srcset = source[1].srcset.replace(replaceRegExp,data[i].img);
+					source[0].srcset=webp_srcset;
+					source[1].srcset=jpg_srcset;
+					let img = template.querySelector("picture img");
+					let img_src = img.src.replace(replaceRegExp,data[i].img);
+					let img_srcset = img.srcset.replace(replaceRegExp,data[i].img);
+					prevName = data[i].img;
+					img.src = img_src;
+					img.srcset=img_srcset;
+					let span = template.querySelectorAll("span");
+					let date = new Date(dataFromServer.drivesData.driveArr[data[i].locationInArr].driveData.timestamp);
+					span[0].innerHTML = date.toDateString();
+					span[1].innerHTML = dataFromServer.drivesData.driveArr[data[i].locationInArr].driveData.donateBy;
+					gallary.append(template.cloneNode(true));
+				}
+				gallaryHandle.add({
+					container:document.getElementsByClassName('gallary')[0],
+					options:{
+						positionFromLeftMargin:3,
+						showPercentagePortrait:5.5,
+						showPercentageLandscape:40,
+						maxItem:5,
+						initialIndex:1
+					}
+				});
+			})	
 	});
 	var total = document.getElementsByClassName('typeWritter');
 
