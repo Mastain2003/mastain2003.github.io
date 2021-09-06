@@ -3,16 +3,17 @@
 	let __instance;
 	let defaults = {
 		scale:0.95,
-		maxItem:5,
-		initialIndex:2
+		maxItem:4,
+		initialIndex:0,
 	}
 	let portraitDefault ={
-		hidePercentage:7.5,
+		showPercentagePortrait:7.5,
 		orientation:"potrait",
-		swipeThrosold:100
+		swipeThrosold:200,
+		positionFromLeftMargin:10
 	}
 	let landscapeDefault = {
-		hidePercentage:30,
+		showPercentageLandscape:30,
 		maxItem:5,
 		orientation:"landscape"
 	}
@@ -21,13 +22,13 @@
 		#observer; 
 		constructor(...arg){
 			__instance = this;
-			this.#list = [];
+			this.#list = new Map();
 			this.#observer = new IntersectionObserver(this.#handleIntersection.bind(this),{threshold:0.8});
 			this.add(...arg);
 		}
 		#chackGallaryParameters = function(item){
 			if(!item.container){
-				console.error("Error: Element is not present in DOM structur");
+				console.error("Error: Element is not present in DOM structure");
 				return false;
 			}
 			return true;
@@ -36,11 +37,13 @@
 			for(let item of arg){
 				if(Array.isArray(item)||(typeof item ==="object"&&item!==null)){
 					if(this.#chackGallaryParameters(item)){
+						let gallaryObj = new Gallary(item.container,item.options);
+						this.#list.set(item.container,gallaryObj);
 						this.#observer.observe(item.container);
 					}	
 				}
 				else{
-					console.error("Error: Wron Arument is passed. Object,Objects or Array of Objects are Expacted");
+					console.error("Error: Wrong Argument is passed. Object,Objects or Array of Objects are Expacted");
 				}
 			}
 		}
@@ -49,91 +52,179 @@
 		}
 		#handleIntersection(entries,observer){
 			entries.forEach((entry)=>{
-				let gallaryObj = new Gallary(entry.target,{});
-				this.#list.push(gallaryObj);
 				if(entry.isIntersecting){
-					gallaryObj.init();
+					let t = this.#list.get(entry.target);
+					t.init();
 					observer.unobserve(entry.target);
 				}
 			})
 		}		
 	}
-	class Gallary{
-		constructor(element,options){
-			this.container = typeof(element)==='string'?document.querySelector(element):element;
-			this.list = this.container.getElementsByClassName('item');
-			this.userOption = options;
-			if(window.matchMedia("(orientation:landscape)").matches){
-				defaults.initialIndex = parseInt(this.list.length/2);
-				this.options = Object.assign( {}, defaults, landscapeDefault, this.userOption);
+	let Gallary = class{
+		#orientation;
+		#userOption;
+		#list;
+		#container;
+		#options;
+		#touchHandler;
+		#index;
+		#gotoUtil;
+		#run;
+		#applyDeviceSpecificSettings(evt){
+			if(this.#orientation=="landscape"){
+				this.#options = Object.assign({}, defaults, landscapeDefault);
+				for(let i=0;i<this.#list.length;++i){
+					this.#list[i].addEventListener('mouseover',this.#gotoUtil);
+					this.#list[i].style.left="50%";
+					this.#list[i].style.opacity="1";
+				}
+				this.#run = this.#landscapeGallaryHandle;
 			}
 			else{
-				defaults.initialIndex = 0;
-				this.options = Object.assign( {}, defaults, portraitDefault, this.userOption);
+				this.#options = Object.assign({}, defaults, portraitDefault);
+				if(!this.#touchHandler){
+					this.#touchHandler = new Swipe(this.#container);
+					this.#touchHandler.setOnStart(function(dis){
+						for(let i = 0;i<this.#list.length;++i){
+							this.#list[i].style.transition="none";
+						}
+						//this.activeLeftPos = this.list[this.index].offsetLeft;
+					}.bind(this));
+					this.#touchHandler.setOnDrag(function(xDis){
+						this.#portraitGallaryHandle(this.#index,xDis/this.#options.swipeThrosold);
+					}.bind(this));
+					this.#touchHandler.setOnEnd(function(dis){
+						//this.#list[this.#index].style.left = this.activeLeftPos+"px";
+						for(let i = 0;i<this.#list.length;++i){
+							this.#list[i].style.transition="filter 500ms, transform 500ms,opacity 200ms";
+						}
+						if(Math.abs(dis)>=this.#options.swipeThrosold){
+							this.#run((this.#index+1)%this.#list.length,0);
+						}
+						else{
+							this.#run((this.#index)%this.#list.length,0);
+						}
+					}.bind(this));
+				}
+				for(let i =0 ;i<this.#list.length;++i){
+				}
+				this.#touchHandler.run();
+				this.#run=this.#portraitGallaryHandle;
 			}
-			this.index = this.options.initialIndex;
-			this.activeLeftPos = this.list[this.index].offsetLeft;
-			this.isEvenCorrection = ((this.list.length+1)%2)*(this.options.hidePercentage*Math.pow(this.options.scale,this.index))/2;
-			this.touchHandler = new Swipe(this.container);
-			this.gotoUtil = this.gotoUtil.bind(this).bind(event);
-			window.addEventListener('resize',function(){
-				this.init();
-			}.bind(this));
+			this.#options.initialIndex = parseInt(this.#list.length/2);
 		}
-		init(){
-			this.setEventHandler();
-			this.goto(this.index,0);
+		#removeDeviceSpecificSettings=()=>{
+			this.#options = Object.assign({}, defaults);
+			if(this.#orientation!=="landscape"){
+				for(let i=0;i<this.#list.length;++i){
+					this.#list[i].removeEventListener('mouseover',this.#gotoUtil);
+					this.#list[i].style.left="50%";
+				}
+			}
+			else{
+				if(this.#touchHandler)
+					this.#touchHandler.delete();
+			}
 		}
-		gotoUtil(event){
+		#getReadyToStart(){
+			this.#options = Object.assign({},this.#options,this.#userOption);
+			this.#index = this.#index?this.#index:this.#options.initialIndex>=this.#list.length?this.#list.length-1:this.#options.initialIndex<0?0:this.#options.initialIndex;
+			this.activeLeftPos = this.#list[this.#index].parentElement.clientWidth*this.#options.positionFromLeftMargin/100;
+			this.#list[this.#index].style.zIndex=this.#list.length;
+		}
+		#gotoHoverElement(){
 			let ele = event.currentTarget;
-			for(let i = 0; i<this.list.length;++i){
-				if(this.list[i]==ele){
-					this.goto(i);
+			for(let i = 0; i<this.#list.length;++i){
+				if(this.#list[i]==ele){
+					this.#run(i);
 					return;
 				}
 			}
 		}
-		setEventHandler(){
+		#landscapeGallaryHandle(index){
+			for(let i = 0; i<this.#list.length;++i){
+				this.#list[i].className= this.#list[i].className.replace(" active","");
+				this.#list[i].style.zIndex=this.#list.length-Math.abs(i-index);
+				let adjustment = (1-Math.pow(this.#options.scale,Math.abs(i-index)))*50;
+				adjustment = index>i?-1*adjustment:adjustment;
+				this.#list[i].style.transform = 'translate('+((i-parseInt(this.#list.length/2))*this.#options.showPercentageLandscape-50+/*this.isEvenCorrection+*/adjustment)+'%, -50%) scale('+Math.pow(this.#options.scale,Math.abs(i-index))+')';
+			}
+			this.#index = index;
+			this.#list[index].className+=" active";
+		}
+		#portraitGallaryHandle(index,value){
+			for(let i = 0; i<this.#list.length;++i){
+				this.#list[i].style.left =this.#options.positionFromLeftMargin+"%";
+				this.#list[i].style.transform = 'translate(-0%, -50%)';			
+			}
+			//value = Math.min(1,Math.max(-1,value));
+			this.#list[this.#index].style.left = (this.activeLeftPos-(value*this.#options.swipeThrosold))+"px";
+			value = Math.min(1,Math.abs(value));
+			for(let i = 0; i<this.#list.length;++i){
+				this.#list[i].className= this.#list[i].className.replace(" active","");
+				let parser = (i-index+this.#list.length)%this.#list.length;	
+				this.#list[i].style.zIndex=this.#list.length-parser;
+				if(parser==0){
+					this.#list[i].style.opacity = 1-value;
+					this.#list[i].style.transform = 'translate(-0%, -50%)';			
+				}
+				else{
+					this.#list[i].style.opacity = parser>=this.#options.maxItem?parser==this.#options.maxItem?value:0:1;
+					this.#list[i].style.transform = 'translate('+((parser-value)*this.#options.showPercentagePortrait)+'%, -50%) scale('+Math.pow(this.#options.scale,Math.abs(parser-value))+')';		
+				}
+			}
+			this.#index = index;
+			this.#list[index].className+=" active";	
+		}
+		constructor(element,options){
+			this.#container = typeof(element)==='string'?document.querySelector(element):element;
+			this.#list = this.#container.getElementsByClassName('item');
+			this.#userOption = options;
+			this.#gotoUtil = this.#gotoHoverElement.bind(this);
+			if(window.matchMedia("(orientation:landscape)").matches){
+				this.#orientation="landscape";
+			}
+			else{
+				this.#orientation="portrait";
+			}
+			this.#applyDeviceSpecificSettings();
+			this.#getReadyToStart();
+			/*this.activeLeftPos = this.list[this.index].offsetLeft;*/
+			this.isEvenCorrection =0;// ((this.list.length+1)%2)*(this.options.showPercentage*Math.pow(this.options.scale,this.index))/2;
+			window.addEventListener('resize',function(){
+				if(window.matchMedia("(orientation:landscape)").matches){
+					this.#orientation="landscape";
+				}
+				else{
+					this.#orientation="portrait";
+				}
+				this.#removeDeviceSpecificSettings();
+				this.#applyDeviceSpecificSettings();
+				this.#getReadyToStart();
+				this.init();
+			}.bind(this));
+		}
+		init=function(){
+			this.#run(this.#index,0);
+		}
+		/*setEventHandler(){
 			if(window.matchMedia("(orientation:landscape)").matches){
 				for(i=0;i<this.list.length;++i){
 					this.list[i].addEventListener('mouseover',this.gotoUtil);
 					this.list[i].style.left="50%";
-					this.list[i].style.opacity="1";
 				}
 				this.touchHandler.delete();
 				this.activeLeftPos = this.list[this.index].offsetLeft;
 				this.options = Object.assign( {}, defaults, landscapeDefault, this.userOption);
 			}
-			else{
+			else{	
 				for(i=0;i<this.list.length;++i){
 					this.list[i].removeEventListener('mouseover',this.gotoUtil);
 					this.list[i].style.left="10%";
 				}
 				this.touchHandler.run();
-				this.activeLeftPos = this.list[this.index].offsetLeft;
 				this.options = Object.assign( {}, defaults, portraitDefault, this.userOption);
 			}
-			this.touchHandler.setOnDrag(function(xDis){
-				this.portraitGallaryHandle(this.index,Math.min(1,xDis/this.options.swipeThrosold));
-			}.bind(this));
-			this.touchHandler.setOnStart(function(dis){
-				for(let i = 0;i<this.list.length;++i){
-					this.list[i].style.transition="none";
-				}
-				this.activeLeftPos = this.list[this.index].offsetLeft;
-			}.bind(this));
-			this.touchHandler.setOnEnd(function(dis){
-				this.list[this.index].style.left = this.activeLeftPos+"px";
-				for(let i = 0;i<this.list.length;++i){
-					this.list[i].style.transition="filter 500ms, transform 500ms,opacity 200ms";
-				}
-				if(Math.abs(dis)>=this.options.swipeThrosold){
-					this.goto((this.index+1)%this.list.length,0);
-				}
-				else{
-					this.goto((this.index)%this.list.length,0);
-				}
-			}.bind(this));
 		}
 		run(){
 			this.varInterval = setInterval(this.prev.bind(this),2000);
@@ -145,47 +236,13 @@
 			this.goto((this.index+this.list.length-1)%this.list.length,0);
 		}
 		goto(index,value){
-			if(this.options.orientation.toLowerCase()==="landscape"){
-				this.landscapeGallaryHandle(index);
+			if(this.#options.orientation.toLowerCase()==="landscape"){
+				this.#landscapeGallaryHandle(index);
 			}
 			else{
-				this.portraitGallaryHandle(index,value);
+				this.#portraitGallaryHandle(index,value);
 			}
-		}
-		landscapeGallaryHandle(index){
-			for(let i = 0; i<this.list.length;++i){
-				this.list[i].className= this.list[i].className.replace(" active","");
-				this.list[i].style.zIndex=this.list.length-Math.abs(i-index);
-				let adjustment = (1-Math.pow(this.options.scale,Math.abs(i-index)))*50;
-				adjustment = index>i?-1*adjustment:adjustment;
-				this.list[i].style.transform = 'translate('+((i-parseInt(this.list.length/2))*this.options.hidePercentage-50+this.isEvenCorrection+adjustment)+'%, -50%) scale('+Math.pow(this.options.scale,Math.abs(i-index))+')';
-			}
-			this.index = index;
-			this.list[index].className+=" active";
-		}
-		portraitGallaryHandle(index,value){
-			value = Math.min(1,Math.max(-1,value));
-			this.list[this.index].style.left = (this.activeLeftPos-(value*this.options.swipeThrosold))+"px";
-			value = Math.abs(value);
-			for(let i = 0; i<this.list.length;++i){
-				this.list[i].className= this.list[i].className.replace(" active","");
-				let parser = (i-index+this.list.length)%this.list.length;	
-				this.list[i].style.zIndex=this.list.length-parser;
-				if(parser==0){
-					this.list[i].style.opacity = 1-value;
-					this.list[i].style.transform = 'translate('+((parser)*this.options.hidePercentage)+'%, -50%)';			
-				}
-				else{
-					this.list[i].style.opacity = parser>=this.options.maxItem?parser==this.options.maxItem?value:0:1;
-					this.list[i].style.transform = 'translate('+((parser-value)*this.options.hidePercentage)+'%, -50%) scale('+Math.pow(this.options.scale,Math.abs(parser-value))+')';		
-				}
-			}
-			this.index = index;
-			this.list[index].className+=" active";	
-		}
-		stop(){
-			clearInterval(this.varInterval);
-		}
+		}*/
 	}
 	let Swipe = class{
 		#handleTouchMoveUtil;

@@ -1,9 +1,5 @@
 "use strict";
-/*var state = {
-	loc:location.href,
-	scrollTop:0
-}*/
-var appData = {
+let appData = {
 	userChoice:{
 		darkMode:false,
 	},
@@ -14,6 +10,28 @@ var appData = {
 		top:0,
 		left:0
 	}
+}
+let lazyloadImgOvserver = new IntersectionObserver((entries,observer)=>{
+	//console.log(entries);
+	entries.forEach((entry)=>{
+		if(entry.isIntersecting){
+			let img = entry.target;
+			if(img.dataset.src)
+				img.src = img.dataset.src;
+			img.srcset = img.dataset.srcset;
+			observer.unobserve(img);
+		}
+	})
+},{threshold:0.8})
+let dataFromServer ={
+	/*drives:{
+		numberOfDrive:0,
+		totalMonetaryValueOfSErvices:0,
+		numberOfCities:0,
+		numberOfpeople:0,co
+		drivesArr:[
+		]
+	}*/
 }
 $(window).on('load','.placeol img',function(){
 	console.log('load');
@@ -30,7 +48,7 @@ $('document').ready(function(){
 		console.log('serviceWorker not supported');
 	}*/
 	init();
-	
+	lazyLoadImage("start");
 	$(document).on('click','a.internal',function(e){
 		e.preventDefault();
 		appData.currURL = this.href;
@@ -42,11 +60,8 @@ $('document').ready(function(){
 	$(document).on('click','li.subNavLink',function(e){
 		e.preventDefault();
 		let  url = new URL(appData.currURL);
-		//console.log(e.target.hash);
-		//location.hash = e.target.hash;
 		appData.currURL = e.target.href;
 		window.history.pushState(appData,'',appData.currURL);
-		//console.log(appData.currURL)
 		gotoPos(e.target.hash.substr(1));
 	});
 
@@ -82,15 +97,18 @@ $('document').ready(function(){
 	})
 	subNavSwipe.run();
 	window.onpopstate = function(evt){
-		//console.log(evt);
 		if(evt.state)
 			appData = evt.state,routeToUrl(appData);
 	}
-	/*$(document).ajaxComplete(function(){
-		processPage(window.location);
-	})*/
 })
-
+function lazyLoadImage(str){
+	console.log(str);
+	let t = document.querySelectorAll(".lazyLoad");
+	console.log(t.length);
+	t.forEach((img)=>{
+		lazyloadImgOvserver.observe(img);
+	})
+}
 function init(){
 	setUI();
 	appData.currURL = location.href;
@@ -128,12 +146,11 @@ function routeToUrl(appData){
 	if(location.search){
 		urlPara = getUrlQueryParams(url.search);
 	}
-	//let path =url.pathname;
-	//let arr = path.split("/");
     $('link.pageCss').remove();
     let list = document.getElementsByTagName('html')[0].classList
     list.remove("theme-B");
     list.add("theme-A");
+    $(window).off('scroll');
 	switch (urlPara["page"]) {
 		case 'home':
 		case undefined:
@@ -177,12 +194,9 @@ function routeToUrl(appData){
 	
 }
 function gotoPos(id){
-	location.hash = "#"+id;
-	let ele = document.getElementById(id)
-	console.log(ele);
+	let ele = document.getElementById(id);
 	if(ele){
 		let pos = ele.offsetTop;
-		console.log(pos);
 		window.scrollTo(0,pos);
 	}
 }
@@ -193,7 +207,6 @@ function processPage(){
 	$.ajax({
 		url:'/'+appData.currPAGE+'/structure.json',
 		success:(result,str,xf)=>{
-			console.log(result)
 			let navList = result.subnaviationList;
 			if(navList.length){
 				fla = true 
@@ -206,7 +219,6 @@ function processPage(){
 			console.log('error: '+e.xhr);
 		},
 		complete:(xhr)=>{
-			console.log(xhr.responseJSON.title)
 			if(!fla){
 				$('.subNav-header-content-title>p').text(' ');
 				$('.subNavIcon').css('display','none');
@@ -221,8 +233,8 @@ function processPage(){
 		}
 	})
 	let url = new URL(appData.currURL);
+	//document.getElementsByClassName('.lazyLoad');
 	if(url.hash){
-		//console.log("hjkh");
 		gotoPos(url.hash.substr(1));
 	}
 	

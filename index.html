@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-us" >
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="cache-control" content="max-age=3600000">
 		<title>My Website</title>
 		<link rel="stylesheet" type="text/css" href="/css/default.css">
+		<link rel="stylesheet" href="/fontawesome-free-5.15.1-web/css/all.css">
 		<link rel="icon" type="image/png" href="/img/icon.png">
 
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
 	</head>
 	<body>
 		<header class="fixed app-header flex">
@@ -18,15 +20,24 @@
 					</div>
 				</div>
 				
-				<a href="/" class="internal">
+				<a href="/" class="internal" style="display: flex;align-items: center;">
 					<div class="container flex logo">
 						<div class="placeholders imgContainer">
-							<img src="/img/icon.png">
+							<picture class="logo-and-name">
+								<source type="image/webp" srcset="/img/logoAndName/logoAndName-S.webp 115w, /img/logoAndName/logoAndName-M.webp 200w, /img/logoAndName/logoAndName-L.webp 350w, /img/logoAndName/logoAndName.webp 500w" sizes="(min-width: 437px) 22vw, (min-width: 560px) 17.4vw, (min-width: 786px) 12.3vw, (min-width: 992px) 9.5vw,(min-width: 1200px) 10.5vw, 27vw">
+								<source type="image/png" srcset="/img/logoAndName/logoAndName-S.png 115w, /img/logoAndName/logoAndName-M.png 200w, /img/logoAndName/logoAndName-L.png 350w, /img/logoAndName/logoAndName.png 500w" sizes="(min-width: 437px) 22vw, (min-width: 560px) 17.4vw,(min-width: 786px) 12.3vw, (min-width: 992px) 9.5vw,(min-width: 1200px) 10.5vw, 27vw">
+								<img style="width:100%;max-height: unset;" loading="lazy" type="image/png" srcset="/img/logoAndName/logoAndName-S.png 115w, /img/logoAndName/logoAndName-M.png 200w, /img/logoAndName/logoAndName-L.png 350w, /img/logoAndName/logoAndName.png 500w" src="/img/logoAndName/logoAndName-M.png" sizes="(min-width: 437px) 22vw, (min-width: 560px) 17.4vw,(min-width: 786px) 12.3vw, (min-width: 992px) 9.5vw,(min-width: 1200px) 10.5vw, 27vw" alt="website Logo With Name"  >
+							</picture>
+							<picture class="BW-logo-and-name">
+								<source type="image/webp" srcset="/img/logoAndName-B&W/logoAndName-B&W-S.webp 115w, /img/logoAndName-B&W/logoAndName-B&W-M.webp 200w, /img/logoAndName-B&W/logoAndName-B&W-L.webp 350w, /img/logoAndName-B&W/logoAndName-B&W.webp 500w" sizes="(min-width: 437px) 22vw, (min-width: 560px) 17.4vw,(min-width: 786px) 12.3vw, (min-width: 992px) 9.5vw,(min-width: 1200px) 10.5vw, 27vw">
+								<source type="image/png" srcset="/img/logoAndName-B&W/logoAndName-B&W-S.png 115w, /img/logoAndName-B&W/logoAndName-B&W-M.png 200w, /img/logoAndName-B&W/logoAndName-B&W-L.png 350w, /img/logoAndName-B&W/logoAndName-B&W.png 500vw"  sizes="(min-width: 437px) 22vw, (min-width: 560px) 17.4vw,(min-width: 786px) 12.3vw, (min-width: 992px) 9.5vw,(min-width: 1200px) 10.5vw, 27vw">
+								<img style="width:100%;max-height: unset;" type="image/png"  srcset="/img/logoAndName-B&W/logoAndName-B&W-S.png 115w, /img/logoAndName-B&W/logoAndName-B&W-M.png 200w, /img/logoAndName-B&W/logoAndName-B&W-L.png 350w, /img/logoAndName-B&W/logoAndName-B&W.png 500w" src="/img/logoAndName-B&W/logoAndName-B&W-M.png" sizes="(min-width: 437px) 22vw, (min-width: 560px) 17.4vw,(min-width: 786px) 12.3vw, (min-width: 992px) 9.5vw,(min-width: 1200px) 10.5vw, 27vw" alt="website Logo With Name in black and white"  >
+							</picture>
 						</div>
-						<div class="container title">
+						<!--<div class="container title">
 							<span id="fname">Prakhar</span>
 							<span id="sname">Mastain</span>
-						</div>
+						</div>-->
 					</div>
 				</a>
 				<div class="settings container">
@@ -82,7 +93,12 @@
 					</div>
 					<div class="container subNav-header-content">
 						<div class="subNav-header-content-logo placeholder">
-							<img src="/img/icon.png">
+							<picture>
+								<source class="lazyLoad" type="image/webp" srcset="/img/logo-b&w/logo-b&w-placeholder.webp"  data-srcset="/img/logo-b&w/logo-b&w-S.webp 96w, /img/logo-b&w/logo-b&w-M.webp 156w, /img/logo-b&w/logo-b&w.webp 216w" sizes="13vw">
+								<source class="lazyLoad" type="image/png" srcset="/img/logo-b&w/logo-b&w-placeholder.png"  data-srcset="/img/logo-b&w/logo-b&w-S.png 96w, /img/logo-b&w/logo-b&w-M.png 156w, /img/logo-b&w/logo-b&w.png 216w" sizes="13vw">
+								<img loading="lazy" class="lazyLoad" type="image/png"  src="/img/logo-b&w/logo-b&w-placeHolder.png" srcset="/img/logo-b&w/logo-b&w-placeHolder.png" data-srcset="/img/logo-b&w/logo-b&w-S.png 96w, /img/logo-b&w/logo-b&w-M.png 156w, /img/logo-b&w/logo-b&w.png 216w" data-src="/img/logo-b&w/logo-b&w-M.png" sizes="13vw" alt="Website logo"  >
+							</picture>
+							<!--<img src="/img/logo-b&w.svg" style="height:100%; min-height:12.5vw;">-->
 						</div>
 						<div class="subNav-header-content-title placeholder">
 							<p></p>
@@ -99,11 +115,11 @@
 			</div>
 		</div>
 		<script type="text/javascript" src="/js/lib/jquery-3.5.1.js"></script>
-		<script src="https://kit.fontawesome.com/b557ca3862.js" crossorigin="anonymous"></script>
 		<script type="text/javascript" src="/js/lib/typeWriter-lib.js"></script>
 		<script type="text/javascript" src="/js/lib/gallary-lib.js"></script>
 		<script type="text/javascript" src="/js/lib/swipe-lib.js"></script>
 		<!--<script type="text/javascript" src='/js/default.js'></script>-->
+		<script type="text/javascript" src="/js/function.inc.js"></script>
 		<script type="text/javascript" src="/js/app.js"></script>
 	</body>
 </html>

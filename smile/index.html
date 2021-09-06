@@ -1,42 +1,36 @@
 <section id="homeSection">
-	<!--<div class="imageGallary">
-		<div class="image">
-			<div class="imageContainer">
-				<img src="/inc/image/image (1).jpg">
+	<div class="gallary">
+		<div class="imageContainer item placeol"></div>
+		<div class="imageContainer item placeol"></div>
+		<div class="imageContainer item placeol"></div>
+		<div class="imageContainer item placeol"></div>
+		<div class="imageContainer item placeol"></div>
+		<template class="gallaryTemplate">
+			<div class="imageContainer item">
+				<picture>
+					<source type="image/webp" srcset="/img/gallaryImageName/gallaryImageNamex268.webp 268w, /img/gallaryImageName/gallaryImageNamex400.webp 400w, /img/gallaryImageName/gallaryImageNamex536.webp 536w, /img/gallaryImageName/gallaryImageNamex805.webp 805w, /img/gallaryImageName/gallaryImageNamex1102.webp 1102w,  /img/gallaryImageName/gallaryImageNamex805.webp" sizes="(min-width: 1200px) 369px,  (min-width: 992px) 33vw, (min-width: 786px) 36vw,(min-width: 560px) 48vw, (min-width: 437px) 60vw, 75vw">
+					<source  type="image/jpeg" srcset="/img/gallaryImageName/gallaryImageNamex268.jpg 268w, /img/gallaryImageName/gallaryImageNamex400.jpg 400w, /img/gallaryImageName/gallaryImageNamex536.jpg 536w, /img/gallaryImageName/gallaryImageNamex805.jpg 805w, /img/gallaryImageName/gallaryImageNamex1102.jpg 1102w,  /img/gallaryImageName/gallaryImageNamex805.jpg" sizes="(min-width: 1200px) 369px,  (min-width: 992px) 33vw, (min-width: 786px) 36vw,(min-width: 560px) 48vw, (min-width: 437px) 60vw, 75vw">
+					<img  type="image/jpeg"  src="/img/gallaryImageName/gallaryImageNamex805.jpg" srcset="/img/gallaryImageName/gallaryImageNamex268.jpg 268w, /img/gallaryImageName/gallaryImageNamex400.jpg 400w, /img/gallaryImageName/gallaryImageNamex536.jpg 536w, /img/gallaryImageName/gallaryImageNamex805.jpg 805w, /img/gallaryImageName/gallaryImageNamex1102.jpg 1102w,  /img/gallaryImageName/gallaryImageNamex805.jpg" sizes="(min-width: 1200px) 369px,  (min-width: 992px) 33vw, (min-width: 786px) 36vw,(min-width: 560px) 48vw, (min-width: 437px) 60vw, 75vw" alt="distribution drive image">
+				</picture>
+				<div>
+					<span>12th August 2021</span>
+					<span>By-Prakhar Mastain</span>
+					<!--<div style="text-align: center;margin-top: 2%;">Robin Hood Army</div>-->
+				</div>
 			</div>
-		</div>
-		<div class="gallary">
-			<div class="imageContainer">
-				<img src="/inc/image/image (1).jpg">
-			</div>
-			<div class="imageContainer">
-				<img src="/inc/image/image (2).jpg">
-			</div>
-			<div class="imageContainer">
-				<img src="/inc/image/image (3).jpg">
-			</div>
-			<div class="imageContainer">
-				<img src="/inc/image/image (4).jpg">
-			</div>
-			<div class="imageContainer">
-				<img src="/inc/image/image (5).jpg">
-			</div>
-			<div class="imageContainer">
-				<img src="/inc/image/image (6).jpg">
-			</div>			
-		</div>
-	</div>-->
+		</template>	
+	</div>
 	<div class="flex space-around">
-		<div class="card">
-			<h3>Total Drive: <span>3</span></h3>
+		<div class="part">
+			<h3>Total Drive: <span id = "TotalDriveCount"></span></h3>
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet volutpat quam, non accumsan nibh. Vestibulum et molestie sem.</p>
 		</div>
-		<div class="card">
-			<h3>Smile Count: <span>55</span></h3>
+		<div class="part">
+			<h3>Smile Count: <span id = TotalSmile></span></h3>
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet volutpat quam, non accumsan nibh. Vestibulum et molestie sem.</p>
 		</div>
-		<div class="card">
-			<h3>Total Donation: <span>2800</span></h3>
+		<div class="part">
+			<h3>Total Donation: <span id = TotalDonation></span></h3>
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet volutpat quam, non accumsan nibh. Vestibulum et molestie sem.</p>
 		</div>
 	</div>
@@ -52,47 +46,503 @@
 		<div class="sectionHeading">
 			<h2>About Me</h2>
 			<div class="tagline underStrock">
-				<p>Who am i</p>
+				<p>Who i do</p>
 			</div>
 		</div>
 	</div>
 	<div class="article right flex">
 		<div class="article-graphics">
-			<img src="/img/icon.png">
+			<img src="/img/gallary (1).jpg" alt="about">
 		</div>
 		<div class="article-text">
 			<p class="large-font bold">I'm Prakhar and i'm a <span id="typed"></span></p>
 			<p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet volutpat quam, non accumsan nibh. Vestibulum et molestie sem. Etiam sed egestas urna. Donec turpis augue, interdum sit amet arcu eget, feugiat suscipit lectus. Sed luctus quis justo id scelerisque. Donec rhoncus urna accumsan neque pretium pellentesque. Nunc malesuada purus eu ultrices bibendum. In semper bibendum justo, ac varius enim lacinia id. In venenatis magna a nunc aliquam, ut tempor ante suscipit. Nulla feugiat metus et quam pellentesque accumsan.</p>
-			<div class="ButtonBox left">
+			<!--<div class="ButtonBox left">
 				<a href="#" class="button primary">
 					<span>Resume</span>
 					<i class="fas fa-file-download"></i>
 				</a>
+			</div>-->
+		</div>
+	</div>
+	<div class="curvedBanner primary">
+		<div class="upperPart"></div>
+		<div class="mainPart" style="background-image: url('/img/gallary (2).jpg'); color:white;background-blend-mode: multiply;">
+			<h3>Do you like smile ?</h3>
+			<p>Want to bring smile on needy people.</p>
+			<div class="ButtonBox">
+				<a href="/contact/" class="button onSecondary">
+					<span>Contact Me Now</span>
+					<i class="fas fa-phone"></i>
+				</a>
 			</div>
 		</div>
+		<div class="lowerPart"></div>
 	</div>
 </section>
 <section id="archiveSection">
-	
+	<div style="width: 100%;text-align: center;">
+		<div class="sectionHeading">
+			<h2>My Socail Work</h2>
+			<div class="tagline underStrock">
+				<p>What i have done till now</p>
+			</div>
+		</div>
+	</div>
+	<div id="timeline">
+		<div class="timelineNode">
+			<span class="placeol" style=""></span>
+		</div>
+		<div class="archiveEntry">
+			<div class="mobileSvg" style="width:100%;height: 100%;position: absolute;">
+				<svg viewBox="0 0 100 100" preserveAspectRatio="none">
+					<rect x="50" y="0" width="50" height="2"/>
+					<rect x="98" y="0" width="2" height="50"/>
+					<rect x="0" y="49" width="100" height="2"/>
+					<rect x="0" y="50" width="2" height="50"/>
+					<rect x="0" y="98" width="50" height="2"/>
+				</svg>
+			</div>
+			<div class="lappySvg" style="width:100%;height: 100%;position: absolute;">
+				<svg viewBox="0 0 100 100" preserveAspectRatio="none">
+					<rect x="50" y="0" width="2" height="100"/>
+					<rect class="svgside" x="50" y="49" width="20" height="2"/>
+				</svg>
+			</div>
+			<div class="card drive right secondary">
+				<header class="placeol">
+					<div class="half driveTitle">
+						<h5></h5>
+						<span></span>
+					</div>
+					<div class="half venue">
+						<div class="name"><span></span></div>
+						<div class="location"><span></span></div>
+					</div>
+				</header>
+				<main>
+					<div class="fabnaciFirst">
+						<div class="driveMainImage placeol">
+							<img src="">
+						</div>
+					</div>
+					<div class="fabnaciSecond content">
+						<div>
+							<table>
+								<tbody>
+									<tr class="placeol">
+										<td></td>
+										<td>:</td>
+										<td></td>
+									</tr>
+									<tr class="placeol">
+										<td></td>
+										<td>:</td>
+										<td></td>
+									</tr>
+									<tr class="placeol">
+										<td></td>
+										<td>:</td>
+										<td></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</main>
+				<footer>
+					<table>
+						<tbody>
+							<tr class="placeol">
+								<td></td>
+								<td>:</td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+				</footer>
+			</div>		
+		</div>
+		<div class="archiveEntry">
+			<div class="mobileSvg" style="width:100%;height: 100%;position: absolute;">
+				<svg viewBox="0 0 100 100" preserveAspectRatio="none">
+					<rect x="50" y="0" width="50" height="2"/>
+					<rect x="98" y="0" width="2" height="50"/>
+					<rect x="0" y="49" width="100" height="2"/>
+					<rect x="0" y="50" width="2" height="50"/>
+					<rect x="0" y="98" width="50" height="2"/>
+				</svg>
+			</div>
+			<div class="lappySvg" style="width:100%;height: 100%;position: absolute;">
+				<svg viewBox="0 0 100 100" preserveAspectRatio="none">
+					<rect x="50" y="0" width="2" height="100"/>
+					<rect class="svgside" x="30" y="49" width="20" height="2"/>
+				</svg>
+			</div>
+			<div class="card drive left secondary">
+				<header class="placeol">
+					<div class="half driveTitle">
+						<h5></h5>
+						<span></span>
+					</div>
+					<div class="half venue">
+						<div class="name"><span></span></div>
+						<div class="location"><span></span></div>
+					</div>
+				</header>
+				<main>
+					<div class="fabnaciFirst">
+						<div class="driveMainImage placeol">
+							<img src="">
+						</div>
+					</div>
+					<div class="fabnaciSecond content">
+						<div>
+							<table>
+								<tbody>
+									<tr class="placeol">
+										<td></td>
+										<td>:</td>
+										<td></td>
+									</tr>
+									<tr class="placeol">
+										<td></td>
+										<td>:</td>
+										<td></td>
+									</tr>
+									<tr class="placeol">
+										<td></td>
+										<td>:</td>
+										<td></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</main>
+				<footer>
+					<table>
+						<tbody>
+							<tr class="placeol">
+								<td></td>
+								<td>:</td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+				</footer>
+			</div>		
+		</div>
+		<div class="archiveEntry">
+			<div class="mobileSvg" style="width:100%;height: 100%;position: absolute;">
+				<svg viewBox="0 0 100 100" preserveAspectRatio="none">
+					<rect x="50" y="0" width="50" height="2"/>
+					<rect x="98" y="0" width="2" height="50"/>
+					<rect x="0" y="49" width="100" height="2"/>
+					<rect x="0" y="50" width="2" height="50"/>
+					<rect x="0" y="98" width="50" height="2"/>
+				</svg>
+			</div>
+			<div class="lappySvg" style="width:100%;height: 100%;position: absolute;">
+				<svg viewBox="0 0 100 100" preserveAspectRatio="none">
+					<rect x="50" y="0" width="2" height="100"/>
+					<rect class="svgside" x="50" y="49" width="20" height="2"/>
+				</svg>
+			</div>
+			<div class="card drive right secondary">
+				<header class="placeol">
+					<div class="half driveTitle">
+						<h5></h5>
+						<span></span>
+					</div>
+					<div class="half venue">
+						<div class="name"><span></span></div>
+						<div class="location"><span></span></div>
+					</div>
+				</header>
+				<main>
+					<div class="fabnaciFirst">
+						<div class="driveMainImage placeol">
+							<img src="">
+						</div>
+					</div>
+					<div class="fabnaciSecond content">
+						<div>
+							<table>
+								<tbody>
+									<tr class="placeol">
+										<td></td>
+										<td>:</td>
+										<td></td>
+									</tr>
+									<tr class="placeol">
+										<td></td>
+										<td>:</td>
+										<td></td>
+									</tr>
+									<tr class="placeol">
+										<td></td>
+										<td>:</td>
+										<td></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</main>
+				<footer>
+					<table>
+						<tbody>
+							<tr class="placeol">
+								<td></td>
+								<td>:</td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+				</footer>
+			</div>		
+		</div>
+		<div class="timelineNode">
+			<span class="placeol" style="height:8vh;width:40vw;overflow:hidden;"></span>
+		</div>
+	</div>
+	<div class="curvedBanner primary">
+		<div class="upperPart"></div>
+		<div class="mainPart" style="background-image: url('/img/20210326_184102.jpg'); color:white;background-blend-mode: multiply;">
+			<h3>Do you like smile ?</h3>
+			<p>Want to bring smile on needy people.</p>
+			<div class="ButtonBox">
+				<a href="/contact/" class="button onSecondary">
+					<span>Contact Me Now</span>
+					<i class="fas fa-phone"></i>
+				</a>
+			</div>
+		</div>
+		<div class="lowerPart"></div>
+	</div>
+	<template class="yearNode">
+		<div class="timelineNode">
+			<span>2021</span>
+		</div>
+	</template>
+	<template class="drive">
+		<div class="archiveEntry">
+			<div class="mobileSvg" style="width:100%;height: 100%;position: absolute;">
+				<svg viewBox="0 0 100 100" preserveAspectRatio="none">
+					<rect x="50" y="0" width="50" height="2"/>
+					<rect x="98" y="0" width="2" height="50"/>
+					<rect x="0" y="49" width="100" height="2"/>
+					<rect x="0" y="50" width="2" height="50"/>
+					<rect x="0" y="98" width="50" height="2"/>
+				</svg>
+			</div>
+			<div class="lappySvg" style="width:100%;height: 100%;position: absolute;">
+				<svg viewBox="0 0 100 100" preserveAspectRatio="none">
+					<rect x="50" y="0" width="2" height="100"/>
+					<rect class="svgside" x="50" y="49" width="20" height="2"/>
+					<!--<rect class="svgLeft" x="30" y="49" width="20" height="2"/>-->
+					<!--<rect x="98" y="0" width="2" height="50"/>
+					<rect x="0" y="49" width="100" height="2"/>
+					<rect x="0" y="50" width="2" height="50"/>
+					<rect x="0" y="98" width="50" height="2"/>-->
+				</svg>
+			</div>
+			<div class="card drive primary">
+				<header>
+					<div class="half driveTitle">
+						<h5>Drive Title</h5>
+						<span>12th August 2009</span>
+					</div>
+					<div class="half venue">
+						<div class="name"><span>Prakhar Mastain</span></div>
+						<div class="location"><span>Indore</span></div>
+					</div>
+				</header>
+				<main>
+					<div class="fabnaciFirst">
+						<div class="driveMainImage">
+							<picture>
+								<source class="lazyLoad" type="image/webp" srcset="/img/gallaryImageName/gallaryImageName-placeHolder.webp" data-srcset="/img/gallaryImageName/gallaryImageNamex70.webp 70w, /img/gallaryImageName/gallaryImageNamex140.webp 140w, /img/gallaryImageName/gallaryImageNamex268.webp 268w, /img/gallaryImageName/gallaryImageNamex400.webp 400w" sizes="(min-width: 786px) 10vw,25vw">
+								<source class="lazyLoad" type="image/jpeg" srcset="/img/gallaryImageName/gallaryImageName-placeHolder.jpg" data-srcset="/img/gallaryImageName/gallaryImageNamex70.jpg 70w, /img/gallaryImageName/gallaryImageNamex140.jpg 140w, /img/gallaryImageName/gallaryImageNamex268.jpg 268w, /img/gallaryImageName/gallaryImageNamex400.jpg 400w" sizes="(min-width: 786px) 10vw,25vw">
+								<img loading="lazy" class="lazyLoad" type="image/jpeg"  src="/img/gallaryImageName/gallaryImageName-placeHolder.webp" srcset="/img/gallaryImageName/gallaryImageName-placeHolder.webp" data-src="/img/gallaryImageName/gallaryImageNamex268.jpg" data-srcset="/img/gallaryImageName/gallaryImageNamex70.jpg 70w, /img/gallaryImageName/gallaryImageNamex140.jpg 140w, /img/gallaryImageName/gallaryImageNamex268.jpg 268w, /img/gallaryImageName/gallaryImageNamex400.jpg 400w" sizes="(min-width: 786px) 10vw,25vw" alt="distribution drive image">
+							</picture>
+						</div>
+					</div>
+					<div class="fabnaciSecond content" >
+						<div style="height:100%">
+							<table>
+								<tbody>
+									<tr>
+										<td>People Served</td>
+										<td>:</td>
+										<td>20</td>
+									</tr>
+									<tr>
+										<td>Material Served</td>
+										<td>:</td>
+										<td>Rs 2000</td>
+									</tr>
+									<tr>
+										<td>helped By</td>
+										<td>:</td>
+										<td>Robin Hood Army</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</main>
+				<footer>
+					<table>
+						<tbody>
+							<tr>
+								<td>Catogary</td>
+								<td>:</td>
+								<td>Food, Education, Helath</td>
+							</tr>
+						</tbody>
+					</table>
+				</footer>
+			</div>
+		</div>
+	</template>
 </section>
 <section id="contactSection"></section>
 <script type="text/javascript">
-	console.log(document.getElementById('archiveSection').offsetTop);
+(function(window,document,undefiend){
 	var list = document.getElementsByTagName('html')[0].classList;
 	list.remove('theme-A');
 	list.add('theme-B');
-	
-	/*var varInterval;
-	var img = $('.imageGallary .image img');
-	var children = $('.gallary').children();
-	var length	 = children.length;
-	var i = length-1;
-	varInterval = setInterval(function(){
-		let active = $('.gallary .imageContainer#active');
-		active = children[i];
-		active.removeAttribute('id');
-		i=(i+1)%length;
-		children[i].setAttribute('id','active');
-		img.attr('src',children[i].children[0].getAttribute('src'));
-	},1000);*/
+	gallaryHandle = new GallaryHandler();
+	getNoOfPeopleServed().then((data)=>{
+		document.getElementById("TotalSmile").innerHTML =data;
+	});
+	getDrives().then((drives)=>{
+		let year = null;
+		let templates = $("template.drive")[0].content;
+		let nodeTemplate = $("template.yearNode")[0].content;
+		let timeline = $("section#archiveSection #timeline");
+		timeline.empty();
+		let prevName = "gallaryImageName";
+		for(let i = drives.length;i>0;){
+			--i;
+			let drive = drives[i].driveData;
+			let date = new Date(drive.timestamp);
+			let random = parseInt(Math.random()*2);
+			let templateClonedNode = templates.cloneNode(true);
+			template = templateClonedNode.querySelector("div.drive");
+			template.querySelector("h5").innerHTML=drive.title;
+			template.querySelector("div.driveTitle span").innerHTML=date.toDateString();
+			template.querySelector("div.venue .name span").innerHTML=drive.donateBy;
+			template.querySelector("div.venue .location span").innerHTML=drive.location;
+			template.querySelector("main table tr:first-child>td:last-child").innerHTML=drive.smileount;
+			template.querySelector("main table tr:last-child>td:last-child").innerHTML=drive.supportedBy;
+			template.querySelector("main table tr:nth-child(2)>td:last-child").innerHTML=drive.approxMoney;
+			if(!year){
+				nodeTemplate.firstElementChild.firstElementChild.innerHTML=drive.year;
+				year = drive.year;
+				timeline.append(nodeTemplate.cloneNode(true));
+			}
+			else if(drive.year!=year){
+				nodeTemplate.firstElementChild.firstElementChild.innerHTML=drive.year;
+				year = drive.year;
+				timeline.append(nodeTemplate.cloneNode(true));
+			}
+			if(drive.imgToShow){
+				let replaceRegExp = new RegExp(prevName,"g");
+				let source = template.querySelectorAll("picture source");
+				let img = template.querySelector("picture img");
+				let webp_srcset = source[0].srcset.replace(replaceRegExp,drive.imgToShow);
+				let webp_dataSrcset = source[0].dataset.srcset.replace(replaceRegExp,drive.imgToShow);
+				let jpg_srcset = source[1].srcset.replace(replaceRegExp,drive.imgToShow);
+				let jpg_dataSrcset = source[1].dataset.srcset.replace(replaceRegExp,drive.imgToShow);
+				let img_src = img.src.replace(replaceRegExp,drive.imgToShow);
+				let img_srcset = img.srcset.replace(replaceRegExp,drive.imgToShow);
+				let img_dataSrc = img.dataset.src.replace(replaceRegExp,drive.imgToShow);
+				let img_dataSrcset = img.dataset.srcset.replace(replaceRegExp,drive.imgToShow);
+				source[0].srcset = webp_srcset;
+				source[0].dataset.srcset = webp_dataSrcset;
+				source[1].srcset = jpg_srcset;
+				source[1].dataset.srcset = jpg_dataSrcset;
+				img.src = img_src;
+				//console.log(img.dataset.src);
+				img.srcset = img_srcset;
+				img.dataset.srcset = img_dataSrcset;
+				//img.dataset.src = img_dataSrc;
+				img.dataset.src = img_dataSrc;
+				//prevName = drive.imgToShow;
+				console.log(webp_srcset);
+				//template.querySelector("img").src = "/img/"+drive.imgToShow+"/"+drive.imgToShow+".jpg";
+			}
+			if(random){
+				templateClonedNode.querySelector("rect.svgside").setAttribute("x","50");
+				template.classList.add("right");
+			}
+			else{
+				templateClonedNode.querySelector("rect.svgside").setAttribute("x","30");
+				template.classList.add("left");
+			}
+			timeline.append(templateClonedNode);
+		}
+		nodeTemplate.firstElementChild.firstElementChild.innerHTML="Started in "+year;
+		timeline.append(nodeTemplate.cloneNode(true));
+		lazyLoadImage("drive");
+	})
+	getTotalMonetryValue().then((data)=>{
+		document.getElementById("TotalDonation").innerHTML =data;
+	});
+	getNoOfDrives().then((data)=>{
+		document.getElementById("TotalDriveCount").innerHTML =data;
+	});
+	getDrivesMainImages().then((data)=>{
+		let gallary = $(".gallary").eq(0);
+		let template = gallary.find("template")[0].content;
+		gallary.empty();
+		let length = data.length;
+		let prevName = "gallaryImageName";
+		for(let i = 0;i<length;++i){
+			var replaceRegExp = new RegExp(prevName,"g");
+			source = template.querySelectorAll("picture source");//.srcset=data[i].img;
+			let webp_srcset = source[0].srcset.replace(replaceRegExp,data[i].img);
+			let jpg_srcset = source[1].srcset.replace(replaceRegExp,data[i].img);
+			source[0].srcset=webp_srcset;
+			source[1].srcset=jpg_srcset;
+			let img = template.querySelector("picture img");
+			let img_src = img.src.replace(replaceRegExp,data[i].img);
+			let img_srcset = img.srcset.replace(replaceRegExp,data[i].img);
+			prevName = data[i].img;
+			img.src = img_src;
+			img.srcset=img_srcset;
+			let span = template.querySelectorAll("span");
+			let date = new Date(dataFromServer.drivesData.driveArr[data[i].locationInArr].driveData.timestamp);
+			span[0].innerHTML = date.toDateString();
+			span[1].innerHTML = dataFromServer.drivesData.driveArr[data[i].locationInArr].driveData.donateBy;
+			gallary.append(template.cloneNode(true));
+		}
+		gallaryHandle.add({
+			container:document.getElementsByClassName('gallary')[0],
+			options:{
+				positionFromLeftMargin:3,
+				showPercentagePortrait:5.5,
+				showPercentageLandscape:40,
+				maxItem:5,
+				initialIndex:1
+			}
+		});
+	})
+	$.ajax({
+		url:"/src/contact.html",
+		success:(result,xhr,status)=>{
+			var d = document.createElement("div");
+			d.innerHTML = result;
+			var t = $("#contactSection");
+			t.html(d.querySelector("section").innerHTML);
+			t.append(d.querySelector('script'));
+		},
+		error:(e)=>{
+			console.log('error: '+e.xhr);
+		}							
+	})
+})(window,document)
 </script>

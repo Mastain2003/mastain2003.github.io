@@ -7,14 +7,14 @@
 			<p>Prakhar Mastain</p>
 		</div>
 		<div>
-			<p>and I am a <span id="typeWritter-first" class="typeWritter" data-typeWritter-list="Web Dveloper-social-teacher"></span></p>
+			<p>and I am a <span id="typeWritter-first" class="typeWritter" data-typeWritter-list="Web Dveloper-Social Activist-Teacher"></span></p>
 		</div>
 		<div class="ButtonBox left">
-			<a href="/contact/" class="button internal onPrimary">
+			<a href="/?page=contact" class="button internal onPrimary">
 				<span>Hire Me</span>
 				<i class="fas fa-laptop-code"></i>
 			</a>
-			<a href="http://localhost/contact/" class="button internal onPrimary">
+			<a href="/?page=contact" class="button internal onPrimary">
 				<span>Share Smiles</span>
 				<i class="fas fa-hand-holding-heart"></i>
 			</a>
@@ -50,37 +50,10 @@
 				</div>
 
 				<div class="ButtonBox">
-					<a href="/profile/#services" class="button internal primary">
+					<a href="/?page=profile#services" class="button internal primary">
 						<span>Know more about my Services</span>
 						<i class="fas fa-project-diagram"></i>
 					</a>
-				</div>
-				<div class="gallary" id="img2">
-					<div class="item">
-						<img src="/img/gallary (1).jpg">
-						<div>
-							<span>Nulla porttitor accumsan tincidunt. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.</span>
-						</div>
-					</div>
-					<div class="item">
-						<img src="/img/gallary (1).jpg">
-						<div>
-							<span>Nulla porttitor accumsan tincidunt. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.</span>
-						</div>
-					</div>
-					<div class="item">
-						<img src="/img/gallary (1).jpg">
-						<div>
-							<span>Nulla porttitor accumsan tincidunt. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.</span>
-						</div>
-					</div>
-					<div class="item">
-						<img src="/img/gallary (2).jpg">
-						<div>
-							<span>Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.</span>
-						</div>
-					</div>
-
 				</div>
 			</div>
 		</div>
@@ -91,7 +64,7 @@
 			<h3>Are You Ready ?</h3>
 			<p>Ready To Boost your Online presense ?</p>
 			<div class="ButtonBox">
-				<a href="/contact/" class="button onPrimary">
+				<a href="/?page=contact" class="button onPrimary">
 					<span>Contact Me Now</span>
 					<i class="fas fa-phone"></i>
 				</a>
@@ -105,7 +78,7 @@
 		<p>Share With Smile</p>
 	</div>
 	<div>
-		<p class="cursive shortInfo">More than 300+ people , 25+ locality 5 cites served.</p>
+		<p class="cursive shortInfo">More than Rs <span class="dataFromSerer" id="totalMoney"></span>+, in cash or in kind, is distributed between <span class="dataFromSerer" id="totalPeople"></span> people , in Delhi, Indore or by online Mode</p>
 	</div>
 	<div>
 		<img src="/img/charity.png">
@@ -113,38 +86,28 @@
 	<div>
 		<p class="paragraph" style="margin: auto;max-width:740px">Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Donec rutrum congue leo eget malesuada. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur aliquet quam id dui posuere blandit. Donec rutrum congue leo eget malesuada. Nulla quis lorem ut libero malesuada feugiat.</p>
 		<div class="ButtonBox">
-			<a href="/charity/" class="button secondary">
+			<a href="/?page=charity" class="button secondary">
 				<span>Know More About Us</span>
 				<i class="fas fa-hands"></i>
 			</a>
 		</div>
 	</div>
-	<div class="gallary" id="img2">
-		<div class="item">
-			<img src="/img/gallary (1).jpg">
-			<div>
-				<span>Nulla porttitor accumsan tincidunt. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.</span>
+	<div class="gallary secondary">
+		<div class="imageContainer item placeol"></div>
+		<div class="imageContainer item placeol"></div>
+		<div class="imageContainer item placeol"></div>
+		<div class="imageContainer item placeol"></div>
+		<div class="imageContainer item placeol"></div>
+		<template class="gallaryItemTemplate">
+			<div class="imageContainer item">
+				<img src="/inc/image/image (1).jpg">
+				<div>
+					<span>12th August 2021</span>
+					<span>By-Prakhar Mastain</span>
+					<!--<div style="text-align: center;margin-top: 2%;">Robin Hood Army</div>-->
+				</div>
 			</div>
-		</div>
-		<div class="item">
-			<img src="/img/gallary (1).jpg">
-			<div>
-				<span>Nulla porttitor accumsan tincidunt. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.</span>
-			</div>
-		</div>
-		<div class="item">
-			<img src="/img/gallary (2).jpg">
-			<div>
-				<span>Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.</span>
-			</div>
-		</div>
-		<div class="item">
-			<img src="/img/gallary (1).jpg">
-			<div>
-				<span>Nulla porttitor accumsan tincidunt. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.</span>
-			</div>
-		</div>
-		
+		</template>	
 	</div>
 	<div class="curvedBanner secondary">
 		<div class="upperPart"></div>
@@ -152,7 +115,7 @@
 			<h3>Do you like smile ?</h3>
 			<p>Want to bring smile on needy people.</p>
 			<div class="ButtonBox">
-				<a href="/contact/" class="button onSecondary">
+				<a href="/?page=contact" class="button onSecondary">
 					<span>Contact Me Now</span>
 					<i class="fas fa-phone"></i>
 				</a>
@@ -167,32 +130,52 @@
 	</div>
 </section>
 <script type="text/javascript" >
+(function(window,document,undefined){
 	setHeader();
 	$('document').ready(function(){
-			$(window).scroll(setHeader);
-			let section = document.getElementById('homeCharity');
-			//console.log(section.offsetTop);
-			let totals = document.getElementsByClassName('gallary');
-			let temp2 = new GallaryHandler({
-				container:totals[0]
+		$(window).scroll(setHeader);
+		let section = document.getElementById('homeCharity');
+		let  gallary= document.getElementsByClassName('gallary')[0];
+		
+			let gallaryHandler = new GallaryHandler({
+				container:gallary
 			});
-			temp2.add({
-				container:totals[1]
-			})
+		
+		getNoOfPeopleServed().then((data)=>{
+			document.getElementById("totalPeople").innerHTML =data;
+		});
+		getTotalMonetryValue().then((data)=>{
+			document.getElementById("totalMoney").innerHTML =data;
+		});
+		getDrivesMainImages().then((data)=>{
+			let gallary = $(".gallary").eq(0);
+			let template = gallary.find("template")[0].content;
+			console.log(template)
+			gallary.empty();
+			let length = data.length;
+			for(let i = 0;i<length;++i){
+				template.querySelector("img").src=data[i].img;
+				let span = template.querySelectorAll("span");
+				let date = new Date(dataFromServer.drivesData.driveArr[data[i].locationInArr].driveData.timestamp);
+				span[0].innerHTML = date.toDateString();
+				span[1].innerHTML = dataFromServer.drivesData.driveArr[data[i].locationInArr].driveData.donateBy;
+				gallary.append(template.cloneNode(true));
+			}
+		})	
 	});
 	var total = document.getElementsByClassName('typeWritter');
 
 	for (var i = total.length - 1; i >= 0; i--) {
-		///console.log('iii');
 		let curr = new TypeWritter(total[i],total[i].dataset.typewritterList.split('-'),total[i].dataset);
 		curr.init();
 	}
-
 	function setHeader(){
 		var amt =window.pageYOffset;
 		var thrasold =30;
 		var viewPortHeight = document.documentElement.clientHeight;
 		if(amt>thrasold){
+			//$('.app-header .logo picture.BW-logo-and-name').css("display","block");
+			//$('.app-header .logo picture.logo-and-name').css("display","none");
 			$('.app-header').removeClass('transparent');
 			let section = document.getElementById('homeCharity');
 			if(section&&amt>(section.offsetTop- viewPortHeight/5)&&appData.online){
@@ -203,11 +186,10 @@
 			}
 		}
 		else{
-			//console.log()
 			$('.app-header').addClass('transparent');
+			//$('.app-header .logo picture.BW-logo-and-name').css("display","none");
+			//$('.app-header .logo picture.logo-and-name').css("display","block");
 		}
 	}
-	
-	
-	//console.log(temp1.#list);
+})(window,document)
 </script>

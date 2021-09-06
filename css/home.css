@@ -16,6 +16,12 @@
 .app-header.transparent .title span{
 	color:var(--primary-light-varient-color);	
 }
+.app-header.transparent .logo-and-name{
+	display: block;
+}
+.app-header.transparent .BW-logo-and-name{
+	display: none;
+}
 .subNav{
 	display: none;
 }
@@ -25,7 +31,7 @@ section#homehome{
 	background-image:url('/img/banner (2).jpg');
 	background-size: cover;
 	color:white;
-	background-color:#232323;
+	background-color:#474747;
 	background-blend-mode:multiply;
 }
 .offline section#homehome{
