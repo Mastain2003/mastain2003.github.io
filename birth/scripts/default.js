@@ -350,6 +350,7 @@ $(document).ready(function(){
 		song+="</audio>";
 		//t.loc.append(song);
 		t.play();
+		//t.next();
 	});
 	$( "div.firstPopUp" ).on("popupafteropen",function(event,ui){
 		$(this).find("input.securityQues").focus();
@@ -477,7 +478,7 @@ function temprary()
 	var id=pageEndDate.getDate();
 	if(ANIINDEX==1)
 	{
-		$("div#page-"+id).find("div.pageCenter").find("div.grid").css({"transitionDuration":"2000ms","transitionDelay":"500ms"});
+		$("div#page-"+id).find("div.pageCenter").find("div.grid").css({"transitionDuration":"200ms","transitionDelay":"50ms"});
 		$("div#page-"+id).find("div.pageCenter").find("div.grid").css("transform","translateY(-50%) translateX(-50%) scale(1.25)");
 	}
 	else if(ANIINDEX==2)
@@ -582,19 +583,19 @@ function PhotoFrame( loc,transitionDuration,standByDuration)
 			mySelf.loc.children().eq(mySelf.index).find("img").addClass("photoFrame-"+frame);
 			mySelf.loc.children().eq(mySelf.index).find("div.imageContainer").addClass("photoanimation-"+anim[1]+"-In");
 			mySelf.playState=true;
-			timeTextIn=parseInt($(".photoanimation-"+anim[0]+"-In").css("animation").split(" ")[1])*1000;
-			timeImgIn=parseInt($(".photoanimation-"+anim[1]+"-In").css("animation").split(" ")[1])*1000;
+			timeTextIn=parseInt($(".photoanimation-"+anim[0]+"-In").css("animation").split(" ")[0])*1000;
+			timeImgIn=parseInt($(".photoanimation-"+anim[1]+"-In").css("animation").split(" ")[0])*1000;
 			ttotal=timeTextIn>timeImgIn?timeTextIn:timeImgIn;
 			vartime=setTimeout(function(){ mySelf.next(); },ttotal+mySelf.sDur);
 			return;
 		}
 		mySelf.loc.children().eq(mySelf.index).find("p").addClass("photoanimation-"+anim[0]+"-Out");
 		mySelf.loc.children().eq(mySelf.index).find("div.imageContainer").addClass("photoanimation-"+anim[1]+"-Out");
-		timeTextOut=parseInt($(".photoanimation-"+anim[0]+"-Out").css("animation").split(" ")[1])*1000;
-		timeImgOut= parseInt($(".photoanimation-"+anim[1]+"-Out").css("animation").split(" ")[1])*1000;
+		timeTextOut=parseInt($(".photoanimation-"+anim[0]+"-Out").css("animation").split(" ")[0])*1000;
+		timeImgOut= parseInt($(".photoanimation-"+anim[1]+"-Out").css("animation").split(" ")[0])*1000;
 		timeTotal=timeTextOut>timeImgOut?timeTextOut:timeImgOut;
 		//var len=mySelf.loc.children().length-1;
-		console.log(parseInt($(".photoanimation-"+anim[0]+"-Out").css("animation")));
+		//console.log(parseInt($(".photoanimation-"+anim[0]+"-Out").css("animation").split(" ")[0])*1000);
 		mySelf.index+=1;
 		if(mySelf.index==len)
 		{
@@ -620,11 +621,11 @@ function PhotoFrame( loc,transitionDuration,standByDuration)
 			mySelf.loc.children().eq(mySelf.index).find("p").addClass("photoanimation-"+anim[0]+"-In");
 			mySelf.loc.children().eq(mySelf.index).find("img").addClass("photoFrame-"+frame);
             mySelf.loc.children().eq(mySelf.index).find("div.imageContainer").addClass("photoanimation-"+anim[1]+"-In");
-            timeTextIn=parseInt($(".photoanimation-"+anim[0]+"-In").css("animation").split(" ")[1])*1000;
-            timeImgIn= parseInt($(".photoanimation-"+anim[1]+"-In").css("animation").split(" ")[1])*1000;
+            timeTextIn=parseInt($(".photoanimation-"+anim[0]+"-In").css("animation").split(" ")[0])*1000;
+            timeImgIn= parseInt($(".photoanimation-"+anim[1]+"-In").css("animation").split(" ")[0])*1000;
             var ttotal=timeTextIn>timeImgIn?timeTextIn:timeImgIn;
-           	vartime=setTimeout(function(){ mySelf.next(); },5000);//ttotal+mySelf.sDur);
-       	}, 2000); 	
+           	vartime=setTimeout(function(){ mySelf.next(); },ttotal+mySelf.sDur);
+       	}, timeTotal); 	
 	};
 	mySelf.play=function(){
 		mySelf.next();
