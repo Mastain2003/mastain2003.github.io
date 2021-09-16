@@ -440,9 +440,9 @@ function securityQuestions()
 	$("div[id^=myPopup-5-]").find("input.securityQues").attr("type","text");
 	$("div[id^=myPopup-5-]").find("input.securityQues").attr("value","PANIPURI");
 	
-	$("div[id^=myPopup-6-]").find("label").text(("First movie we had watched together").toUpperCase());
-	$("div[id^=myPopup-6-]").find("input.securityQues").attr("type","text");
-	$("div[id^=myPopup-6-]").find("input.securityQues").attr("value","COCKTAIL");
+	$("div[id^=myPopup-6]").find("label").text(("First movie we had watched together").toUpperCase());
+	$("div[id^=myPopup-6]").find("input.securityQues").attr("type","text");
+	$("div[id^=myPopup-6]").find("input.securityQues").attr("value","COCKTAIL");
 }
 function bdyPage()
 {
@@ -477,7 +477,7 @@ function temprary()
 	var id=pageEndDate.getDate();
 	if(ANIINDEX==1)
 	{
-		$("div#page-"+id).find("div.pageCenter").find("div.grid").css({"transitionDuration":"100ms","transitionDelay":"50ms"});
+		$("div#page-"+id).find("div.pageCenter").find("div.grid").css({"transitionDuration":"2000ms","transitionDelay":"500ms"});
 		$("div#page-"+id).find("div.pageCenter").find("div.grid").css("transform","translateY(-50%) translateX(-50%) scale(1.25)");
 	}
 	else if(ANIINDEX==2)
@@ -506,7 +506,7 @@ function temprary()
 		$("div#page-"+id).find("div.pageCenter").find("div.grid").css({"transitionDuration":"5000ms","transitionDelay":"2000ms"});
 		$("div#page-"+id).find("div.pageCenter").find("div.centerDiv").css({"transition":"all 5s ease-in-out 2s","transform":"translateY(-50%) translateX(-50%) rotate("+now+"deg)"});
 		$("div#page-"+id).find("div.pageCenter").find("div.grid").css("transform","translateY(-50%) translateX(-50%) scale(0) rotateZ(360deg)");
-		//animationComplete();
+		animationComplete();
 	}
 	
 }
@@ -594,6 +594,7 @@ function PhotoFrame( loc,transitionDuration,standByDuration)
 		timeImgOut= parseInt($(".photoanimation-"+anim[1]+"-Out").css("animation").split(" ")[1])*1000;
 		timeTotal=timeTextOut>timeImgOut?timeTextOut:timeImgOut;
 		//var len=mySelf.loc.children().length-1;
+		console.log(parseInt($(".photoanimation-"+anim[0]+"-Out").css("animation")));
 		mySelf.index+=1;
 		if(mySelf.index==len)
 		{
@@ -622,8 +623,8 @@ function PhotoFrame( loc,transitionDuration,standByDuration)
             timeTextIn=parseInt($(".photoanimation-"+anim[0]+"-In").css("animation").split(" ")[1])*1000;
             timeImgIn= parseInt($(".photoanimation-"+anim[1]+"-In").css("animation").split(" ")[1])*1000;
             var ttotal=timeTextIn>timeImgIn?timeTextIn:timeImgIn;
-           	vartime=setTimeout(function(){ mySelf.next(); },ttotal+mySelf.sDur);
-       	}, timeTotal); 	
+           	vartime=setTimeout(function(){ mySelf.next(); },5000);//ttotal+mySelf.sDur);
+       	}, 2000); 	
 	};
 	mySelf.play=function(){
 		mySelf.next();
