@@ -1,0 +1,881 @@
+*
+{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+.ui-mobile .ui-page-active 
+{
+    overflow: hidden;
+}
+div[data-role="navbar"] a
+{
+  white-space: pre-wrap; /* css-3 */  
+  white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+  white-space: -pre-wrap; /* Opera 4-6 */
+  white-space: -o-pre-wrap; /* Opera 7     */
+  word-wrap: break-word; 
+  padding: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+.dateNo
+{
+  display: block;
+  font-size:200%;
+}
+div.pageCenter
+{
+  
+  width:85vmin;
+  height:85vmin;
+  border-radius:100%;
+  border:1px solid black;
+  position:absolute;
+  top: 50%;
+  left:50%;
+  background-color: blue;
+  transform: translateY(-50%) translateX(-50%);
+  box-shadow: 0px 0px 200px 40px red;
+}
+.myGrid-A,.myGrid-B,.myGrid-C,.myGrid-D,.myGrid-E ,.myGrid-F
+{
+  width:95%;
+  height:95%;
+  border-radius:100%;
+  border:2px solid black;
+  position:absolute;
+  top: 50%;
+  left:50%;
+  transform: translateY(-50%) translateX(-50%);
+  transition: transform 2s ease-in-out;
+  background-color: white;
+  background: url("../img/gridBackground.jpg");
+  background-size: cover;
+  background-position:35%;  
+}
+div[data-role='main'] div.centerDiv
+{
+  width:95%;
+  height:95%;
+  border-radius:100%;
+  border:1px solid black;
+  position:absolute;
+  top: 50%;
+  left:50%;
+  transform: translateY(-50%) translateX(-50%);
+  background-color: white;
+}
+div[class^="myBlock-"] a,div#centerPopup a
+{
+  width:100%;
+  height:100%;
+  position: absolute;
+  top:50%;
+  left:50%;
+  border:none;
+  border-radius:100%;
+  transform: translateY(-50%) translateX(-50%);
+  margin: 0;
+  background: url('../img/backg.jpg');
+  background-size: cover;
+}
+div[class^="myBlock-"]
+{
+  border:0.5vmin solid black;
+}
+div[class^="myBlock-"] a span
+{
+  width:200%;
+  height:200%;
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translateY(-50%) translateX(-50%);
+  text-align: center;
+  background:-webkit-radial-gradient(#00FF00,#0000FF 80%);
+  -webkit-background-clip:text;
+  text-shadow:1px 1px 200px black;
+  color:transparent;
+  -webkit-animation: latterAnimation 2s steps(5) infinite alternate backwards paused; /* Safari 4.0 - 8.0 */
+  animation :latterAnimation 2s steps(5) infinite alternate backwards paused;
+}
+
+.myGrid-A>div[class^="myBlock-"],.myGrid-A a span
+{
+  width:80%;
+  height:80%;
+  border-radius:100%;
+  position:absolute;
+  top:10%;
+  left:10%;
+  font-size:5000%;
+   line-height:100%;
+  background-color:blue;
+}
+.myGrid-B>div[class^="myBlock-"],.myGrid-B a span
+{
+  width:40%;
+  height:40%;
+  border-radius:100%;
+  position:absolute;
+  top:50%;
+  left:2%;
+  font-size:2500%;
+  line-height:100%;
+  transform: translateY(-50%);
+  background-color:blue;
+}
+.myGrid-C>div[class^="myBlock-"],.myGrid-C a span
+{
+  width:33%;
+  height:33%;
+  border-radius:100%;
+  position:absolute;
+  top:2%;
+  left:50%;
+  font-size:2000%;
+  line-height:100%;
+  transform: translateX(-50%);
+  background-color:blue;
+}
+.myGrid-D>div[class^="myBlock-"],.myGrid-D a span
+{
+  width:30%;
+  height:30%;
+  border-radius:100%;
+  position:absolute;
+  top:12%;
+  left:12%;
+  font-size:1800%;
+  line-height:100%;
+  background-color:blue;
+}
+.myGrid-E>div[class^="myBlock-"],.myGrid-E a span
+{
+  width:25%;
+  height:25%;
+  border-radius:100%;
+  position:absolute;
+  top:2%;
+  left:37.5%;
+  font-size:1500%;
+  line-height:100%;
+  background-color:blue;
+}
+.myGrid-F>div[class^="myBlock-"],.myGrid-F a span
+{
+  width:25%;
+  height:25%;
+  border-radius:100%;
+  position:absolute;
+  top:1%;
+  left:37.5%;
+ font-size:1400%;
+  line-height:100%;
+  background-color:transparent;
+  transition: all 2s ease-in-out;
+}
+div.myBlock-A a
+{
+  background-image: url('../img/blockBackgroundFirst.jpg');
+  background-size: cover;
+}
+div.myBlock-B a
+{
+  background-image: url('../img/blockBackgroundSecond.jpg');
+  background-size: cover;
+}
+div.myBlock-C a
+{
+  background-image: url('../img/blockBackgroundThird.jpg');
+  background-size: cover;
+}
+div.myBlock-D a
+{
+  background-image: url('../img/blockBackgroundFourth.jpg');
+  background-size: 100% 100%;
+}
+div.myBlock-E a
+{
+  background-image: url('../img/blockBackgroundFifth.jpg');
+  background-size: cover;
+}
+div.myBlock-F a
+{
+  background-image: url('../img/blockBackgroundSixth.jpg');
+  background-size: cover;
+}
+.myGrid-B>div.myBlock-B
+{
+  left:58%;
+}
+.myGrid-C>div.myBlock-B
+{
+  top:50%;
+  left:76%;
+  
+}
+.myGrid-C>div.myBlock-C
+{
+   top:50%;
+  left:24%;
+
+}
+.myGrid-D>div.myBlock-B
+{
+  left:58%;
+  
+
+}
+.myGrid-D>div.myBlock-C
+{
+  top:58%;
+  left:58%;
+   
+
+}
+.myGrid-D>div.myBlock-D
+{
+  top:58%;
+  left:12%;
+  
+
+}
+.myGrid-E>div.myBlock-B
+{
+  top:27%;
+  left:72%;
+  
+
+}
+.myGrid-E>div.myBlock-C
+{
+  top:66%;
+  left:59%;
+  
+
+}
+.myGrid-E>div.myBlock-D
+{
+  top:66%;
+  left:17%;
+  
+
+}
+.myGrid-E>div.myBlock-E
+{
+  top:27%;
+  left:3%;
+  
+
+}
+.myGrid-F>div.myBlock-B
+{
+  top:20%;
+  left:69%;
+  
+
+}
+.myGrid-F>div.myBlock-C
+{
+  top:55%;
+  left:69%;
+}
+.myGrid-F>div.myBlock-D
+{
+  top:74%;
+  left:37.5%;
+  
+}
+.myGrid-F>div.myBlock-E
+{
+  top:55%;
+  left:6%;
+   
+
+}
+.myGrid-F>div.myBlock-F
+{
+  top:20%;
+  left:6%;
+
+}
+div.buttonPannel input
+{
+   position: absolute;
+   right: 0;
+}
+div.icon-lock
+{
+  width:70%;
+  height:50%;
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translateX(-50%) translateY(-50%);
+  -webkit-transition:opacity 3s; /* Safari */
+  transition:opacity 3s;
+}
+div.icon-lock-upperPart
+{
+  height:50%;
+  width:50%;
+  border-top-right-radius: 100%;
+  border-top-left-radius: 100%;
+  position:absolute;
+  top:0;
+  left:25%;
+  border:2px solid gray; 
+}
+div.icon-lock-lowerPart
+{
+  height: 50%;
+  width:50%;
+  position: absolute;
+  bottom:0;
+  left:25%;
+  background-color:gray;
+}
+div.icon-lock-lowerPart p
+{
+  width:20%;
+  height:20%;
+  position: absolute;
+  left:40%;
+  top:40%;
+  border-radius: 100%;
+  background-color: white;
+}
+.photoPopUp
+{
+  width:95vmin;
+  height:95vmin;
+  position: absolute;
+  top:0;
+  left:0;
+  padding:2vmin;
+  transform: translate(-50%,-50%);
+}
+div.photoFrame
+{
+  width:90%;
+  height:90%;
+  background-color: blue;
+  position: absolute;
+  top:5%;
+  left:5%;
+  background: url('../img/background/background 4.jpg');
+  background-size: 100% 100%;
+}
+div.slideContainer
+{
+  width:100%;
+  height:100%;
+  position:absolute;
+  top:0%;
+  left:0%;
+  overflow: hidden;
+}
+
+.layout-topRightHalf div
+{
+  height:50%;
+  width: 50%;
+  position: absolute;
+  top:0;
+  left:50%;
+  font-size: 150%;
+}
+.layout-topRightHalf div:nth-child(2)
+{
+  top:50%;
+  left:0%;
+}
+
+.layout-topLeftHalf div
+{
+  height:50%;
+  width: 50%;
+  position: absolute;
+  top:0;
+  left:0;
+  font-size: 150%;
+}
+.layout-topLeftHalf div:nth-child(2)
+{
+  top:50%;
+  left:50%;
+}
+
+.layout-bottomLeftHalf div
+{
+  height:50%;
+  width: 50%;
+  position: absolute;
+  top:50%;
+  left:0;
+  font-size: 150%;
+}
+.layout-bottomLeftHalf div:nth-child(2)
+{
+  top:0%;
+  left:50%;
+}
+
+.layout-bottomRightHalf div
+{
+  height:50%;
+  width: 50%;
+  position: absolute;
+  top:50%;
+  left:50%;
+  font-size: 150%;
+}
+.layout-bottomRightHalf div:nth-child(2)
+{
+  top:0%;
+  left:0%;
+}
+
+.layout-upperHalf div
+{
+  height:50%;
+  width: 100%;
+  position: absolute;
+  top:0;
+  left:0;
+}
+.layout-upperHalf div:nth-child(2)
+{
+  top:50%;
+}
+
+.layout-lowerHalf div
+{
+  height:50%;
+  width: 100%;
+  position: absolute;
+  top:0;
+  left:0;
+}
+.layout-lowerHalf div:nth-child(1)
+{
+  top:50%;
+}
+
+.layout-leftHalf div
+{
+  height:100%;
+  width: 50%;
+  position: absolute;
+  top:0;
+  left:0;
+}
+.layout-leftHalf div:nth-child(2)
+{
+  left:50%;
+}
+
+.layout-rightHalf div
+{
+  height:100%;
+  width: 50%;
+  position: absolute;
+  top:0;
+  left:0;
+}
+.layout-rightHalf div:nth-child(1)
+{
+  left:50%;
+}
+div.imageContainer
+{
+  width:100%;
+  height:100%;
+  opacity: 0;
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+
+}
+img.slideShow
+{
+  max-width:90%;
+  max-height: 90%;
+  position:absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+p.photoDescription
+{
+  width:100%;
+  height: auto;
+  padding: 1%;
+  background-color: transparent;
+  position: absolute;
+  top:50%;
+  left:50%;
+  text-align: center;
+  transform: translate(-50%,-50%);
+  font-size:200%;
+  opacity: 0;
+  font-family:pinyon script;
+  color:red;
+  -webkit-text-fill-color:red; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 0.05px;
+ -webkit-text-stroke-color:black; 
+}
+img.photoFrame-round
+{
+  border-radius:100%;
+}
+img.photoFrame-border
+{
+  border:5px solid black;
+  border-radius: 10%;
+  box-sizing: border-box;
+}
+img.photoFrame-mettalic
+{
+  border:5px solid black;
+  box-shadow: -1px -1px 10px gray;
+  border-radius:5%;
+}
+img.photoFrame-outline
+{
+  width:80%;
+  max-height:80%;
+  outline:2vmin solid black;
+  outline-offset:1vmin;
+}
+img.photoFrame-leftTilted
+{
+  width:80%;
+  max-height:80%;
+  border:12px solid white;
+  transform:translate(-50%,-50%) rotateZ(-15deg);
+}
+img.photoFrame-rightTilted
+{
+  width:80%;
+  max-height:80%;
+  border:12px solid white;
+  transform:translate(-50%,-50%) rotateZ(15deg);
+}
+
+
+
+.photoanimation-fade-In
+{
+  color: red;
+    animation: fadeIn 3s;
+    -webkit-animation: fadeIn 3s;
+    -webkit-animation-fill-mode: forwards; /* Chrome, Safari, Opera */
+    animation-fill-mode: forwards;
+}
+@keyframes fadeIn
+{
+  from{opacity: 0;}
+  to{opacity: 1;}
+
+}
+@-webkit-keyframes fadeIn
+{
+  from{opacity: 0;}
+  to{opacity: 1;}
+}
+
+
+.photoanimation-fade-Out
+{
+    animation: fadeout 3s;
+    -webkit-animation: fadeout 3s;
+    -webkit-animation-fill-mode: forwards; /* Chrome, Safari, Opera */
+    animation-fill-mode: forwards;
+}
+@keyframes fadeOut
+{
+  from{opacity: 1;}
+  to{opacity: 0;}
+}
+@-webkit-keyframes fadeOut
+{
+  from{opacity: 1;}
+  to{opacity: 0;}
+}
+
+
+.photoanimation-rotateZomm-In
+{
+     animation: rotateZoomIn 3s;
+    -webkit-animation: rotateZoomIn 3s;
+    -webkit-animation-fill-mode: forwards; /* Chrome, Safari, Opera */
+    animation-fill-mode: forwards; 
+}
+@keyframes rotateZoomIn
+{
+  from{transform:translate(-50%,-50%) rotate(0deg) scale(0); opacity: 1;}
+  to{transform:translate(-50%,-50%) rotate(720deg) scale(1); opacity: 1;}
+
+}
+@-webkit-keyframes rotateZoomIn
+{
+  from{transform:translate(-50%,-50%) rotate(0deg) scale(0); opacity: 1;}
+  to{transform:translate(-50%,-50%) rotate(720deg) scale(1); opacity: 1;}
+}
+
+
+.photoanimation-rotateZomm-Out
+{
+     animation: rotateZoomOut 3s;
+    -webkit-animation: rotateZoomOut 3s;
+    -webkit-animation-fill-mode: forwards; /* Chrome, Safari, Opera */
+    animation-fill-mode: forwards; 
+}
+@keyframes rotateZoomOut
+{
+  from{transform:translate(-50%,-50%) rotate(720deg) scale(1); opacity: 1;}
+  to{transform:translate(-50%,-50%) rotate(0deg) scale(0); opacity: 1;}
+
+}
+@-webkit-keyframes rotateZoomOut
+{
+  from{transform:translate(-50%,-50%) rotate(720deg) scale(1); opacity: 1;}
+  to{transform:translate(-50%,-50%) rotate(0deg) scale(0); opacity: 1;}
+}
+
+
+.photoanimation-slideUp-In
+{
+   
+    animation: slideUpIn 3s;
+    -webkit-animation: slideUpIn 3s;
+    -webkit-animation-fill-mode: forwards; /* Chrome, Safari, Opera */
+    animation-fill-mode: forwards;
+}
+@keyframes slideUpIn
+{
+  from{top:100%; left:50%; transform: translate(-50%,-50%); opacity: 0}
+  to{top:50%; left:50%; transform: translate(-50%,-50%); opacity: 1}
+}
+@-webkit-keyframes slideUpIn
+{
+   from{top:100%;left:50%;transform: translateX(-50%,-50%);opacity: 0}
+  to{top:50%;left:50%;transform: translate(-50% ,-50%);opacity: 1}
+}
+
+
+.photoanimation-slideUp-Out
+{
+    animation: slideUpOut 3s;
+    -webkit-animation: slideUpOut 3s;
+    -webkit-animation-fill-mode: forwards; /* Chrome, Safari, Opera */
+    animation-fill-mode: forwards;
+}
+@keyframes slideUpOut
+{
+  from{top:50%;left:50%;transform: translate(-50%, -50%);opacity: 1}
+  to{top:0%;left:50%;transform: translate(-50%,-50%);opacity: 0}
+}
+@-webkit-keyframes slideUpOut
+{
+  from{bottom:50%;left:50%;transform: translate(-50% ,-50%);opacity: 1}
+  to{top:0%;left:50%;transform: translate(-50%,-50%);opacity: 0}
+}
+
+
+.photoanimation-zoomIn-In
+{
+    animation: zoomInIn 3s;
+    -webkit-animation: zoomInIn 3s;
+    -webkit-animation-fill-mode: forwards; /* Chrome, Safari, Opera */
+    animation-fill-mode: forwards;
+}
+@keyframes zoomInIn
+{
+  from{transform: translate(-50%,-50%) scale(0);opacity:1}
+  to{transform: translate(-50%,-50%) scale(1);opacity: 1}
+}
+@-webkit-keyframes zoomInIn
+{
+ from{transform: translate(-50%,-50%) scale(0);opacity: 1}
+  to{transform: translate(-50%,-50%) scale(1);opacity: 1}
+}
+
+
+.photoanimation-zoomIn-Out
+{
+    animation: zoomInOut 3s;
+    -webkit-animation: zoomInOut 3s;
+    -webkit-animation-fill-mode: forwards; /* Chrome, Safari, Opera */
+    animation-fill-mode: forwards;
+}
+@keyframes zoomInOut
+{
+  from{transform: translate(-50%,-50%) scale(1);opacity:1}
+  to{transform: translate(-50%,-50%) scale(0);opacity: 1}
+}
+@-webkit-keyframes zoomInOut
+{
+ from{transform: translate(-50%,-50%) scale(1);opacity: 1}
+  to{transform: translate(-50%,-50%) scale(0);opacity: 1}
+}
+
+
+.photoanimation-zoomOut-In
+{
+    animation: zoomOutIn 3s;
+    -webkit-animation: zoomOutIn 3s;
+    -webkit-animation-fill-mode: forwards; /* Chrome, Safari, Opera */
+    animation-fill-mode: forwards;
+}
+@keyframes zoomOutIn
+{
+  from{transform: translate(-50%,-50%) scale(5);opacity:1}
+  to{transform: translate(-50%,-50%) scale(1);opacity: 1}
+}
+@-webkit-keyframes zoomOutIn
+{
+ from{transform: translate(-50%,-50%) scale(5);opacity: 1}
+  to{transform: translate(-50%,-50%) scale(1);opacity: 1}
+}
+
+
+.photoanimation-zoomOut-Out
+{
+    animation: zoomOutOut 3s;
+    -webkit-animation: zoomOutOut 3s;
+    -webkit-animation-fill-mode: forwards; /* Chrome, Safari, Opera */
+    animation-fill-mode: forwards;
+}
+@keyframes zoomOutOut
+{
+  from{transform: translate(-50%,-50%) scale(1);opacity:1}
+  to{transform: translate(-50%,-50%) scale(15);opacity:0}
+}
+@-webkit-keyframes zoomOutOut
+{
+ from{transform: translate(-50%,-50%) scale(1);opacity: 1}
+  to{transform: translate(-50%,-50%) scale(15);opacity:0}
+}
+
+
+.ui-popup-screen {
+    background-color:black ;
+    opacity:0.85 !important;
+}
+div#myOverlay
+{
+  width: 100%;
+  height:100%;
+  position:fixed;
+  top:0;
+  left: 0;
+  background-color:transparent;
+}
+h1#wish
+{
+  width: 100%;
+  position:absolute;
+  top:50%;
+  left: 50%;
+  font-size:800%;
+  transform: translateX(-50%) translateY(-50%);
+  text-align: center;
+  font-family:new rocker;
+   background:-webkit-linear-gradient(-45deg ,red 30%, blue 53% ,green 13%);
+  -webkit-background-clip:text;
+  text-shadow:10px 10px 200px yellow;
+  color:transparent;
+  -webkit-animation: mymove 2s 2; /* Safari 4.0 - 8.0 */
+  -webkit-animation-timing-function: steps(4,start); /* Safari 4.0 - 8.0 */
+  animation: mymove 2s 2;
+  animation-timing-function: steps(4,start);
+}
+img#imageGift
+{
+  width:100%;
+  height: 100%;
+  position: absolute;
+  left:0%;
+  top:0;
+  transform: scale(0);
+  border-radius: 100%;
+  transition: all 1s;
+ 
+}
+@-webkit-keyframes latterAnimation {
+    from{transform:translateX(-50%) translateY(-50%) scale(0.5);}
+    to{transform:translateX(-50%) translateY(-50%) scale(0.02);}
+}
+
+@keyframes latterAnimation {
+    from{transform:translateX(-50%) translateY(-50%) scale(0.5);}
+    to{transform:translateX(-50%) translateY(-50%) scale(0.02);}
+}
+@-webkit-keyframes mymove {
+    from{transform:translateX(-50%) translateY(-50%) scale(0);}
+    to{transform:translateX(-50%) translateY(-50%) scale(1);}
+}
+
+@keyframes mymove {
+    from{transform:translateX(-50%) translateY(-50%) scale(0);}
+    to{transform:translateX(-50%) translateY(-50%) scale(1);}
+}
+@media screen and (max-width:360px)
+{
+  p.photoDescription
+  {
+    font-size: 200%;
+  }
+  .myGrid-A a span
+  { 
+     font-size:2500%;
+    line-height:100%;
+  }
+  .myGrid-B a span
+  {
+     font-size:1300%;
+    line-height:100%;
+  }
+  .myGrid-C a span
+  {
+    font-size:1000%;
+    line-height:100%;
+  }
+  .myGrid-D a span
+  {
+    font-size:900%;
+  line-height:100%;
+  }
+  .myGrid-E a span
+  {
+    font-size:800%;
+  line-height:100%;
+  }
+  .myGrid-F a span
+  {
+    font-size:800%;
+  line-height:100%;
+  }
+  .layout-topLeftHalf p.photoDescription
+  {
+    font-size: 75%;
+  }
+   .layout-topRightHalf p.photoDescription
+  {
+    font-size: 75%;
+  }
+   .layout-bottomLeftHalf p.photoDescription
+  {
+    font-size: 75%;
+  }
+   .layout-bottomRightHalf p.photoDescription
+  {
+    font-size: 75%;
+  }
+}
+
