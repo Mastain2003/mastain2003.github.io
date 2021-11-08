@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+	<title>dress code</title>
+</head>
+<body>
+	<h1>dress code</h1>
+	<div style="display: block;position: relative;width:70vmin;height: 70vmin;margin: auto;margin-bottom:20px;">
+		<img src="20211108_140411.jpg" style="max-width: 100%;max-height: 100%;position: absolute;">
+		<svg viewBox="0 0 1000 1000" style="position: absolute;width: 100%;height: 100%;">
+			<path d="m 579.13464,593.25985 c 21.55244,-87.79803 48.73003,-175.59606 51.51556,-263.39408 l 12.46343,-39.05212 c -12.18648,7.20111 -25.48082,17.72579 -39.88301,31.57406 l -19.11063,4.15448 -5.81626,19.11061 -8.30895,-21.6033 -18.27973,-2.49268 C 531.96222,310.22646 526.3146,294.86605 521.80278,279.18111 l -1.66178,4.15448 c 17.02143,104.36534 31.46719,209.76094 58.99364,309.92426 z" style="opacity:0.5;fill:#008000;"></path>
+		</svg>
+	</div>
+	<div>
+		<input type="color" name="" oninput="shirtColor(this)">
+	</div>
+	<script type="text/javascript">
+		function shirtColor(c){
+			document.getElementsByTagName('path')[0].style.fill=c.value;
+		}
+	</script>
+</body>
+</html>
