@@ -1,0 +1,1 @@
+<?php header('Access-Control-Allow-Methods: POST');$opt=array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION,PDO::ATTR_DEFAULT_FETCH_MODE=>PDO::FETCH_ASSOC);if(isset($_SERVER['HTTP_REFERER'])&&stristr($_SERVER['HTTP_REFERER'],"local")){$data=isset($_POST['data'])?($_POST['data']):null;$data=json_decode($data);sleep(2);print_r($data->email);} ?>
