@@ -1,0 +1,48 @@
+:root{
+	--coin_thikness:2vw;
+	--coin_edgePart:50;
+	--coin_color:#ad510d;
+	--coin_borderColor:cyan;
+}
+.coin{
+	
+	border-radius: 50%;
+	transform-style: preserve-3d;
+}
+div.coinFront,div.coinBack{
+	position: absolute;
+	width:100%;
+	height: 100%;
+	overflow: hidden;
+	border:0.8vw double var(--coin_borderColor);
+	border-radius:50%;
+	background:radial-gradient(var(--coin_color),#1d0d01);
+	transform: translateZ(1vw);
+	text-align: center;
+}
+div.coinFront::after , div.coinBack::after{
+	content: "";
+	height:20vw;
+	width: 55vw;
+	background-color:white;
+	opacity:0;
+	position: absolute;
+	bottom:0%;
+	left:0%;
+}
+div.coinFront:hover::after , div.coinBack:hover::after{
+	animation: shine 500ms linear;
+}
+div.coinBack{
+	transform: translateZ(-1vw) rotateY(180deg);
+}
+@keyframes shine{
+	0%,15%{
+		opacity: 0.3;
+		transform:rotateZ(-45deg) translateY(20vw);
+	}
+	75%,100%{
+		opacity:0.3;
+		transform: rotateZ(-45deg) translateY(-24vw);
+	}
+}

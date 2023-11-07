@@ -1,0 +1,393 @@
+@media only screen and (max-width: 450px){
+	#switch>.lightSwitches>span{
+		font-size: 100%;
+	}
+	div#lightOff div#switch hr{
+		width:27%;
+		margin-right:-17%; 
+	}
+	div#visitorNo{
+	    width: 100%;
+	    height:7.5%;
+	    position: absolute;
+	    top:0%;
+	    background-color: var(--footercolor);
+	    z-index: 1;
+	    left:0;
+	}
+	div#activeBody{
+		height: 84.5%;
+		top:7.5%;
+	}
+	div.switchBoard{
+		width: 84%;
+		left:8%;
+	}
+	div.lampContainer{
+		width: 32.5%;
+	}
+	div.lamp{
+		width: 27.5vw;
+	}
+	div.lampLowerCircle{
+		width: 95%;
+		left:4%;
+	}
+	div.lightAreaContainer{
+		perspective: 26.3vh;
+		-moz-perspective: 26.3vh;
+		-webkit-perspective: 26.3vh;
+		perspective-origin: 50% -7vh;
+		-moz-perspective-origin: 50% -7vh;
+		-webkit-perspective-origin: 50% -7vh;
+	}
+	div.lightArea {
+	    width:57.7vw;
+	    left: -11.5vw;
+	}
+	div.dispCoin{
+		width:13vh;
+		height:13vh;
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%) rotateY(180deg);
+		-o-transform: translateX(-50%) rotateY(180deg);
+		-ms-transform: translateX(-50%) rotateY(180deg);
+		-webkit-transform: translateX(-50%) rotateY(180deg);
+		-moz-transform: translateX(-50%) rotateY(180deg);
+	}
+	.coinBack h3{
+		font-size:93%;
+		padding: 1%;
+	}
+	div.catogryContainer {
+	    width:100%;
+	    height:54%;
+	    top:25%;
+	    left:unset;
+	}
+	.subCatogary{
+		position: absolute;
+		left:50%;
+		transform: translateX(-50%) rotateY(180deg);
+		-o-transform: translateX(-50%) rotateY(180deg);
+		-ms-transform: translateX(-50%) rotateY(180deg);
+		-moz-transform: translateX(-50%) rotateY(180deg);
+		-webkit-transform: translateX(-50%) rotateY(180deg);
+	}
+	div[shadowRef]{
+		width: 18.3vw;
+		left: 50%;
+		transform: translateX(-50%);
+		-o-transform: translateX(-50%);
+		-ms-transform: translateX(-50%);
+		-moz-transform: translateX(-50%);
+		-webkit-transform: translateX(-50%);
+	}
+	div[shadowRef="aboutProfileImage"],div[shadowRef="contactProfileImage"],div[shadowRef="homeProfileImage"]{
+		top:12%;
+	}
+	div[shadowRef="aboutPersonal"],div[shadowRef="homeOtherLink"],div[shadowRef="contactByMail"]{
+		top:52%;
+	}
+	div[shadowRef="aboutProfession"],div[shadowRef="homeLatestUpdate"],div[shadowRef="contactSocialMedia"]{
+		top:32%;
+	}
+	div[shadowRef="homeGallary"]{
+		top:72%;
+	}
+	#contactByMail,#aboutPersonal,#homeOtherLink{
+		top:46%;
+	}
+	.subCatogary .coinBack h3 {
+	    font-size:63%;
+	}
+	div#homeGallary{
+		width:13vh;
+		height:13vh;
+		bottom:2%;
+		top:unset;
+	}
+	div.hoverCoin:hover .hoverCoinContainer{
+		display:none;
+	}
+	div.coinPopUp .coinPopUpContent{
+		width:94%;
+		right:3%;
+		height: 95%;
+		top:2.5%;
+		border-radius: 15px/4%;
+		-moz-border-radius: 15px/4%;
+		-webkit-border-radius: 15px/4%;
+	}
+	div.coinPopUpLeftPart{
+		float:none;
+		height:30.5vw;
+		width: 100%;
+		font-size: 0;
+	}
+	div.coinPopUpRightPart{
+		width:100%;
+		height: 76%;
+		border-radius: 0 0 12px 12px/0 0 3% 3%;
+		-moz-border-radius: 0 0 12px 12px/0 0 3% 3%;
+		-webkit-border-radius: 0 0 12px 12px/0 0 3% 3%;
+		top: 1%;
+	}
+	.coinPopUpDefeinition{
+		width: 40%;
+		height: 100%;
+		display: inline-block;
+		overflow: hidden;
+	}
+	.coinPopUpImgContainer{
+		width: 20vmin;
+		height:20vmin;
+		top:15%;
+	}
+	.coinPopUpTitle{
+		height: 7.6vmin;
+		top:12%;
+	}
+	.coinPopUpDefeinition h1{
+		font-size: 6vmin;
+	}
+	.coinPopUpContentLink{
+		max-height: unset;
+		height: 65%;
+		width: 60%;
+		display: inline-block;
+	}
+	ul.coinPopUpContentLink>li>span{
+		font-size:4.5vmin;
+	}
+	ul.coinPopUpContentLink>li>ul{
+		display: block;
+		max-height: unset;
+	}
+	.coinPopUpContent div.switchBoard{
+		width: 33%;
+		top: 1.5%;
+		height: 6.5%;
+		left: 49%;
+	}
+	div.contentContainer{
+		height:98%;
+		top:1%;
+	}
+	div.contentContainer h1{
+		font-size: 125%;
+	}
+	div.contentContainer>p{
+		width: 90%;
+		font-size: 70%;
+	}
+	div.contentContainer>div{
+		width: 98%;
+	}
+	.contentShowOnHover, .addedSoon{
+		width:20vmin;
+		height: 20vmin;
+	}
+	.poemLink, .addedSoonPoem{
+		width:82vmin;
+		height: auto;
+		left:unset;
+		margin: 3% auto;
+	}
+	.hoverWindow{
+		width:88vw;
+		height: 88vw;
+		left:6vw;
+	}
+	.hoverWindow>div:nth-child(2){
+		max-height: unset;
+		height: 67vmin;
+		top:2%;
+	}
+	.hoverWindow h4, .otherInfo{
+		height: 9vmin;
+	}
+
+	.addedSoon span{
+		padding: 7% 2%;
+		font-size: 73%;
+	}
+	.linkContainer{
+		height: 23vmin;
+		width: 23vmin;
+	}
+	.linkContainer img{
+		top:30%;
+	}
+	.linkContainer .linkIcon{
+		font-size: 12vmin;
+	}
+	div.contentContainer>ul>li>div.linkPanelHead{
+		height: 6.5vmin;
+	}
+	div.contentContainer>ul>li>div.linkPanelHead h3{
+		font-size: 83%;
+	}
+	div.contentContainer>ul>li>div.linkPanelHead span{
+		top: 1.2vw;
+		font-size:78%;
+	}
+	div.contentContainer>ul>li div.linkPanel div.jobs{
+		left:2%;
+		width: 96%;
+	}
+	div.contentContainer>ul>li div.linkPanel div.jobs table tr td{
+		max-width: 29vmin;
+		font-size: 60%;
+	}
+	div.contentContainer>ul>li div.linkPanel>ul>li{
+		font-size: 65%;
+	}
+	.my-facebook,.my-instagram,.my-linkedIn{
+		width:11.5vmin;
+		height: 11.5vmin;
+	}
+	div.contentContainer div form{
+		width: 65vmin;
+	}
+	div.contentContainer div form>table tr>td input, div.contentContainer div form>table tr>td textarea{
+		font-size: 70%;
+	}
+	div.contentContainer div form>table tr>td textarea{
+		height: 40vmin;
+	}
+	div.postsContainer{
+		font-size: 75%;
+	}
+	div.post{
+		width:85vmin;
+		margin: 0 6% 5% auto;
+		margin-bottom: 9%; 
+	}
+	div.post h4{
+		font-size: 125%;
+	}
+	div.postImgContainer>img{
+		max-height: 45vw;
+	}
+	div.album{
+		width: 26vmin;
+		height: 26vmin;
+		margin: unset;
+	}
+	div.frontImage{
+		border-width:10px;
+	}
+	div.album>h2{
+		font-size:100%;
+	}
+	div.album:hover>h2{
+		font-size:120%;
+	}
+	span.prev, span.back, span.next{
+		opacity: 1;
+		filter: Alpha(opacity=100);
+	}
+	@keyframes shadowRoatate{
+		from{
+			top:115%;
+			transform:translateX(-50%) rotateX(3deg) rotateY(140deg);
+			-ms-transform:translateX(-50%) rotateX(3deg) rotateY(140deg);
+		}
+		to{
+			transform:translateX(-50%) rotateX(3deg) rotateY(1830deg);
+			-ms-transform:translateX(-50%) rotateX(3deg) rotateY(1830deg);
+		}
+	}
+	@-o-keyframes shadowRoatate{
+		from{
+			top:115%;
+			-o-transform:translateX(-50%) rotateX(3deg) rotateY(140deg);
+		}
+		to{
+			-o-transform:translateX(-50%) rotateX(3deg) rotateY(1830deg);
+		}
+	}
+	@-webkit-keyframes shadowRoatate{
+		from{
+			top:115%;
+			-webkit-transform:translateX(-50%) rotateX(3deg) rotateY(140deg);
+		}
+		to{
+			-webkit-transform:translateX(-50%) rotateX(3deg) rotateY(1830deg);
+		}
+	}
+	@-moz-keyframes shadowRoatate{
+		from{
+			top:115%;
+			-moz-transform:translateX(-50%) rotateX(3deg) rotateY(140deg);
+		}
+		to{
+			-moz-transform:translateX(-50%) rotateX(3deg) rotateY(1830deg);
+		}
+	}
+	@keyframes rotate{
+		from{
+			top:115%;
+			transform:translateX(-50%) rotateX(30deg) rotateY(140deg);
+			-ms-transform:translateX(-50%) rotateX(30deg) rotateY(140deg);
+		}
+		to{
+			transform:translateX(-50%) rotateX(30deg) rotateY(1830deg);
+			-ms-transform:translateX(-50%) rotateX(30deg) rotateY(1830deg);
+		}
+	}
+	@-o-keyframes rotate{
+		from{
+			top:115%;
+			-o-transform:translateX(-50%) rotateX(30deg) rotateY(140deg);
+		}
+		to{
+			-o-transform:translateX(-50%) rotateX(30deg) rotateY(1830deg);
+		}
+	}
+	@-moz-keyframes rotate{
+		from{
+			top:115%;
+			-moz-transform:translateX(-50%) rotateX(30deg) rotateY(140deg);
+		}
+		to{
+			-moz-transform:translateX(-50%) rotateX(30deg) rotateY(1830deg);
+		}
+	}
+	@-webkit-keyframes rotate{
+		from{
+			top:115%;
+			-webkit-transform:translateX(-50%) rotateX(30deg) rotateY(140deg);
+		}
+		to{
+			-webkit-transform:translateX(-50%) rotateX(30deg) rotateY(1830deg);
+		}
+	}
+	@media (max-height:720px){
+		div.coinPopUpRightPart{
+			height:81.5%;
+		}
+	}
+	@media (max-height: 640px){
+		div.coinPopUpRightPart{
+			height: 79%;
+		}
+	}
+	@media (max-height: 600px){
+		div.coinPopUpRightPart{
+			height: 77.5%;
+		}
+	}
+	@media (max-height: 560px){
+		div.coinPopUpRightPart{
+			height: 76%;
+		}
+	}
+	@media (max-height:520px){
+		div.coinPopUpRightPart{
+			height: 74%;
+		}
+	}	
+}
