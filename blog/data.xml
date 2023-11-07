@@ -1,0 +1,753 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+	<window name = "home">
+		<imgsrc>
+			<picture>
+					<source type="image/jpg" sizes="(max-width: 450px) 20vmin, 12.4vw" srcset="img/defaults/frontImage/frontImage@64.jpg 69w, img/defaults/frontImage/frontImage@70.jpg 80w, img/defaults/frontImage/frontImage@128.jpg 135w, img/defaults/frontImage/frontImage@140.jpg 149w, img/defaults/frontImage/frontImage@150.jpg 165w, img/defaults/frontImage/frontImage@192.jpg 205w, img/defaults/frontImage/frontImage@210.jpg 220w, img/defaults/frontImage/frontImage@300.jpg 310w, img/defaults/frontImage/frontImage@450.jpg 460w" />
+					<img style="width:100%" src="img/defaults/frontImage/frontImage@150.jpg" />
+			</picture>
+		</imgsrc>
+		<title>
+			<h1>Home</h1>
+		</title>
+		<links>
+			<link id="homeLatestUpdateLink">
+				<linkhref>
+					<span>Latest Posts</span>
+				</linkhref>
+				<content>
+					<div class='contentContainer'>
+						<h1>Latest Posts</h1>
+						<div class="postsContainer">
+							<div class="fullWindow" winsrc="" >
+								<span class="back" onclick="closeParent(this)">&#x21E6;</span>
+								<span class="prev" onclick="showPost('prev')">&#x2770;</span>
+								<div class="postContent">
+									<h3> </h3>
+									<div class="postItem">
+										<img class="prograssiveImg" src="" />
+										<div class="description"> </div>
+									</div>
+								</div>
+								<span class="next" onclick="showPost('next')">&#x2771;</span>
+							</div>
+						</div>
+					</div>
+				</content>
+			</link>
+			<link id="homeOtherLinkLink">
+				<linkhref>
+					<span>External Sources</span>
+				</linkhref>
+				<content>
+					<div class='contentContainer'>
+						<h1>External Sources</h1>
+						<p>Knowledge cannot be confined within certain boundries. You can never get full knowledge at any particular place. So to get more and more knowledge, we search for it from one place to another. In this process we get different types of resources but only after reading or analyzing it we come to know that it is irrelevant to you and hence you lost a lot of time on it. Now Think, What will happen if you get link to to some good,relevent and amazing resources at only one place. You can save a lot of time to spend it on another field. Right..? So here are some links for some good material of your need which I prefer and also refer most of the time.</p>
+						<div class='linksBinder'>
+							<a rel="External" href="https://www.w3schools.com/" target="blank" class='contentShowOnHover poemLink'  id="sources_1" style="padding:unset;">
+								<header>
+									<table style="border-spacing:5px 5px;">
+										<tbody>
+											<tr>
+												<td style="width:5.5vmin;overflow:hidden">
+													<img src="https://www.w3schools.com/favicon.ico" style="max-height:5.5vmin;min-height:unset;max-width:5.5vmin;transform:unset" alt="W3Schools Online Web Tutorials" title="W3Schools Online Web Tutorials"/>
+												</td>
+												<td style="text-align:left">
+													<h3>W3Schools Online Web Tutorials</h3>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</header>
+								<div class="postContentHidden">
+									<p style="text-align:justify;">Well organized and easy to understand Web building tutorials with lots of examples of how to use HTML, CSS, JavaScript, SQL, PHP, and XML.</p>
+								</div>
+							</a>
+							<a rel="External" href="https://www.geeksforgeeks.org/" target="blank" class='contentShowOnHover poemLink'  id="sources_2" style="padding:unset;">
+								<header>
+									<table style="border-spacing:5px 5px;">
+										<tbody>
+											<tr>
+												<td style="width:5.5vmin;overflow:hidden">
+													<img src="https://www.geeksforgeeks.org/favicon.ico" style="max-height:5.5vmin;min-height:unset;max-width:5.5vmin;transform:unset" alt="GeeksforGeeks" title="GeeksforGeeks"/>
+												</td>
+												<td style="text-align:left">
+													<h3>GeeksforGeeks | A computer science portal for geeks</h3>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</header>
+								<div class="postContentHidden">
+									<p style="text-align:justify;">A Computer Science portal for geeks. It contains well written, well thought and well explained computer science and programming articles, quizzes and practice/competitive programming/company interview Questions.</p>
+								</div>
+							</a>
+							<a rel="External" href="http://rapidfireart.com/" target="blank" class='contentShowOnHover poemLink hoverC'  id="sources_3" style="padding:unset;">
+								<header>
+									<table style="border-spacing:5px 5px;">
+										<tbody>
+											<tr>
+												<td style="width:5.5vmin;overflow:hidden">
+													<img src="http://rapidfireart.com/wp-content/uploads/2015/09/favicon-rfa.jpg" style="max-height:5.5vmin;min-height:unset;max-width:5.5vmin;transform:unset" alt="stackoverflow"/>
+												</td>
+												<td style="text-align:left">
+													<h3>RapidFireArt Realistic Drawing Tutorials</h3>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</header>
+								<div class="postContentHidden">
+									<p style="text-align:justify;">Learn how to draw for free using easy to follow step by step drawing tutorials. No membership or subscription required. Learn how to draw realistic art today!</p>
+								</div>
+							</a>
+							<a rel="External" href="https://stackoverflow.com/" target="blank" class='contentShowOnHover poemLink'  id="sources_4" style="padding:unset;">
+								<header>
+									<table style="border-spacing:5px 5px;">
+										<tbody>
+											<tr>
+												<td style="width:5.5vmin;overflow:hidden">
+													<img src="https://cdn.sstatic.net/Sites/stackoverflow/img/favicon.ico?v=4f32ecc8f43d" style="max-height:5.5vmin;min-height:unset;max-width:5.5vmin;transform:unset" alt="stackoverflow"/>
+												</td>
+												<td style="text-align:left">
+													<h3>Stack Overflow - Where Developers Learn, Share, &amp; Build Careers</h3>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</header>
+								<div class="postContentHidden">
+									<p style="text-align:justify;">Stack Overflow is the largest, most trusted online community for developers to learn, share​ ​their programming ​knowledge, and build their careers.</p>
+								</div>
+							</a>
+							<a rel="External"  target="blank" class="hoverWindow" id="hoverWindow_sources">
+								<header style="background-color:black;margin-bottom:10px;"> </header>
+								<div> </div>
+							</a>
+						</div>
+					</div>
+				</content>
+			</link>
+			<link id="homeGallaryLink">
+				<linkhref>
+					<span>Gallery</span>
+				</linkhref>
+				<content>
+					<div class='contentContainer'>
+						<h1>Gallery</h1>
+						<div class="albumContainer" style="margin-top:3%;">
+							<div class="album" id="agra">
+								<div class="frontImage"> </div>
+								<div class="frontImage"> </div>
+								<div class="frontImage">
+									<img class="prograssiveImg" src="img/agra/agraCover.jpg" />
+								</div>
+								<h2 class="albumName" style="color:#2bf731">Agra</h2>
+							</div>
+							<div class="album" id="play">
+								<div class="frontImage"> </div>
+								<div class="frontImage"> </div>
+								<div class="frontImage">
+									<img class="prograssiveImg" src="img/drama/dramaCover.jpg" />
+								</div>
+								<h2 class="albumName" style="color:#08f5f5">Play</h2>
+							</div>
+
+							<div class="album" id="sketches">
+								<div class="frontImage"> </div>
+								<div class="frontImage"> </div>
+								<div class="frontImage">
+									<img class="prograssiveImg" src="img/sketches/sketchCover.jpg" />
+								</div>
+								<h2 class="albumName" style="color:#000000">Sketches</h2>
+							</div>
+						</div>
+					</div>
+					<div class="fullWindow" winsrc="" >
+						<span class="back" onclick="closeParent(this)">&#x21E6;</span>
+						<span class="prev" onclick="showPost('prev')">&#x2770;</span>
+						<div class="postContent">
+							<h3> </h3>
+							<div class="postItem">
+								<img class="prograssiveImg" src="" />
+								<div class="description"> </div>
+							</div>
+						</div>
+						<span class="next" onclick="showPost('next')">&#x2771;</span>
+					</div>
+				</content>
+			</link>
+		</links>
+	</window>
+	<window name = "about">
+		<imgsrc>
+			<picture>
+					<source type="image/jpg" sizes="(max-width: 450px) 20vmin, 12.4vw" srcset="img/defaults/frontImage/frontImage@64.jpg 69w, img/defaults/frontImage/frontImage@70.jpg 80w, img/defaults/frontImage/frontImage@128.jpg 135w, img/defaults/frontImage/frontImage@140.jpg 149w, img/defaults/frontImage/frontImage@150.jpg 165w, img/defaults/frontImage/frontImage@192.jpg 205w, img/defaults/frontImage/frontImage@210.jpg 220w, img/defaults/frontImage/frontImage@300.jpg 310w, img/defaults/frontImage/frontImage@450.jpg 460w" />
+					<img style="width:100%" src="img/defaults/frontImage/frontImage@150.jpg" />
+			</picture>
+		</imgsrc>
+		<title><h1>Prakhar Mastain</h1></title>
+		<links>
+			<link id="aboutProfileImageLink">
+				<linkhref>
+					<span>About Me</span>
+				</linkhref>
+				<content>
+					<div class='contentContainer'>
+						<h1>About Me</h1>
+						<p>So starting from name, Myself  Prakhar Mastain. Prakhar is a hindi word that means "Tez". Commonly used as adjectives of intelligence such as "Prakhar Buddhi". So it is true, I am quite intelligent in my field and I want to use this intelligence in the development of society especially in the field of education.
+						</p>
+						<p>To know more about my professional and personal life visit the link below.</p>
+						<div class='linksBinder'>
+							<div class='linkContainer' onclick='socialMediaLinkClicked("aboutProfessionLink")'>
+								<span style="color:black">
+									<i class="fa fa-graduation-cap linkIcon"> </i>
+								</span>
+								<a href = '#'>Professional Career</a>
+							</div>
+							<div class='linkContainer' onclick='socialMediaLinkClicked("aboutPersonalLink")'>
+								<picture>
+									<source type="image/png" sizes="(max-width:450px) 13.8vmin, 9vmin" srcset="img/defaults/artistic/artistics@50.png 50w, img/defaults/artistic/artistics@68.png 70w, img/defaults/artistic/artistics@99.png 100w, img/defaults/artistic/artistics@139.png 140w, img/defaults/artistic/artistics@148.png 150w, img/defaults/artistic/artistics@204.png 210w "/>
+									<img style="max-height:60%; top:35%" src="img/defaults/artistic/artistics@99.png"/>
+								</picture>
+								<a href = '#'>Other Activities</a>
+							</div>
+						</div>
+					</div>
+				</content>
+			</link>
+			<link id="aboutProfessionLink">
+				<linkhref>
+					<span>Professional Career</span>
+				</linkhref>
+				<content>
+					<div class='contentContainer'>
+						<h1>Professional History</h1>
+						<ul>
+							<li>
+								<div class='linkPanelHead'>
+									<h3>work experiences</h3>
+									<span style='float:right'>&#9650;</span>
+								</div>	
+								<div class="panelWrapper">						
+									<div class='linkPanel'>
+										<div class='jobs'>
+											<table>
+												<tr>
+													<td>Area of Work</td>
+													<td>:</td>
+													<td>GSM Technology &amp; Network Operation</td>
+												</tr>
+												<tr>
+													<td>Position</td>
+													<td>:</td>
+													<td>Trainee</td>
+												</tr>
+												<tr>
+													<td>Institution</td>
+													<td>:</td>
+													<td>IDEA Cellular Limited</td>
+												</tr>
+												<tr>
+													<td>Duration</td>
+													<td>:</td>
+													<td>5<sup>th</sup> June 2015 -  4<sup>th</sup> July 2015</td>
+												</tr>
+											</table>
+										</div>
+										<div class='jobs'>
+											<table>
+												<tr>
+													<td>Area of Work</td>
+													<td>:</td>
+													<td>Embedded System &amp; Robotics</td>
+												</tr>
+												<tr>
+													<td>Position</td>
+													<td>:</td>
+													<td>Trainee</td>
+												</tr>
+												<tr>
+													<td>Institution</td>
+													<td>:</td>
+													<td>i3india Technologies, Ahmedabad</td>
+												</tr>
+												<tr>
+													<td>Duration</td>
+													<td>:</td>
+													<td>9<sup>th</sup> June 2014 -  8<sup>th</sup> July 2014</td>
+												</tr>
+											</table>
+										</div>
+										<div class='jobs'>
+											<table>
+												<tr>
+													<td>Area of Work</td>
+													<td>:</td>
+													<td>Vocational Training in Basic Telecom</td>
+												</tr>
+												<tr>
+													<td>Position</td>
+													<td>:</td>
+													<td>Trainee</td>
+												</tr>
+												<tr>
+													<td>Institution</td>
+													<td>:</td>
+													<td>BSNL CTTC, Indore</td>
+												</tr>
+												<tr>
+													<td>Duration</td>
+													<td>:</td>
+													<td>26<sup>th</sup> May 2014 -  7<sup>th</sup> June 2014</td>
+												</tr>
+											</table>
+										</div>
+										
+									</div>
+								</div>
+							</li>
+							<!--<li>
+								<div class='linkPanelHead'>
+									<h3>Projects And Reports</h3>
+									<span style='float:right'>&#9650;</span>
+								</div>
+								<div class="panelWrapper">
+									<div class='linkPanel'>
+										<div class='jobs'>
+											<table>
+												<tr>
+													<td>Institution</td>
+													<td>:</td>
+													<td>XYZ Private lmt</td>
+												</tr>
+												<tr>
+													<td>Position/Role</td>
+													<td>:</td>
+													<td>Software Engineer</td>
+												</tr>
+												<tr>
+													<td>Duration</td>
+													<td>:</td>
+													<td>2013-2016</td>
+												</tr>
+											</table>
+										</div>
+									</div>
+								</div>
+							</li>-->
+							<li>
+								<div class='linkPanelHead'>
+									<h3>Education</h3>
+									<span style='float:right'>&#9650;</span>
+								</div>
+								<div class="panelWrapper">
+									<div class='linkPanel'>
+										<div class='jobs' style="width:98%;left:1%">
+											<table>
+												<tr>
+													<td>Graduation</td>
+													<td>:</td>
+													<td>Bechelore in Technology</td>
+												</tr>
+												<tr>
+													<td>Stream</td>
+													<td>:</td>
+													<td>Electronisc and communication Engineering</td>
+												</tr>
+												<tr>
+													<td>Institution</td>
+													<td>:</td>
+													<td>Indian Institue of Technology (Indian School of Mines), Dhanbad</td>
+												</tr>
+												
+												<tr>
+													<td>Passing Year</td>
+													<td>:</td>
+													<td>2016</td>
+												</tr>
+											</table>
+										</div>
+										<div class='jobs' style="width:98%;left:1%">
+											<table>
+												<tr>
+													<td>Senior Secondry Certificate (12<sup>th</sup>)</td>
+													<td>:</td>
+													<td>Madhya Pradesh Board</td>
+												</tr>
+												<tr>
+													<td>Stream</td>
+													<td>:</td>
+													<td>Science (Mathematics)</td>
+												</tr>
+												<tr>
+													<td>Institute</td>
+													<td>:</td>
+													<td>Shri Krishna Higher Secondary School, Chhatarpur (M.P.)</td>
+												</tr>
+												
+												<tr>
+													<td>Passing Year</td>
+													<td>:</td>
+													<td>2011</td>
+												</tr>
+											</table>
+										</div>
+										<div class='jobs' style="width:98%;left:1%">
+											<table>
+												<tr>
+													<td>Heigher Secondry Certificate (10<sup>th</sup>)</td>
+													<td>:</td>
+													<td>Central Board Of Seconndary Education</td>
+												</tr>
+												<tr>
+													<td>Institute</td>
+													<td>:</td>
+													<td>Jawahar Navodaya Vidhyalaya Nowgong, Chhatarpur (M.P.)</td>
+												</tr>
+												<tr>
+													<td>Passing Year</td>
+													<td>:</td>
+													<td>2009</td>
+												</tr>
+											</table>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class='linkPanelHead'>
+									<h3>Achievements and awards</h3>
+									<span style='float:right'>&#9650;</span>
+								</div>
+								<div class="panelWrapper">
+									<div class='linkPanel'>
+										<ul>
+											<li>
+												<p>Awarded Certification of Merit for being among the <b>Top 0.1% of Successful Candidates</b> of All India Secondary School Examination, 2009 in Mathematics by CBSE Board.</p>
+											</li>
+											<li>
+												<p>Runner up in an event based on Robotics in the <b>"Concetto 2012"- A Techno Management Fest of IIT(ISM), Dhanbad.</b></p>
+											</li>
+											<li>
+												<p>Won the Title of <b>'Best Hindi  Comic Play'</b> in <b>44<sup>th</sup> All India Multilingual Short Play Competition</b> organised by <b>Allahabad Natya Sangh</b> in November 2013.</p>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class='linkPanelHead'>
+									<h3>Extra curricular and Hobbies</h3>
+									<span style='float:right'>&#9650;</span>
+								</div>
+								<div class="panelWrapper">
+									<div class='linkPanel'>
+										<ul>
+											<li>
+												<p>Directed the Play <b>Tughlaq</b> Performed by aBhAy Dramatics Club of IIT(ISM), Dhanbad as a assistant Director.</p>
+											</li>
+											<li>
+												<p>Junior NCC Cadet of <b>UNIT 25 BN NCC</b> from 2006 to 2008.</p>
+											</li>
+											<li>
+												<p>I like playing Chess and I was school representative of Chess from JNV Nowgong in cluster Games of Bhopal Region in 2009.</p>
+											</li>
+											<li>
+												<p>Computer programming, sketching, writing are some of the activities that I would like to do as a hobby in my spare time.</p>
+											</li>
+											<li>
+												<p>Chess, carrom, snooker, table tennis are some of my favorite sports.</p>
+											</li>
+											<li>
+												<p>Actively involved in theatrical activities around me.</p>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</content>
+			</link>
+			<link id="aboutPersonalLink">
+				<linkhref>
+					<span>Other Activities</span>
+					<sublinks>
+						<sublink id="aboutPersonalPainterLink">
+							<sublinkhref>
+								<span>Sketching</span>
+							</sublinkhref>
+							<sublinkContent>
+								<div class='contentContainer'>
+									<h1>Sketching or Painting Work</h1>
+									<p>Historically, drawing has been a supporting medium, a preliminary step, a kind of shorthand to communicate with a patron, capture inspiration, and study life. I used drawing as a primary language for capturing thoughts, exploring ideas, and then sharing those ideas.</p>
+
+									<p>A sketch is a rapidly executed freehand drawing that is not usually intended as a finished work. A sketch may serve a number of purposes: it might record something that the artist sees, it might record or develop an idea for later use or it might be used as a quick way of graphically demonstrating an image, idea or principle.</p>
+									<div class='linksBinder'>
+										<div class='contentShowOnHover' postType="latestPost" postorder="1" id="Painting_1">
+											<h6>Other Half</h6>
+											<div class="sketch">
+												<img class="prograssiveImg" src='img/sketches/halfMe_low.jpg' alt="other Half" />
+											</div>
+											<div class="postContentHidden">
+												<p>Attempt to portray oneself. In which people only see half of me, the part of me that people want to see in me. The invisible other half is the one I don't want to show to everyone</p>
+											</div>
+										</div>
+										<div class='contentShowOnHover' postType="latestPost" postorder="3" id="Painting_2">
+											<h6>Master Piece</h6>
+											<div class="sketch">
+												<img class="prograssiveImg" src='img/sketches/masterPiece_low.jpg' alt="Master Piece" />
+											</div>
+											<div class="postContentHidden">
+												<p>When you want to sketch something, but nothing is found for the sketch. So you saw yourself and sketch it.</p>
+											</div>
+										</div>
+										<div class='addedSoon' style="cursor:default;">
+											<span>More Content Will be added soon</span>
+										</div>
+										<div class="hoverWindow" id="hoverWindow_Painting">
+											<h4 style="background-color:black"> </h4>
+											<div>
+												<img class="prograssiveImg" src="" />
+											</div>
+											<div class="otherInfo">Click For Full View</div>
+											<div class="hoverWindowCover"> </div>
+										</div>
+									</div>
+								</div>
+								<div class="fullWindow">
+									<span class="back" onclick="closeParent(this)">&#x21E6;</span>
+    								<span class="prev" onclick="showPost('prev')">&#x2770;</span>
+									<div class="postContent">
+										<h3> </h3>
+										<div class="postItem"> 
+										</div>
+										<div class="description"> </div>
+									</div>
+									<span class="next" onclick="showPost('next')">&#x2771;</span>
+								</div>
+							</sublinkContent>
+						</sublink>
+						<sublink id="aboutPersonalWriterLink">
+							<sublinkhref>
+								<span>Writing</span>
+							</sublinkhref>
+							<sublinkContent>
+								<div class='contentContainer'>
+									<h1>Writing Work</h1>
+									<p>I believe that writing is important because it helps each individual to grow and change. Writing in a sense helps you discover who you really are. Writing is important because it is good to get what you are feeling out in the world through the power of word. It shows others what you see because the world it a complex place that no two people see the same way. This is why I enjoy writing; it shows you the world.
+									</p>
+									<div class='linksBinder'>
+										<div class='contentShowOnHover poemLink' postType="latestPost" postorder="2" id="poemLink_1">
+											<h3>पूर्णिमा</h3>
+											<div class="poem">
+												<p> 
+													जीवन तो है एक मास के जैसा<br/>
+													कभी आती अमावस तो कभी आती पूर्णिमा।<br/><br/>
+													आता है कृष्ण पक्ष में अमावस<br/>
+													तो मिटती है आशाओं की ये पूर्णिमा।<br/><br/>
+													फिर निराशाओं के अमावस को हरने<br/>
+													पक्ष शुक्ल में फिर आती है पूर्णिमा।<br/><br/>
+													वह वक्त था, शुक्ल पक्ष मेरे जीवन का<br/>
+													योग्य थे, आशायें थी और थी वह मेरी पूर्णिमा।<br/><br/>
+													पर पक्ष कृष्ण के आते ही, आता गया ये अमावस<br/>
+													अयोग्य हुए, हताश हुए और खत्म हुई मेरी पूर्णिमा।<br/><br/>
+													पर याद रहे, ये दोनों ही अंग है जीवन चक्र के<br/>
+													यदि आज आई है अमावस तो कल आएगी पूर्णिमा।<br/><br/>
+													हैं अभी भी आशायें और है अभी भी योग्यता<br/>
+													शुक्ल आएगा जीवन का और फिर आएगी पूर्णिमा।<br/><br/>
+													-प्रyoug
+												</p>
+											</div>
+											<div class="postContentHidden">
+												<p>I wrote this poem just for using two words in poetry. Can you guess those two words..?</p>
+											</div>
+										</div>
+										<div class='contentShowOnHover poemLink' postType="latestPost"  postorder="4" id="poemLink_2">
+											<h3>कहने को तो</h3>
+											<div class="poem">
+												<p>
+													कहने को तो नए साल में कुछ भी नया नहीं है,<br/>
+													और कहने को हर पल ही एक नया मौषम है।<br/><br/>
+													कहने को तो कंप्यूटर हमारा बहुत समय बचाता है,<br/>
+													और कहने को हमारा बहुत समय कंप्यूटर ही खा जाता है।<br/><br/> 
+													कहने को तो प्रकृति के नियम कभी नहीं बदलते है,<br/>
+													और कहने को परिवर्तन ही प्रकृति का नियम है।<br/><br/>
+													कहने को तो इंसानो और जानवरों में कोई तुलना नहीं है,<br/>
+													और कहने को इंसानो से भयंकर कोई जानवर नहीं है।<br/><br/>
+													कहने को तो दूरियों को कम किया है इस मोबाइल ने,<br/>
+													और कहने को कईयों को दूर किया है इस मोबाइल ने।<br/><br/>
+													कहने को तो कुछ नहीं कहा है मैंने,<br/>
+													और कहने को बहुत कुछ कहने की कोशिश की है मैंने।<br/><br/>
+													 प्रyoug
+												</p>
+											</div>
+											<div class="postContentHidden">
+												<p>Each people may have different perspective to the same thing. It depends on where she/he stands..? How she/he sees things around her..?</p>
+											</div>
+										</div>
+										<div class='addedSoon addedSoonPoem' style="cursor:default;">
+											<span style="height:auto;background-color:unset;color:white;padding:unset;line-height:unset;">More Content Will be added soon</span>
+										</div>
+										<div class="hoverWindow">
+											<h4 style="background-color:black">can not leave blank in xml</h4>
+											<div class="poem">can not leave blank in xml</div>
+											<div class="otherInfo">Click For View More</div>
+											<div class="hoverWindowCover"> </div>
+										</div>
+									</div>
+								</div>
+								<div class="fullWindow">
+									<span class="back" onclick="closeParent(this)">&#x21E6;</span>
+    								<span class="prev" onclick="showPost('prev')">&#x2770;</span>
+									<div class="postContent">
+										<h3> </h3>
+										<div class="postItem" id="poemPostItem"> 
+										</div>
+										<div class="description"> </div>
+									</div>
+									<span class="next" onclick="showPost('next')">&#x2771;</span>
+								</div>
+							</sublinkContent>
+						</sublink>
+					</sublinks>
+				</linkhref>
+				<content>
+					<div class='contentContainer'>
+						<h1>Personal Activity</h1>
+						<p>Professional life can give a person economic stability and social status, but what a person does after his professional work, is called extra-curricular activity. That gives him mental peace.</p>
+						<p>Whenever I get some time, I want to spend it on sketching or painting. Sometimes, whenever an idea comes to my mind, I try to write some poetry. I am not perfect in all these activities, but always try and want to be as close to perfect as possible. Below are some of my work in these areas.</p>
+						<div class='linksBinder'>
+							<div class='linkContainer' onclick='socialMediaLinkClicked("aboutPersonalPainterLink")'>
+								<span style="color: black;">
+									<i class="fa fa-paint-brush linkIcon"> </i>
+								</span>
+								<a href = '#'>Sketching</a>
+							</div>
+							<div class='linkContainer' onclick='socialMediaLinkClicked("aboutPersonalWriterLink")'>
+								<span style="color: black;">
+									<i class="fa fa-edit linkIcon"> </i>
+								</span>
+								<a href = '#'>Writing</a>
+							</div>
+						</div>
+					</div>
+				</content>
+			</link>
+		</links>
+	</window>
+	<window name = "contact">
+		<imgsrc>
+			<picture>
+				<source type="image/png" sizes="(max-width:450px) 20min, 12.4vw" srcset="img/defaults/handShake/handShake@73.png 75w, img/defaults/handShake/handShake@77.png 80w, img/defaults/handShake/handShake@135.png 140w, img/defaults/handShake/handShake@144.png 150w, img/defaults/handShake/handShake@154.png 160w, img/defaults/handShake/handShake@216.png 220w, img/defaults/handShake/handShake@231.png 240w, img/defaults/handShake/handShake@270.png 280w, img/defaults/handShake/handShake@405.png 420w" />
+				<img style="width:100%" src="img/defaults/handShake/handShake@135.png"/>
+			</picture>
+		</imgsrc>
+		<title>
+			<h1>Contact</h1>
+		</title>
+		<links>
+			<link id="contactProfileImageLink">
+				<linkhref>
+					<span>Contact</span>
+				</linkhref>
+				<content>
+					<div class='contentContainer'>
+						<h1>Contact</h1>
+						<p>For any type of query, feedback, suggestion or for some other matters you can contact me in the following way.</p>
+						<div class='linksBinder'>
+							<div class='linkContainer' onclick='socialMediaLinkClicked("contactSocialMediaLink")'>
+								<span style="color:black;top:1%">
+									<i class="fa fa-users linkIcon"> </i>
+								</span>
+								<a href = '#'>Social Media</a>
+							</div>
+							<div class='linkContainer' onclick='socialMediaLinkClicked("contactByMailLink")'>
+								<span style="color:black;top:1%">
+									<i class="fa fa-envelope linkIcon"> </i>
+								</span>
+								<a href = '#'>By Mail</a>
+							</div>
+						</div>
+					</div>
+				</content>
+			</link>
+			<link id="contactSocialMediaLink">
+				<linkhref>
+					<span>Socail Media</span>
+				</linkhref>
+				<content>
+					<div class='contentContainer'>
+						<h1>Social Media Plateform</h1>
+						<p>If you want to follow me on Facebook, Instagram or LinkedIn you can follow me by clicking on the below links.</p>
+						<div class='linksBinder'>
+							<a rel="External" href ="https://www.facebook.com/kota.prakhar" target="blank" class='linkContainer'>
+								<span class="my-facebook">f</span>
+								<p>Facebook</p>
+							</a>
+							<a rel="External" href ="https://www.instagram.com/mastain2003/" target="blank" class='linkContainer'>
+								<span class="my-instagram">
+									<div style="width:72%;height:72%;border:2px solid white;border-radius:5px;top:14%;left:14%">	
+										<div style="width:50%;height:50%;border:2px solid white;border-radius:50%;top:25%;left:25%"> </div>
+										<div style="width:16%;height:16%;background-color: white;border-radius:50%;position: absolute;top:10%;right:10%"> </div>
+									</div>
+								</span>
+								<p>Instagram</p>
+							</a>
+							<a rel="External" href ="https://www.linkedin.com/in/prakharmastain/" target="blank" class='linkContainer'>
+								<span class="my-linkedIn">in</span>
+								<p>LinkedIn</p>
+							</a>
+						</div>
+					</div>
+				</content>
+			</link>
+			<link id="contactByMailLink">
+				<linkhref>
+					<span>E-mail</span>
+				</linkhref>
+				<content>
+					<div class='contentContainer'>
+						<h1>E-mail</h1>
+						<p>You can mail me your any query, feedback or suggestion by filling up this small form.</p>
+						<div class="linksBinder">
+							<form method="post" action="feedback.php" name="feedbackForm" id="feedbackForm">
+								<table>
+									<tr style="display:none">
+										<td>
+											<div id="errorField">
+												<p style="color:red;font-size:100%">Error Field</p>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<input class="feedbackInputField" type='text' placeholder='Enter Your Name' name="viewerName" id="viewerName" required="required"/>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<input class="feedbackInputField" type='email' placeholder='Enter Your Email Id' name="viewerEmail"  required="required"/>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<!--<textarea placeholder="please type your query here..."></textarea>-->
+											&lt;textarea class="feedbackInputField" placeholder="please type your query here..."&gt;&lt;/textarea&gt;
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<input type='submit' value='SEND' id="feedbackSubmitButton"/>
+										</td>
+									</tr>
+								</table>
+							</form>
+						</div>
+					</div>
+				</content>
+			</link>
+		</links>
+	</window>
+</data>

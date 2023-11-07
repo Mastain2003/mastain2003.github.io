@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<albumsFolder>
+	<album id="agra">
+		<name>Agra Trip</name>
+		<images>
+			<img>
+				<src>img/agra/bhai_low.jpg</src>
+				<context>How will you be without your backbone ? I am just like that without this brother.</context>
+			</img>
+			<img>
+				<src>img/agra/cover_low.jpg</src>
+				<context> </context>
+			</img>
+			<img>
+				<src>img/agra/withVijay_low.jpg</src>
+				<context>Mr. Mathematician</context>
+			</img>
+			<img>
+				<src>img/agra/allboys_low.jpg</src>
+				<context> </context>
+			</img>
+			<img>
+				<src>img/agra/withHER_low.jpg</src>
+				<context>Belive me, if you are saying she is beautiful then you didn't seen her heart. Her heart is more beautiful then herself.</context>
+			</img>
+			<img>
+				<src>img/agra/agraTop_low.jpg</src>
+				<context> </context>
+			</img>
+			<img>
+				<src>img/agra/triplet_low.jpg</src>
+				<context>The Three Musketeers</context>
+			</img>
+			<img>
+				<src>img/agra/allStatesFair_low.jpg</src>
+				<context>International Trade Fair, New Delhi</context>
+			</img>
+			<img>
+				<src>img/agra/withKartiki_low.jpg</src>
+				<context>One such great friend that makes you feel jealous</context>
+			</img>
+			<img>
+				<src>img/agra/allwithTaj_low.jpg</src>
+				<context>The Iconic Taj Mahal</context>
+			</img>
+			<img>
+				<src>img/agra/random_low.jpg</src>
+				<context>Is it look like a random pic..?</context>
+			</img>
+			<img>
+				<src>img/agra/chilling_low.jpg</src>
+				<context>Beauty behind The Taj</context>
+			</img>
+		</images>
+	</album>
+	<album id="play">
+		<name>Drama | SAKET </name>
+		<images>
+			<img>
+				<src>img/drama/truth_low.jpg</src>
+				<context> </context>
+			</img>
+			<img>
+				<src>img/drama/diary_low.jpg</src>
+				<context>My Diary</context>
+			</img>
+			<img>
+				<src>img/drama/jhapad_low.jpg</src>
+				<context> </context>
+			</img>
+			<img>
+				<src>img/drama/night_low.jpg</src>
+				<context>Pagal Chhu man pagal Chhu, Pagal Chhu man Awara</context>
+			</img>
+			<img>
+				<src>img/drama/weeping_low.jpg</src>
+				<context> </context>
+			</img>
+		</images>
+	</album>
+	<album id="sketches">
+		<name>Sketch's Collection</name>
+		<images>
+			<img>
+				<src>img/sketches/halfMe_low.jpg</src>
+				<context>Attempt to portray oneself. In which people only see half of me, the part of me that people want to see in me. The invisible other half is the one I don't want to show to everyone</context>
+			</img>
+			<img>
+				<src>img/sketches/masterPiece_low.jpg</src>
+				<context>When you want to sketch something, but nothing is found for the sketch. So you saw yourself and sketch it.</context>
+			</img>
+		</images>
+	</album>
+</albumsFolder>

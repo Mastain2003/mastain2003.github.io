@@ -1,0 +1,32 @@
+{
+	"background_color":"#000000",
+	"theme_color":"#000000",
+	"description":"Here You get information about Prakhar Mastain and also letest activities related to Him.",
+	"display":"fullscreen",
+	"orientation":"portrait",
+	"icons":[
+	 {
+	 	"src":"img/defaults/logo144.png",
+	 	"sizes":"144x144",
+	 	"type":"image/png"
+	 },
+	 {
+	 	"src":"img/defaults/logo192.png",
+	 	"sizes":"192x192",
+	 	"type":"image/png"
+	 },
+	 {
+	 	"src":"img/defaults/logo512.png",
+	 	"sizes":"512x512",
+	 	"type":"image/png"
+	 },
+	 {
+	 	"src":"img/defaults/logo.png",
+	 	"sizes":"640x640",
+	 	"type":"image/png"
+	 }
+	],
+	"name":" BLOG OF PRAKHAR MASTAIN",
+	"short_name":"PRAKHAR MASTAIN",
+	"start_url":"index.html"
+}
