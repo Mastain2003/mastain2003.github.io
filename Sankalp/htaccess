@@ -1,0 +1,12 @@
+<filesMatch ".(ico|jpg|jpeg|gif|png|svg)$">
+    Header set Cache-Control "Max-age=2592000, public"
+</filesMatch>
+
+<filesMatch ".(css|js|html)$">
+    Header set Cache-Control "no-cache, public"
+</filesMatch>
+
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^mastain\.xyz$ [OR]
+RewriteRule ^(.*)$ "https\:\/\/www\.mastain\.xyz\/$1" [R=301,L]
+
