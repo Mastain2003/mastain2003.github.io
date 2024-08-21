@@ -1,0 +1,16 @@
+{
+  "name": "Text List Application",
+  "short_name": "TextList",
+  "description": "A simple app to manage and display texts with various features.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
