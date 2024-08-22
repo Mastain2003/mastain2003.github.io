@@ -12,20 +12,12 @@
     <h1>Text List Application</h1>
     <div>
         <input type="text" id="textInput" placeholder="Enter text">
-        <select id="textType">
-            <option value="Note">Note</option>
-            <option value="Task">Task</option>
-            <option value="Idea">Idea</option>
-        </select>
+        <input type="text" id="customTextType" placeholder="Enter or select text type" list="textTypeList">
+        <datalist id="textTypeList"></datalist>
         <button id="addButton">Add</button>
     </div>
     <div>
-        <select id="filterType">
-            <option value="All">All</option>
-            <option value="Note">Note</option>
-            <option value="Task">Task</option>
-            <option value="Idea">Idea</option>
-        </select>
+        <input type="text" id="filterType" placeholder="Filter by text type (optional)" list="textTypeList">
         <select id="limitEntries">
             <option value="0">All</option>
             <option value="10">10</option>
@@ -52,4 +44,4 @@
         }
     </script>
 </body>
-      </html>
+</html>
