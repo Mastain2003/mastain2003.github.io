@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
         textTypeList.innerHTML = '';
         uniqueTypes.forEach(type => {
             const option = document.createElement('option');
-            option.value = type;
+            option.value = capitalizeWords(type);
             textTypeList.appendChild(option);
         });
     };
@@ -35,8 +35,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const displayTexts = () => {
         textList.innerHTML = '';
 
+        if (texts.length === 0) {
+            const row = document.createElement('tr');
+            const cell = document.createElement('td');
+            cell.colSpan = 4;
+            cell.textContent = 'Nothing to show';
+            row.appendChild(cell);
+            textList.appendChild(row);
+            return;
+        }
+
         const filteredTexts = texts.filter(text => {
-            return !filterType.value || text.type === filterType.value;
+            return !filterType.value || text.type === filterType.value.toLowerCase();
         });
 
         const limitedTexts = limitEntries.value === '0' ? filteredTexts : filteredTexts.slice(0, parseInt(limitEntries.value));
