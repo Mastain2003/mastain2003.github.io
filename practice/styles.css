@@ -10,7 +10,7 @@ h1 {
 }
 
 #textForm {
-    width:80%;
+    width:100%;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -45,7 +45,7 @@ button {
 }
 
 #filters {
-    width:80%;
+    width:100%;
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
