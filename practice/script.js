@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const limitEntries = document.getElementById('limitEntries');
     const textList = document.getElementById('textList');
     const textTypeList = document.getElementById('textTypeList');
+    const textForm = document.getElementById('textForm');
 
     let texts = JSON.parse(localStorage.getItem('texts')) || [];
 
@@ -25,6 +26,10 @@ document.addEventListener('DOMContentLoaded', () => {
             option.value = type;
             textTypeList.appendChild(option);
         });
+    };
+
+    const capitalizeWords = (str) => {
+        return str.replace(/\b\w/g, (char) => char.toUpperCase());
     };
 
     const displayTexts = () => {
@@ -46,11 +51,11 @@ document.addEventListener('DOMContentLoaded', () => {
             row.appendChild(numberCell);
 
             const textCell = document.createElement('td');
-            textCell.textContent = text.content;
+            textCell.textContent = capitalizeWords(text.content);
             row.appendChild(textCell);
 
             const typeCell = document.createElement('td');
-            typeCell.textContent = text.type;
+            typeCell.textContent = capitalizeWords(text.type);
             row.appendChild(typeCell);
 
             const checkboxCell = document.createElement('td');
@@ -68,12 +73,20 @@ document.addEventListener('DOMContentLoaded', () => {
         saveTexts();
     };
 
-    addButton.addEventListener('click', () => {
+    textForm.addEventListener('submit', (e) => {
+        e.preventDefault();
         const newText = {
             content: textInput.value,
             type: customTextTypeInput.value,
             status: 'unread'
         };
+
+        const isDuplicate = texts.some(text => text.content === newText.content && text.type === newText.type);
+        if (isDuplicate) {
+            alert('Duplicate entry. This text and type combination already exists.');
+            return;
+        }
+
         texts.push(newText);
         saveTexts();
         textInput.value = '';
