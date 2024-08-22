@@ -16,16 +16,14 @@
         <button type="submit" id="addButton" class="primary-button">Add</button>
     </form>
 
+    <div id="statusMessage"></div> <!-- Status message area -->
+
     <div id="filters">
         <select id="filterType">
             <option value="">All Types</option>
         </select>
 
-        <select id="filterStatus">
-            <option value="">All Statuses</option>
-            <option value="read">Read</option>
-            <option value="unread">Unread</option>
-        </select>
+        <select id="filterStatus" style="display:none;"></select> <!-- Hidden as status filter is removed -->
 
         <select id="limitEntries">
             <option value="0">Show All</option>
@@ -34,13 +32,14 @@
         </select>
     </div>
 
+    <button id="showListButton" class="primary-button">Show List</button>
+
     <table id="textTable">
         <thead>
             <tr>
                 <th>#</th>
                 <th>Text</th>
                 <th>Type</th>
-                <th>Status</th>
                 <th>Select</th>
             </tr>
         </thead>
@@ -48,7 +47,7 @@
     </table>
 
     <button id="markAllUnreadButton" class="secondary-button">Mark All as Unread</button>
-    <button id="deleteSelectedButton" class="secondary-button">Delete Selected</button>
+    <button id="deleteSelectedButton" class="secondary-button" style="display: none;">Delete Selected</button>
 
     <script src="script.js"></script>
 </body>
