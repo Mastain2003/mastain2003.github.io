@@ -74,7 +74,7 @@ table td input[type="checkbox"] {
     cursor: pointer;
 }
 
-@media (max-width: 600px) {
+@media (min-width: 600px) {
     .container {
         padding: 15px;
     }
