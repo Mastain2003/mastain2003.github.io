@@ -5,10 +5,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const textTypeList = document.getElementById('textTypeList');
     const textForm = document.getElementById('textForm');
     const filterType = document.getElementById('filterType');
-    const filterStatus = document.getElementById('filterStatus');
     const limitEntries = document.getElementById('limitEntries');
     const markAllUnreadButton = document.getElementById('markAllUnreadButton');
     const deleteSelectedButton = document.getElementById('deleteSelectedButton');
+    const showListButton = document.getElementById('showListButton');
+    const statusMessage = document.getElementById('statusMessage');
 
     let texts = JSON.parse(localStorage.getItem('texts')) || [];
 
@@ -37,8 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
         textList.innerHTML = '';
 
         let filteredTexts = texts.filter(text => {
-            return (!filterType.value || text.type === filterType.value) &&
-                   (!filterStatus.value || text.status === filterStatus.value);
+            return (!filterType.value || text.type === filterType.value);
         });
 
         filteredTexts = limitEntries.value === '0' ? filteredTexts : filteredTexts.slice(0, parseInt(limitEntries.value));
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (filteredTexts.length === 0) {
             const row = document.createElement('tr');
             const cell = document.createElement('td');
-            cell.colSpan = 5;
+            cell.colSpan = 4;
             cell.textContent = 'Nothing to show';
             row.appendChild(cell);
             textList.appendChild(row);
@@ -69,14 +69,11 @@ document.addEventListener('DOMContentLoaded', () => {
             typeCell.textContent = capitalizeWords(text.type);
             row.appendChild(typeCell);
 
-            const statusCell = document.createElement('td');
-            statusCell.textContent = capitalizeWords(text.status);
-            row.appendChild(statusCell);
-
             const checkboxCell = document.createElement('td');
             const checkbox = document.createElement('input');
             checkbox.type = 'checkbox';
             checkbox.dataset.index = index;
+            checkbox.addEventListener('change', handleCheckboxChange);
             checkboxCell.appendChild(checkbox);
             row.appendChild(checkboxCell);
 
@@ -89,6 +86,19 @@ document.addEventListener('DOMContentLoaded', () => {
         saveTexts();
     };
 
+    const handleCheckboxChange = () => {
+        const anyChecked = Array.from(textList.querySelectorAll('input[type="checkbox"]')).some(checkbox => checkbox.checked);
+        deleteSelectedButton.style.display = anyChecked ? 'inline-block' : 'none';
+    };
+
+    const showStatusMessage = (message) => {
+        statusMessage.textContent = message;
+        statusMessage.style.display = 'block';
+        setTimeout(() => {
+            statusMessage.style.display = 'none';
+        }, 3000);
+    };
+
     textForm.addEventListener('submit', (e) => {
         e.preventDefault();
         const newText = {
@@ -99,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const isDuplicate = texts.some(text => text.content === newText.content && text.type === newText.type);
         if (isDuplicate) {
-            alert('Duplicate entry. This text and type combination already exists.');
+            showStatusMessage('Duplicate entry. This text and type combination already exists.');
             return;
         }
 
@@ -108,13 +118,13 @@ document.addEventListener('DOMContentLoaded', () => {
         textInput.value = '';
         customTextTypeInput.value = '';
         updateDatalist();
-        displayTexts();
+        showStatusMessage('Entry added successfully.');
     });
 
     markAllUnreadButton.addEventListener('click', () => {
         texts.forEach(text => text.status = 'unread');
         saveTexts();
-        displayTexts();
+        showStatusMessage('All entries marked as unread.');
     });
 
     deleteSelectedButton.addEventListener('click', () => {
@@ -122,13 +132,17 @@ document.addEventListener('DOMContentLoaded', () => {
         texts = texts.filter((_, index) => !checkboxes[index].checked);
         saveTexts();
         displayTexts();
+        deleteSelectedButton.style.display = 'none';
+        showStatusMessage('Selected entries deleted.');
+    });
+
+    showListButton.addEventListener('click', () => {
+        displayTexts();
     });
 
     filterType.addEventListener('change', displayTexts);
-    filterStatus.addEventListener('change', displayTexts);
     limitEntries.addEventListener('change', displayTexts);
 
-    // Initial display of texts when the page loads
+    // Do not display texts initially
     updateDatalist();
-    displayTexts();
 });
