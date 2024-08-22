@@ -77,8 +77,8 @@ document.addEventListener('DOMContentLoaded', () => {
     textForm.addEventListener('submit', (e) => {
         e.preventDefault();
         const newText = {
-            content: textInput.value,
-            type: customTextTypeInput.value,
+            content: textInput.value.trim().toLowerCase(),
+            type: customTextTypeInput.value.trim().toLowerCase(),
             status: 'unread'
         };
 
