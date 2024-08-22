@@ -9,10 +9,12 @@
 <body>
     <div class="container">
         <h1>Text List Application</h1>
-        <input type="text" id="textInput" placeholder="Enter text">
-        <input list="textTypeList" id="customTextType" placeholder="Enter type">
-        <datalist id="textTypeList"></datalist>
-        <button id="addButton">Add Text</button>
+        <form id="textForm">
+            <input type="text" id="textInput" placeholder="Enter text" required>
+            <input list="textTypeList" id="customTextType" placeholder="Enter type" required>
+            <datalist id="textTypeList"></datalist>
+            <button type="submit" id="addButton">Add Text</button>
+        </form>
         <select id="filterType">
             <option value="">All Types</option>
         </select>
@@ -42,4 +44,4 @@
     </div>
     <script src="script.js"></script>
 </body>
-</html>
+    </html>
