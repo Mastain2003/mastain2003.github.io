@@ -1,7 +1,7 @@
 {
   "name": "Text Management App",
   "short_name": "TextManager",
-  "start_url": "/index.html",
+  "start_url": "index.html",
   "display": "standalone",
   "background_color": "#00046d",
   "theme_color": "#00046d",
