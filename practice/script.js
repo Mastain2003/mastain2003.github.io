@@ -43,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return typeMatch && statusMatch;
         });
 
+        filteredTexts.sort(() => Math.random() -0.5);
         filteredTexts = limitEntries.value === '0' ? filteredTexts : filteredTexts.slice(0, parseInt(limitEntries.value));
 
         if (filteredTexts.length === 0) {
