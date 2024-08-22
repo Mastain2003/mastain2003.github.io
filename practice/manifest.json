@@ -2,7 +2,7 @@
   "name": "Text List Application",
   "short_name": "TextList",
   "description": "A simple app to manage and display texts with various features.",
-  "start_url": "index.html",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#00046d",
   "theme_color": "#00046d",
