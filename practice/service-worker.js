@@ -1,9 +1,10 @@
-const CACHE_NAME = 'text-list-cache-v1';
+const CACHE_NAME = 'text-manager-cache-v1';
 const urlsToCache = [
   '/',
   '/index.html',
   '/styles.css',
   '/script.js',
+  '/manifest.json',
   '/icon.png'
 ];
 
@@ -11,6 +12,7 @@ self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then((cache) => {
+        console.log('Opened cache');
         return cache.addAll(urlsToCache);
       })
   );
