@@ -2,12 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const textInput = document.getElementById('textInput');
     const customTextTypeInput = document.getElementById('customTextType');
     const addButton = document.getElementById('addButton');
-    const displayButton = document.getElementById('displayButton');
-    const randomizeButton = document.getElementById('randomizeButton');
     const markAllUnreadButton = document.getElementById('markAllUnreadButton');
     const deleteSelectedButton = document.getElementById('deleteSelectedButton');
-    const filterType = document.getElementById('filterType');
-    const limitEntries = document.getElementById('limitEntries');
     const textList = document.getElementById('textList');
     const textTypeList = document.getElementById('textTypeList');
     const textForm = document.getElementById('textForm');
@@ -45,15 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        const filteredTexts = texts.filter(text => {
-            return !filterType.value || text.type === filterType.value.toLowerCase();
-        });
-
-        const limitedTexts = limitEntries.value === '0' ? filteredTexts : filteredTexts.slice(0, parseInt(limitEntries.value));
-
-        limitedTexts.sort(() => Math.random() - 0.5); // Randomize the order
-
-        limitedTexts.forEach((text, index) => {
+        texts.forEach((text, index) => {
             const row = document.createElement('tr');
 
             const numberCell = document.createElement('td');
@@ -103,26 +91,20 @@ document.addEventListener('DOMContentLoaded', () => {
         textInput.value = '';
         customTextTypeInput.value = '';
         updateDatalist();
-    });
-
-    displayButton.addEventListener('click', displayTexts);
-
-    randomizeButton.addEventListener('click', () => {
-        texts.sort(() => Math.random() - 0.5); // Randomize the order of the entire list
-        saveTexts();
-        displayTexts();
+        displayTexts();  // Update display after adding a new entry
     });
 
     markAllUnreadButton.addEventListener('click', () => {
         texts.forEach(text => text.status = 'unread');
         saveTexts();
+        displayTexts();  // Update display after marking all as unread
     });
 
     deleteSelectedButton.addEventListener('click', () => {
         const checkboxes = textList.querySelectorAll('input[type="checkbox"]');
         texts = texts.filter((_, index) => !checkboxes[index].checked);
         saveTexts();
-        displayTexts();
+        displayTexts();  // Update display after deleting selected entries
     });
 
     // Initial display of texts when the page loads
