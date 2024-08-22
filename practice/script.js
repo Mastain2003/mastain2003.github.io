@@ -5,8 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const textTypeList = document.getElementById('textTypeList');
     const textForm = document.getElementById('textForm');
     const filterType = document.getElementById('filterType');
+    const filterStatus = document.getElementById('filterStatus');
     const limitEntries = document.getElementById('limitEntries');
-    const markAllUnreadButton = document.getElementById('markAllUnreadButton');
     const deleteSelectedButton = document.getElementById('deleteSelectedButton');
     const showListButton = document.getElementById('showListButton');
     const statusMessage = document.getElementById('statusMessage');
@@ -38,7 +38,9 @@ document.addEventListener('DOMContentLoaded', () => {
         textList.innerHTML = '';
 
         let filteredTexts = texts.filter(text => {
-            return (!filterType.value || text.type === filterType.value);
+            const typeMatch = !filterType.value || text.type === filterType.value;
+            const statusMatch = !filterStatus.value || text.status === filterStatus.value;
+            return typeMatch && statusMatch;
         });
 
         filteredTexts = limitEntries.value === '0' ? filteredTexts : filteredTexts.slice(0, parseInt(limitEntries.value));
@@ -121,12 +123,6 @@ document.addEventListener('DOMContentLoaded', () => {
         showStatusMessage('Entry added successfully.');
     });
 
-    markAllUnreadButton.addEventListener('click', () => {
-        texts.forEach(text => text.status = 'unread');
-        saveTexts();
-        showStatusMessage('All entries marked as unread.');
-    });
-
     deleteSelectedButton.addEventListener('click', () => {
         const checkboxes = textList.querySelectorAll('input[type="checkbox"]');
         texts = texts.filter((_, index) => !checkboxes[index].checked);
@@ -141,6 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     filterType.addEventListener('change', displayTexts);
+    filterStatus.addEventListener('change', displayTexts);
     limitEntries.addEventListener('change', displayTexts);
 
     // Initialize
