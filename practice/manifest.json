@@ -4,8 +4,8 @@
   "description": "A simple app to manage and display texts with various features.",
   "start_url": "index.html",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#000000",
+  "background_color": "#00046d",
+  "theme_color": "#00046d",
   "icons": [
     {
       "src": "icon.png",
