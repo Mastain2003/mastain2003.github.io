@@ -5,49 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Text Management App</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#00046d">
 </head>
 <body>
-    <div class="container">
-        <h1>Text Management App</h1>
-        <form id="textForm">
-            <input type="text" id="textInput" placeholder="Enter text" required>
-            <input type="text" id="customTextType" list="textTypeList" placeholder="Enter type" required>
-            <datalist id="textTypeList"></datalist>
-            <button type="submit" class="primary" id="addButton">Add Text</button>
-        </form>
+    <h1>Text Management App</h1>
+    
+    <form id="textForm">
+        <input type="text" id="textInput" placeholder="Enter text" required>
+        <input type="text" id="customTextType" placeholder="Enter type" list="textTypeList" required>
+        <datalist id="textTypeList"></datalist>
+        <button type="submit" id="addButton" class="primary-button">Add</button>
+    </form>
 
-        <button class="secondary" id="displayButton">Display List</button>
-        <button class="secondary" id="randomizeButton">Randomize Order</button>
-        <button class="secondary" id="markAllUnreadButton">Mark All as Unread</button>
-        <button class="secondary" id="deleteSelectedButton">Delete Selected</button>
+    <div id="filters">
+        <select id="filterType">
+            <option value="">All Types</option>
+        </select>
 
-        <div class="table-container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Text</th>
-                        <th>Type</th>
-                        <th>Delete</th>
-                    </tr>
-                </thead>
-                <tbody id="textList"></tbody>
-            </table>
-        </div>
+        <select id="filterStatus">
+            <option value="">All Statuses</option>
+            <option value="read">Read</option>
+            <option value="unread">Unread</option>
+        </select>
+
+        <select id="limitEntries">
+            <option value="0">Show All</option>
+            <option value="10">Show 10</option>
+            <option value="20">Show 20</option>
+        </select>
     </div>
+
+    <table id="textTable">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Text</th>
+                <th>Type</th>
+                <th>Status</th>
+                <th>Select</th>
+            </tr>
+        </thead>
+        <tbody id="textList"></tbody>
+    </table>
+
+    <button id="markAllUnreadButton" class="secondary-button">Mark All as Unread</button>
+    <button id="deleteSelectedButton" class="secondary-button">Delete Selected</button>
+
     <script src="script.js"></script>
-    <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/service-worker.js')
-            .then((registration) => {
-                console.log('Service Worker registered with scope:', registration.scope);
-            })
-            .catch((error) => {
-                console.log('Service Worker registration failed:', error);
-            });
-        }
-    </script>
 </body>
 </html>
