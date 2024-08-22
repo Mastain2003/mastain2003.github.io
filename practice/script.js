@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const deleteSelectedButton = document.getElementById('deleteSelectedButton');
     const showListButton = document.getElementById('showListButton');
     const statusMessage = document.getElementById('statusMessage');
+    const textTable = document.getElementById('textTable');
 
     let texts = JSON.parse(localStorage.getItem('texts')) || [];
 
@@ -52,6 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cell.textContent = 'Nothing to show';
             row.appendChild(cell);
             textList.appendChild(row);
+            textTable.style.display = 'none';
             return;
         }
 
@@ -85,6 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
             text.status = 'read';
         });
 
+        textTable.style.display = 'table';
         saveTexts();
     };
 
