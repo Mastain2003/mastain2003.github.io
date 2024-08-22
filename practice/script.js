@@ -39,14 +39,28 @@ document.addEventListener('DOMContentLoaded', () => {
         limitedTexts.sort(() => Math.random() - 0.5); // Randomize the order
 
         limitedTexts.forEach((text, index) => {
-            const li = document.createElement('li');
+            const row = document.createElement('tr');
+
+            const numberCell = document.createElement('td');
+            numberCell.textContent = index + 1;
+            row.appendChild(numberCell);
+
+            const textCell = document.createElement('td');
+            textCell.textContent = text.content;
+            row.appendChild(textCell);
+
+            const typeCell = document.createElement('td');
+            typeCell.textContent = text.type;
+            row.appendChild(typeCell);
+
+            const checkboxCell = document.createElement('td');
             const checkbox = document.createElement('input');
             checkbox.type = 'checkbox';
             checkbox.dataset.index = index;
+            checkboxCell.appendChild(checkbox);
+            row.appendChild(checkboxCell);
 
-            li.textContent = `${text.content} [${text.type}]`;
-            li.prepend(checkbox);
-            textList.appendChild(li);
+            textList.appendChild(row);
 
             text.status = 'read';
         });
