@@ -38,9 +38,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         limitedTexts.sort(() => Math.random() - 0.5); // Randomize the order
 
-        limitedTexts.forEach((text, index) => {
+        limitedTexts.forEach(text => {
             const li = document.createElement('li');
-            li.textContent = `${index + 1}. ${text.content} [${text.type}]`;
+            li.textContent = `${text.content} [${text.type}]`;
             textList.appendChild(li);
             text.status = 'read';
         });
