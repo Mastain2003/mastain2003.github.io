@@ -1,107 +1,95 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
+    margin: 20px;
     color: #00046d;
-    padding: 20px;
-    margin: 0;
-    box-sizing: border-box;
 }
 
 h1 {
-    color: #00046d;
     text-align: center;
+    color: #00046d;
 }
 
-form {
+#textForm {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
+    flex-wrap: wrap;
     margin-bottom: 20px;
 }
 
-input[type="text"] {
+#textInput, #customTextType {
     padding: 10px;
-    margin: 10px;
-    border: 1px solid #ccc;
+    margin: 5px;
+    border: 2px solid #00046d;
     border-radius: 5px;
-    width: calc(100% - 52px); /* Adjust to ensure it fits within the form */
-    max-width: 300px;
+    width: 280px;
     box-sizing: border-box;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.primary-button {
+    background-color: #00046d;
+    color: white;
+    width: 100%;
+}
+
+.secondary-button {
+    background-color: #ddd;
+    color: #00046d;
+    width: 100%;
+}
+
+#statusMessage {
+    text-align: center;
+    margin-bottom: 20px;
+    color: green;
 }
 
 #filters {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     margin-bottom: 20px;
 }
 
 #filters select {
     padding: 10px;
-    margin: 10px;
-    border: 1px solid #ccc;
+    margin: 5px;
+    border: 2px solid #00046d;
     border-radius: 5px;
-    max-width: 150px;
+    width: 280px;
     box-sizing: border-box;
 }
 
-.primary-button, .secondary-button {
-    padding: 10px 20px;
-    background-color: #00046d;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 10px;
-}
-
-.secondary-button {
-    background-color: #5a5aff;
-}
-
-table {
+#textTable {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
+    margin-bottom: 20px;
     box-sizing: border-box;
-    table-layout: fixed;
 }
 
-table, th, td {
-    border: 1px solid #ccc;
-}
-
-th, td {
+#textTable th, #textTable td {
+    border: 1px solid #00046d;
     padding: 10px;
     text-align: left;
-    word-wrap: break-word;
+    box-sizing: border-box;
 }
 
-tbody tr.read {
-    background-color: #e6e6ff;
-}
-
-tbody tr.unread {
-    background-color: #fff;
-}
-
-thead {
+#textTable th {
     background-color: #00046d;
     color: white;
 }
 
-@media (max-width: 600px) {
-    form, #filters {
-        flex-direction: column;
-    }
+.read-row {
+    background-color: #e0e0e0;
+}
 
-    input[type="text"], #filters select {
-        width: calc(100% - 40px);
-        max-width: none;
-    }
-
-    primary-button, .secondary-button {
-        width: calc(100% - 40px);
-        margin: 10px auto;
-    }
+#deleteSelectedButton {
+    display: none;
 }
