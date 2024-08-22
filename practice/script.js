@@ -31,8 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
         textList.innerHTML = '';
 
         const filteredTexts = texts.filter(text => {
-            return !filterType.value || text.type === filterType.value;
-        }).filter(text => text.status === 'unread');
+            return (!filterType.value || text.type === filterType.value) && text.status === 'unread';
+        });
 
         const limitedTexts = limitEntries.value === '0' ? filteredTexts : filteredTexts.slice(0, parseInt(limitEntries.value));
 
