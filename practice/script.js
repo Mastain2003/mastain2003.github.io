@@ -38,10 +38,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
         limitedTexts.sort(() => Math.random() - 0.5); // Randomize the order
 
-        limitedTexts.forEach(text => {
+        limitedTexts.forEach((text, index) => {
             const li = document.createElement('li');
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.dataset.index = index;
+
             li.textContent = `${text.content} [${text.type}]`;
+            li.prepend(checkbox);
             textList.appendChild(li);
+
             text.status = 'read';
         });
 
@@ -75,7 +81,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     deleteSelectedButton.addEventListener('click', () => {
-        texts = texts.filter(text => text.status !== 'read');
+        const checkboxes = textList.querySelectorAll('input[type="checkbox"]');
+        texts = texts.filter((_, index) => !checkboxes[index].checked);
         saveTexts();
         displayTexts();
     });
