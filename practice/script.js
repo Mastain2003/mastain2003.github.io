@@ -1,123 +1,86 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
     const textInput = document.getElementById('textInput');
-    const textType = document.getElementById('textType');
+    const customTextTypeInput = document.getElementById('customTextType');
     const addButton = document.getElementById('addButton');
-    const filterType = document.getElementById('filterType');
-    const limitEntries = document.getElementById('limitEntries');
     const displayButton = document.getElementById('displayButton');
     const randomizeButton = document.getElementById('randomizeButton');
     const markAllUnreadButton = document.getElementById('markAllUnreadButton');
+    const deleteSelectedButton = document.getElementById('deleteSelectedButton');
+    const filterType = document.getElementById('filterType');
+    const limitEntries = document.getElementById('limitEntries');
     const textList = document.getElementById('textList');
+    const textTypeList = document.getElementById('textTypeList');
 
-    // Load and display filtered items on page load
-    displayButton.addEventListener('click', loadAndDisplayFilteredItems);
+    let texts = JSON.parse(localStorage.getItem('texts')) || [];
 
-    // Add text with type to the list and local storage
-    addButton.addEventListener('click', function () {
-        const text = textInput.value.trim();
-        const type = textType.value;
-        if (text) {
-            const listItem = {
-                text: `${type}: ${text}`,
-                type: type,
-                read: false // Initially unread
-            };
-            saveItem(listItem);
-            textInput.value = '';
-            loadAndDisplayFilteredItems(); // Refresh list after adding
-        }
-    });
+    const saveTexts = () => {
+        localStorage.setItem('texts', JSON.stringify(texts));
+    };
 
-    // Randomize the list
-    randomizeButton.addEventListener('click', function () {
-        const items = Array.from(textList.children);
-        for (let i = items.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            textList.appendChild(items[j]);
-        }
-        updateNumbering();
-    });
-
-    // Mark all entries as unread
-    markAllUnreadButton.addEventListener('click', function () {
-        markAllAsUnread();
-        loadAndDisplayFilteredItems(); // Refresh list after marking all unread
-    });
-
-    // Add item to the list (UI) and mark it as read
-    function addItemToList(item, index) {
-        item.read = true; // Mark as read when displayed
-
-        const li = document.createElement('li');
-        li.setAttribute('data-text', item.text);
-        li.innerHTML = `
-            ${index + 1}. ${item.text} (Read)
-        `;
-        textList.appendChild(li);
-
-        updateItem(item); // Update the item in local storage
-    }
-
-    // Save item to local storage
-    function saveItem(item) {
-        const items = getItemsFromStorage();
-        items.push(item);
-        localStorage.setItem('textItems', JSON.stringify(items));
-    }
-
-    // Update item in local storage
-    function updateItem(updatedItem) {
-        let items = getItemsFromStorage();
-        items = items.map(item => item.text === updatedItem.text ? updatedItem : item);
-        localStorage.setItem('textItems', JSON.stringify(items));
-    }
-
-    // Load items from local storage, filter them, and display
-    function loadAndDisplayFilteredItems() {
-        const items = getItemsFromStorage();
-        const filteredItems = filterItems(items);
-        const limitedItems = limitItems(filteredItems);
-
-        textList.innerHTML = ''; // Clear the current list
-
-        limitedItems.forEach(addItemToList);
-        randomizeButton.click(); // Randomize after displaying
-    }
-
-    // Filter items based on type and read status
-    function filterItems(items) {
-        const selectedType = filterType.value;
-        return items.filter(item => 
-            (selectedType === 'All' || item.type === selectedType) && !item.read
-        );
-    }
-
-    // Limit the number of items displayed
-    function limitItems(items) {
-        const limit = parseInt(limitEntries.value);
-        return limit === 0 ? items : items.slice(0, limit);
-    }
-
-    // Get items from local storage
-    function getItemsFromStorage() {
-        return JSON.parse(localStorage.getItem('textItems')) || [];
-    }
-
-    // Update the numbering of list items after randomization
-    function updateNumbering() {
-        const items = textList.querySelectorAll('li');
-        items.forEach((li, index) => {
-            li.innerHTML = `${index + 1}. ${li.getAttribute('data-text')} (Read)`;
+    const updateDatalist = () => {
+        const uniqueTypes = [...new Set(texts.map(text => text.type))];
+        textTypeList.innerHTML = '';
+        uniqueTypes.forEach(type => {
+            const option = document.createElement('option');
+            option.value = type;
+            textTypeList.appendChild(option);
         });
-    }
+    };
 
-    // Mark all items as unread in local storage
-    function markAllAsUnread() {
-        let items = getItemsFromStorage();
-        items = items.map(item => {
-            item.read = false;
-            return item;
+    const displayTexts = () => {
+        textList.innerHTML = '';
+
+        const filteredTexts = texts.filter(text => {
+            return !filterType.value || text.type === filterType.value;
+        }).filter(text => text.status === 'unread');
+
+        const limitedTexts = limitEntries.value === '0' ? filteredTexts : filteredTexts.slice(0, parseInt(limitEntries.value));
+
+        limitedTexts.sort(() => Math.random() - 0.5); // Randomize the order
+
+        limitedTexts.forEach((text, index) => {
+            const li = document.createElement('li');
+            li.textContent = `${index + 1}. ${text.content} [${text.type}]`;
+            textList.appendChild(li);
+            text.status = 'read';
         });
-        localStorage.setItem('textItems', JSON.stringify(items));
-    }
+
+        saveTexts();
+    };
+
+    addButton.addEventListener('click', () => {
+        const newText = {
+            content: textInput.value,
+            type: customTextTypeInput.value,
+            status: 'unread'
+        };
+        texts.push(newText);
+        saveTexts();
+        textInput.value = '';
+        customTextTypeInput.value = '';
+        updateDatalist();
+    });
+
+    displayButton.addEventListener('click', displayTexts);
+
+    randomizeButton.addEventListener('click', () => {
+        texts.sort(() => Math.random() - 0.5); // Randomize the order of the entire list
+        saveTexts();
+        displayTexts();
+    });
+
+    markAllUnreadButton.addEventListener('click', () => {
+        texts.forEach(text => text.status = 'unread');
+        saveTexts();
+    });
+
+    deleteSelectedButton.addEventListener('click', () => {
+        texts = texts.filter(text => text.status !== 'read');
+        saveTexts();
+        displayTexts();
+    });
+
+    // Initial display of texts when the page loads
+    updateDatalist();
+    displayTexts();
 });
