@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         filteredTexts.forEach((text, index) => {
             const row = document.createElement('tr');
-            row.className = text.status;
+            row.className = text.status === 'read' ? 'read-row' : '';
 
             const numberCell = document.createElement('td');
             numberCell.textContent = index + 1;
