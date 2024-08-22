@@ -143,6 +143,6 @@ document.addEventListener('DOMContentLoaded', () => {
     filterType.addEventListener('change', displayTexts);
     limitEntries.addEventListener('change', displayTexts);
 
-    // Do not display texts initially
+    // Initialize
     updateDatalist();
 });
