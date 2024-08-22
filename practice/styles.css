@@ -83,7 +83,7 @@ table td input[type="checkbox"] {
         flex-direction: column;
     }
 
-    input[type="text"], select, button {
-        width: 100%;
+    input, select, button {
+        width: 80%;
     }
 }
