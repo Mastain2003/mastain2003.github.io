@@ -21,7 +21,7 @@ h1 {
     margin: 5px;
     border: 2px solid #00046d;
     border-radius: 5px;
-    width: 280px;
+    flex: 1;
     box-sizing: border-box;
 }
 
@@ -31,19 +31,22 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    width: 150px;
     box-sizing: border-box;
 }
 
 .primary-button {
     background-color: #00046d;
     color: white;
-    width: 100%;
 }
 
 .secondary-button {
     background-color: #ddd;
     color: #00046d;
-    width: 100%;
+}
+
+#markAllUnreadButton {
+    width: 150px;
 }
 
 #statusMessage {
@@ -63,7 +66,6 @@ button {
     margin: 5px;
     border: 2px solid #00046d;
     border-radius: 5px;
-    width: 280px;
     box-sizing: border-box;
 }
 
@@ -79,6 +81,7 @@ button {
     padding: 10px;
     text-align: left;
     box-sizing: border-box;
+    white-space: nowrap;
 }
 
 #textTable th {
