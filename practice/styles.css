@@ -3,29 +3,46 @@ body {
     background-color: #f5f5f5;
     color: #00046d;
     padding: 20px;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 h1 {
     color: #00046d;
+    text-align: center;
 }
 
 form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     margin-bottom: 20px;
 }
 
 input[type="text"] {
     padding: 10px;
-    margin-right: 10px;
+    margin: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    width: 250px;
+    width: calc(100% - 52px); /* Adjust to ensure it fits within the form */
+    max-width: 300px;
+    box-sizing: border-box;
+}
+
+#filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
 #filters select {
     padding: 10px;
-    margin-right: 10px;
+    margin: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    max-width: 150px;
+    box-sizing: border-box;
 }
 
 .primary-button, .secondary-button {
@@ -35,7 +52,7 @@ input[type="text"] {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 10px;
+    margin: 10px;
 }
 
 .secondary-button {
@@ -46,6 +63,8 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    box-sizing: border-box;
+    table-layout: fixed;
 }
 
 table, th, td {
@@ -55,6 +74,7 @@ table, th, td {
 th, td {
     padding: 10px;
     text-align: left;
+    word-wrap: break-word;
 }
 
 tbody tr.read {
@@ -68,4 +88,20 @@ tbody tr.unread {
 thead {
     background-color: #00046d;
     color: white;
+}
+
+@media (max-width: 600px) {
+    form, #filters {
+        flex-direction: column;
+    }
+
+    input[type="text"], #filters select {
+        width: calc(100% - 40px);
+        max-width: none;
+    }
+
+    primary-button, .secondary-button {
+        width: calc(100% - 40px);
+        margin: 10px auto;
+    }
 }
