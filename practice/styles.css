@@ -1,21 +1,24 @@
+/* Reset some default styles */
+body, h1, h2, p, ul, ol, li, input, button, select {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    color: #00046d;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
 }
 
 .container {
-    background-color: white;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #ffffff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 80%;
-    max-width: 600px;
 }
 
 h1 {
@@ -24,56 +27,71 @@ h1 {
     margin-bottom: 20px;
 }
 
-input[type="text"],
-button,
-select {
-    margin: 5px;
+.input-section,
+.filter-section {
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.input-section input,
+.filter-section input,
+.filter-section select {
+    flex: 1;
     padding: 10px;
+    border: 2px solid #00046d;
     border-radius: 4px;
-    border: 1px solid #00046d;
-    width: calc(100% - 22px);
+    font-size: 16px;
 }
 
 button {
-    background-color: #00046d;
-    color: white;
-    cursor: pointer;
+    padding: 10px 15px;
+    font-size: 16px;
     border: none;
-    width: auto;
-}
-
-button:hover {
-    background-color: #000333;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-table th, table td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-}
-
-table th {
-    background-color: #00046d;
-    color: white;
-}
-
-table td input[type="checkbox"] {
+    border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-@media (max-width: 600px) {
-    .container {
-        width: 100%;
-        padding: 15px;
-    }
+.primary-button {
+    background-color: #00046d;
+    color: #ffffff;
+}
 
-    input[type="text"], select, button {
-        width: 100%;
-    }
+.primary-button:hover {
+    background-color: #00036a;
+}
+
+.secondary-button {
+    background-color: #eeeeee;
+    color: #00046d;
+}
+
+.secondary-button:hover {
+    background-color: #dddddd;
+}
+
+.danger-button {
+    background-color: #d9534f;
+    color: #ffffff;
+}
+
+.danger-button:hover {
+    background-color: #c9302c;
+}
+
+.text-list {
+    margin-top: 20px;
+    padding-left: 20px;
+    list-style: decimal inside;
+}
+
+.text-list li {
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    font-size: 16px;
 }
