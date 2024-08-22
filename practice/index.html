@@ -5,45 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Text List Application</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#00046d">
 </head>
 <body>
     <div class="container">
         <h1>Text List Application</h1>
-        <div class="input-section">
-            <input type="text" id="textInput" placeholder="Enter text">
-            <input type="text" id="customTextType" placeholder="Enter or select text type" list="textTypeList">
-            <datalist id="textTypeList"></datalist>
-            <button id="addButton" class="primary-button">Add</button>
-        </div>
-        <div class="filter-section">
-            <input type="text" id="filterType" placeholder="Filter by text type (optional)" list="textTypeList">
-            <select id="limitEntries">
-                <option value="0">All</option>
-                <option value="10">10</option>
-                <option value="20">20</option>
-            </select>
-            <button id="displayButton" class="secondary-button">Display Filtered Items</button>
-            <button id="randomizeButton" class="secondary-button">Randomize List</button>
-            <button id="markAllUnreadButton" class="secondary-button">Mark All as Unread</button>
-            <button id="deleteSelectedButton" class="danger-button">Delete Selected</button>
-        </div>
-        <ol id="textList" class="text-list"></ol>
+        <input type="text" id="textInput" placeholder="Enter text">
+        <input list="textTypeList" id="customTextType" placeholder="Enter type">
+        <datalist id="textTypeList"></datalist>
+        <button id="addButton">Add Text</button>
+        <select id="filterType">
+            <option value="">All Types</option>
+        </select>
+        <select id="limitEntries">
+            <option value="0">All Entries</option>
+            <option value="10">Limit to 10</option>
+            <option value="20">Limit to 20</option>
+        </select>
+        <button id="displayButton">Display List</button>
+        <button id="randomizeButton">Randomize Order</button>
+        <button id="markAllUnreadButton">Mark All as Unread</button>
+        <button id="deleteSelectedButton">Delete Selected</button>
+
+        <table id="textTable">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Text</th>
+                    <th>Type</th>
+                    <th>Select</th>
+                </tr>
+            </thead>
+            <tbody id="textList">
+                <!-- Table rows will be dynamically added here -->
+            </tbody>
+        </table>
     </div>
     <script src="script.js"></script>
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/service-worker.js')
-                    .then((registration) => {
-                        console.log('Service Worker registered with scope:', registration.scope);
-                    })
-                    .catch((error) => {
-                        console.log('Service Worker registration failed:', error);
-                    });
-            });
-        }
-    </script>
 </body>
-    </html>
+</html>
