@@ -68,11 +68,3 @@ button {
     background-color: #00046d;
     color: white;
 }
-
-.read-row {
-    background-color: #e0e0e0;
-}
-
-#deleteSelectedButton {
-    display: none;
-}
