@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    alert("Welcome");
     const textInput = document.getElementById('textInput');
     const customTextTypeInput = document.getElementById('customTextType');
     const textList = document.getElementById('textList');
