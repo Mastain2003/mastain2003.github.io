@@ -1,4 +1,4 @@
-const CACHE_NAME = 'text-list-cache-vv1';
+const CACHE_NAME = 'text-list-cache-v1';
 const urlsToCache = [
   '/',
   '/index.html',
