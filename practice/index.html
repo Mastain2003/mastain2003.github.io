@@ -3,44 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Text List Application</title>
+    <title>Text Management App</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Text List Application</h1>
+        <h1>Text Management App</h1>
         <form id="textForm">
             <input type="text" id="textInput" placeholder="Enter text" required>
-            <input list="textTypeList" id="customTextType" placeholder="Enter type" required>
+            <input type="text" id="customTextType" list="textTypeList" placeholder="Enter type" required>
             <datalist id="textTypeList"></datalist>
-            <button type="submit" id="addButton">Add Text</button>
+            <button type="submit" class="primary" id="addButton">Add Text</button>
         </form>
-        <select id="filterType">
-            <option value="">All Types</option>
-        </select>
-        <select id="limitEntries">
-            <option value="0">All Entries</option>
-            <option value="10">Limit to 10</option>
-            <option value="20">Limit to 20</option>
-        </select>
-        <button id="displayButton">Display List</button>
-        <button id="randomizeButton">Randomize Order</button>
-        <button id="markAllUnreadButton">Mark All as Unread</button>
-        <button id="deleteSelectedButton">Delete Selected</button>
 
-        <table id="textTable">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Text</th>
-                    <th>Type</th>
-                    <th>Select</th>
-                </tr>
-            </thead>
-            <tbody id="textList">
-                <!-- Table rows will be dynamically added here -->
-            </tbody>
-        </table>
+        <button class="secondary" id="displayButton">Display List</button>
+        <button class="secondary" id="randomizeButton">Randomize Order</button>
+        <button class="secondary" id="markAllUnreadButton">Mark All as Unread</button>
+        <button class="secondary" id="deleteSelectedButton">Delete Selected</button>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Text</th>
+                        <th>Type</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody id="textList"></tbody>
+            </table>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
