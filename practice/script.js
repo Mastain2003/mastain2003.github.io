@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    alert("Welcome");
     const textInput = document.getElementById('textInput');
     const customTextTypeInput = document.getElementById('customTextType');
     const textList = document.getElementById('textList');
@@ -11,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const deleteSelectedButton = document.getElementById('deleteSelectedButton');
     const showListButton = document.getElementById('showListButton');
     const statusMessage = document.getElementById('statusMessage');
+    const textTable = document.getElementById('textTable');
 
     let texts = JSON.parse(localStorage.getItem('texts')) || [];
 
@@ -35,16 +35,28 @@ document.addEventListener('DOMContentLoaded', () => {
         return str.replace(/\b\w/g, (char) => char.toUpperCase());
     };
 
+    const shuffleArray = (array) => {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    };
+
     const displayTexts = () => {
         textList.innerHTML = '';
 
+        // Filter texts based on type and status
         let filteredTexts = texts.filter(text => {
             const typeMatch = !filterType.value || text.type === filterType.value;
             const statusMatch = !filterStatus.value || text.status === filterStatus.value;
             return typeMatch && statusMatch;
         });
 
-        filteredTexts.sort(() => Math.random() -0.5);
+        // Randomize the order of filtered texts
+        filteredTexts = shuffleArray(filteredTexts);
+
+        // Apply limit to the number of entries displayed
         filteredTexts = limitEntries.value === '0' ? filteredTexts : filteredTexts.slice(0, parseInt(limitEntries.value));
 
         if (filteredTexts.length === 0) {
@@ -54,9 +66,11 @@ document.addEventListener('DOMContentLoaded', () => {
             cell.textContent = 'Nothing to show';
             row.appendChild(cell);
             textList.appendChild(row);
+            textTable.style.display = 'none';
             return;
         }
 
+        // Display the filtered and randomized texts
         filteredTexts.forEach((text, index) => {
             const row = document.createElement('tr');
             row.className = text.status === 'read' ? 'read-row' : '';
@@ -87,6 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
             text.status = 'read';
         });
 
+        textTable.style.display = 'table';
         saveTexts();
     };
 
