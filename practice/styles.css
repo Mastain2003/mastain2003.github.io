@@ -1,67 +1,86 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f0f0f0;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
 }
 
 .container {
-    width: 90%;
-    max-width: 800px;
-    margin: 20px auto;
-    background-color: white;
+    background-color: #fff;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    width: 500px;
+    overflow: hidden;
 }
 
 h1 {
     color: #00046d;
+    margin-bottom: 20px;
     text-align: center;
+    font-size: 24px;
 }
 
 form {
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
-    margin-bottom: 20px;
 }
 
-input[type="text"], input[list] {
-    flex: 1;
+input[type="text"] {
+    flex: 1 1 calc(50% - 10px);
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    font-size: 16px;
 }
 
-button {
-    padding: 10px 20px;
+.primary-button, .secondary-button {
+    padding: 10px 15px;
+    font-size: 16px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    text-align: center;
+    flex: 1 1 100%;
 }
 
 .primary-button {
     background-color: #00046d;
-    color: white;
+    color: #fff;
+    margin-top: 10px;
 }
 
 .secondary-button {
-    background-color: #f44;
-    color: white;
-}
-
-button:hover {
-    opacity: 0.9;
+    background-color: #ddd;
+    color: #333;
+    margin-top: 10px;
 }
 
 #filters {
+    margin: 20px 0;
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
-    margin-bottom: 20px;
 }
 
 #filters select, #filters label {
-    flex: 1;
+    flex: 1 1 calc(33.33% - 10px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
 }
 
 table {
@@ -70,25 +89,27 @@ table {
     margin-bottom: 20px;
 }
 
-th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
+table th, table td {
+    padding: 10px;
     text-align: left;
+    border-bottom: 1px solid #ccc;
     word-wrap: break-word;
-    max-width: 100px;
+    overflow-wrap: break-word;
 }
 
-th {
+table th {
     background-color: #00046d;
-    color: white;
+    color: #fff;
 }
 
-td.read-row {
-    background-color: #e0e0e0;
+.read-row {
+    background-color: #f2f2f2;
+    color: #999;
 }
 
 #statusMessage {
-    color: #00046d;
+    margin-top: 20px;
+    font-size: 16px;
+    color: green;
     text-align: center;
-    margin-bottom: 10px;
 }
