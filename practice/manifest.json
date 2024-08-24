@@ -3,7 +3,7 @@
   "short_name": "TextManager",
   "start_url": "index.html",
   "display": "standalone",
-  "background_color": "#00046d",
+  "background_color": "#000000",
   "theme_color": "#00046d",
   "description": "A simple app to manage, randomize, and filter text entries.",
   "icons": [
