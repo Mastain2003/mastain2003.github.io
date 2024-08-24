@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const checkboxCell = document.createElement('td');
             const checkbox = document.createElement('input');
             checkbox.type = 'checkbox';
-            checkbox.dataset.id = text.id;
+            checkbox.dataset.id = text.id;  // Using a unique ID for each entry
             checkboxCell.appendChild(checkbox);
             row.appendChild(checkboxCell);
 
@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const newText = {
-            id: Date.now(),
+            id: Date.now(),  // Unique ID for each entry
             content: textContent,
             type: textType,
             status: 'unread'
