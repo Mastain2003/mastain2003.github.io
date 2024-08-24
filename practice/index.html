@@ -4,67 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Text Management App</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="manifest" href="manifest.json">
+    
+    <!-- Theme color for PWA -->
     <meta name="theme-color" content="#00046d">
+    
+    <!-- Link to the PWA manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
-    <h1>Text Management App</h1>
-    
-    <!-- Status Message -->
-    <div id="statusMessage"></div>
-    
-    <!-- Text Input Form -->
-    <form id="textForm">
-        <input type="text" id="textInput" placeholder="Enter text" required>
-        <input list="textTypeList" id="customTextType" placeholder="Enter type" required>
-        <datalist id="textTypeList"></datalist>
-        <button type="submit" class="primary-button">Add Text</button>
-    </form>
-    
-    <!-- Filters -->
-    <div id="filters">
-        <select id="filterType">
-            <option value="">All Types</option>
-        </select>
-        <select id="filterStatus">
-            <option value="">All Statuses</option>
-            <option value="unread">Unread</option>
-            <option value="read">Read</option>
-        </select>
-        <select id="limitEntries">
-            <option value="0">All</option>
-            <option value="10">10</option>
-            <option value="20">20</option>
-        </select>
-    </div>
-    
-    <!-- Display List Button -->
-    <div style="text-align: center;">
-        <button id="showListButton" class="primary-button">Show List</button>
-    </div>
-    
-    <!-- Text List Table -->
-    <table id="textTable">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Text</th>
-                <th>Type</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody id="textList">
-            <!-- Populated by JavaScript -->
-        </tbody>
-    </table>
+    <div class="container">
+        <h1>Text Management App</h1>
+        <form id="textForm">
+            <input id="textInput" type="text" placeholder="Enter text" required>
+            <input id="customTextType" list="textTypeList" placeholder="Enter type" required>
+            <datalist id="textTypeList"></datalist>
+            <button type="submit" class="primary-button">Add Entry</button>
+        </form>
 
-    <!-- Delete Selected Button -->
-    <div style="text-align: center;">
-        <button id="deleteSelectedButton" class="secondary-button">Delete Selected</button>
+        <div id="filters">
+            <select id="filterType">
+                <option value="">All Types</option>
+            </select>
+            <select id="filterStatus">
+                <option value="">All Status</option>
+                <option value="unread">Unread</option>
+                <option value="read">Read</option>
+            </select>
+            <select id="limitEntries">
+                <option value="0">All</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+            </select>
+            <label>
+                <input type="checkbox" id="randomizeCheckbox"> Randomize List
+            </label>
+            <button id="showListButton" class="primary-button">Show List</button>
+        </div>
+
+        <table id="textTable" style="display: none;">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Text</th>
+                    <th>Type</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="textList"></tbody>
+        </table>
+
+        <button id="deleteSelectedButton" class="secondary-button" style="display: none;">Delete Selected</button>
+        <button id="generatePdfButton" class="primary-button" style="display: none;">Download as PDF</button>
+
+        <div id="statusMessage" style="display: none;"></div>
     </div>
-    
-    <!-- JavaScript -->
+
     <script src="script.js"></script>
 </body>
 </html>
