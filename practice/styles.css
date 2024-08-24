@@ -1,79 +1,94 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
-    color: #00046d;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
 h1 {
-    text-align: center;
     color: #00046d;
+    text-align: center;
 }
 
-#textForm {
+form {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
     gap: 10px;
+    margin-bottom: 20px;
 }
 
-#textInput, #customTextType, select {
-    padding: 10px;
-    border: 2px solid #00046d;
-    border-radius: 5px;
+input[type="text"], input[list] {
     flex: 1;
-    min-width: 200px;
-    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 button {
     padding: 10px 20px;
-    margin: 5px;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
-    box-sizing: border-box;
+}
+
+.primary-button {
     background-color: #00046d;
     color: white;
 }
 
-#statusMessage {
-    text-align: center;
-    margin-bottom: 20px;
-    color: green;
+.secondary-button {
+    background-color: #f44;
+    color: white;
+}
+
+button:hover {
+    opacity: 0.9;
 }
 
 #filters {
     display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-    flex-wrap:wrap;
     gap: 10px;
+    margin-bottom: 20px;
 }
 
-#textTable {
+#filters select, #filters label {
+    flex: 1;
+}
+
+table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
 }
 
-#textTable th, #textTable td {
-    border: 1px solid #00046d;
-    padding: 10px;
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
     text-align: left;
-    box-sizing: border-box;
-    white-space: nowrap;
+    word-wrap: break-word;
+    max-width: 100px;
 }
 
-#textTable th {
+th {
     background-color: #00046d;
     color: white;
 }
 
-.read-row {
+td.read-row {
     background-color: #e0e0e0;
 }
 
-#deleteSelectedButton {
-    display: none;
+#statusMessage {
+    color: #00046d;
+    text-align: center;
+    margin-bottom: 10px;
 }
