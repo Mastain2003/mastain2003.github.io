@@ -38,7 +38,7 @@ form {
     gap: 10px;
 }
 
-input[type="text"] {
+input[type="text"] , input[list] {
     flex: 1 1 calc(50% - 10px);
     padding: 10px;
     border: 1px solid #ccc;
