@@ -153,15 +153,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     deleteSelectedButton.addEventListener('click', () => {
-        const checkedBoxes = document.querySelectorAll('#textList input[type="checkbox"]:checked');
-        const idsToDelete = Array.from(checkedBoxes).map(checkbox => Number(checkbox.dataset.id));
+    const checkedBoxes = document.querySelectorAll('#textList input[type="checkbox"]:checked');
+    const idsToDelete = Array.from(checkedBoxes).map(checkbox => checkbox.dataset.id);
 
-        texts = texts.filter(text => !idsToDelete.includes(text.id));
-        saveTexts();
-        displayTexts();
-        deleteSelectedButton.style.display = 'none';
-        showStatusMessage('Selected entries deleted.');
-    });
+    // Collect the names of the entries being deleted
+    const deletedEntries = texts
+        .filter(text => idsToDelete.includes(text.id))
+        .map(text => capitalizeWords(text.content));
+
+    // Filter out the deleted entries from the texts array
+    texts = texts.filter(text => !idsToDelete.includes(text.id));
+
+    saveTexts();
+    displayTexts();
+    deleteSelectedButton.style.display = 'none';
+
+    // Display the status message with the names of the deleted entries
+    if (deletedEntries.length > 0) {
+        showStatusMessage(`Deleted: ${deletedEntries.join(', ')}`);
+    } else {
+        showStatusMessage('No entries selected for deletion.');
+    }
+});
 
     generatePdfButton.addEventListener('click', () => {
     const { jsPDF } = window.jspdf;
