@@ -164,17 +164,68 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     generatePdfButton.addEventListener('click', () => {
-        const { jsPDF } = window.jspdf;
-        const doc = new jsPDF();
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
 
-        doc.text("Text Management List", 10, 10);
+    // Get unique types from the texts
+    const uniqueTypes = [...new Set(texts.map(text => text.type))];
 
-        texts.forEach((text, index) => {
-            doc.text(`${index + 1}. ${capitalizeWords(text.content)} (${capitalizeWords(text.type)})`, 10, 20 + (index * 10));
+    // Set initial vertical position
+    let currentY = 16;
+
+    // Loop through each unique type to create a separate table
+    uniqueTypes.forEach((type) => {
+        // Filter texts by current type
+        const filteredTexts = texts.filter(text => text.type === type);
+
+        // Skip if there are no entries for this type
+        if (filteredTexts.length === 0) return;
+
+        // Add type title
+        doc.setFontSize(18);
+        doc.text(capitalizeWords(type) + " Entries", 14, currentY);
+        currentY += 10;
+
+        // Prepare the table data
+        const tableData = filteredTexts.map((text, index) => [
+            index + 1,
+            capitalizeWords(text.content),
+            capitalizeWords(text.type)
+        ]);
+
+        // Set table headers
+        const headers = ['#', 'Entry', 'Type'];
+
+        // Add table for this type
+        doc.autoTable({
+            startY: currentY,
+            head: [headers],
+            body: tableData,
+            theme: 'grid',
+            headStyles: {
+                fillColor: [0, 4, 109], // Header color matching the theme color
+                textColor: [255, 255, 255]
+            },
+            bodyStyles: {
+                fillColor: [240, 240, 240], // Light grey for table rows
+            },
+            alternateRowStyles: {
+                fillColor: [255, 255, 255] // White for alternate rows
+            },
+            styles: {
+                fontSize: 12,
+                cellPadding: 3,
+                valign: 'middle'
+            }
         });
 
-        doc.save("text_management_list.pdf");
+        // Update currentY to the position after the table
+        currentY = doc.lastAutoTable.finalY + 10;
     });
+
+    // Save the PDF
+    doc.save("text_management_list.pdf");
+});
 
     updateDatalist();
 });
