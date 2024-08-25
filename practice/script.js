@@ -154,14 +154,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     deleteSelectedButton.addEventListener('click', () => {
     const checkedBoxes = document.querySelectorAll('#textList input[type="checkbox"]:checked');
-    const idsToDelete = Array.from(checkedBoxes).map(checkbox => checkbox.dataset.id);
+    
+    if (checkedBoxes.length === 0) {
+        showStatusMessage('No entries selected for deletion.');
+        return;
+    }
 
-    // Collect the names of the entries being deleted
-    const deletedEntries = texts
-        .filter(text => idsToDelete.includes(text.id))
-        .map(text => capitalizeWords(text.content));
+    // Collect IDs of selected entries and their names
+    const idsToDelete = [];
+    const deletedEntries = [];
 
-    // Filter out the deleted entries from the texts array
+    checkedBoxes.forEach(checkbox => {
+        const id = checkbox.dataset.id;
+        idsToDelete.push(id);
+        
+        const entry = texts.find(text => text.id === id);
+        if (entry) {
+            deletedEntries.push(capitalizeWords(entry.content));
+        }
+    });
+
+    // Remove the selected entries from the texts array
     texts = texts.filter(text => !idsToDelete.includes(text.id));
 
     saveTexts();
@@ -169,11 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
     deleteSelectedButton.style.display = 'none';
 
     // Display the status message with the names of the deleted entries
-    if (deletedEntries.length > 0) {
-        showStatusMessage(`Deleted: ${deletedEntries.join(', ')}`);
-    } else {
-        showStatusMessage('No entries selected for deletion.');
-    }
+    showStatusMessage(`Deleted: ${deletedEntries.join(', ')}`);
 });
 
     generatePdfButton.addEventListener('click', () => {
