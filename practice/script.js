@@ -155,12 +155,22 @@ document.addEventListener('DOMContentLoaded', () => {
     deleteSelectedButton.addEventListener('click', () => {
         const checkedBoxes = document.querySelectorAll('#textList input[type="checkbox"]:checked');
         const idsToDelete = Array.from(checkedBoxes).map(checkbox => Number(checkbox.dataset.id));
+        const deletedEntries = [];
 
-        texts = texts.filter(text => !idsToDelete.includes(text.id));
+    texts = texts.filter(text => {
+        if (idsToDelete.includes(text.id)) {
+            deletedEntries.push(capitalizeWords(text.content));
+            return false;
+        }
+        return true;
+    });
+
+      //  texts = texts.filter(text => !idsToDelete.includes(text.id));
         saveTexts();
         displayTexts();
         deleteSelectedButton.style.display = 'none';
-        showStatusMessage('Selected entries deleted.');
+        showStatusMessage(`Deleted: ${deletedEntries.join(', ')}`);
+        //showStatusMessage('Selected entries deleted.');
     });
 
     generatePdfButton.addEventListener('click', () => {
