@@ -93,16 +93,20 @@ deleteSelectedButton.addEventListener('click', () => {
         return;
     }
 
-    const idsToDelete = Array.from(checkedBoxes).map(checkbox => checkbox.dataset.id);
+    const idsToDelete = [];
     const deletedEntries = [];
 
-    texts = texts.filter(text => {
-        if (idsToDelete.includes(text.id)) {
-            deletedEntries.push(capitalizeWords(text.content));
-            return false;
+    checkedBoxes.forEach(checkbox => {
+        const id = checkbox.dataset.id;
+        idsToDelete.push(id);
+
+        const entry = texts.find(text => text.id === id);
+        if (entry) {
+            deletedEntries.push(capitalizeWords(entry.content));
         }
-        return true;
     });
+
+    texts = texts.filter(text => !idsToDelete.includes(text.id));
 
     saveTexts();
     displayTexts();
@@ -131,9 +135,10 @@ generatePdfButton.addEventListener('click', () => {
         const tableData = filteredTexts.map((text, index) => [
             index + 1,
             capitalizeWords(text.content),
+            capitalizeWords(text.type)
         ]);
 
-        const headers = ['#', 'Entry'];
+        const headers = ['#', 'Entry', 'Type'];
 
         doc.autoTable({
             startY: currentY,
