@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cell.textContent = 'Nothing to show';
             row.appendChild(cell);
             textList.appendChild(row);
-            textTable.style.display = 'none';
+            textTable.style.display = 'table';
             generatePdfButton.style.display = 'none';
             return;
         }
@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const textContent = textInput.value.trim().toLowerCase();
         const textType = customTextTypeInput.value.trim().toLowerCase();
 
-        if (texts.some(text => text.content === textContent && text.type === textType)) {
+        if (texts.some(text=> text.content.toLowerCase()=== textContent && text.type.toLowerCase()=== textType)) {
             showStatusMessage('Duplicate entry not allowed.');
             return;
         }
