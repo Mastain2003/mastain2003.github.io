@@ -142,7 +142,8 @@ document.addEventListener('DOMContentLoaded', () => {
         updateDatalist();
         textInput.value = '';
         customTextTypeInput.value = '';
-        showStatusMessage(` ${capitalizeWords(textContent)} added successfully.`);
+       // showStatusMessage(` ${capitalizeWords(textContent)} added successfully.`);
+        showStatusMessage(`Added: ${capitalizeWords(textContent)}`);
     });
 
     showListButton.addEventListener('click', displayTexts);
