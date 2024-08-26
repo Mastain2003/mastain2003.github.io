@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
         //showStatusMessage('Selected entries deleted.');
     });
 
-    generatePdfButton.addEventListener('click', () => {
+    /*generatePdfButton.addEventListener('click', () => {
         alert('1');
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF('landscape'); // Switch to landscape mode to better fit side-by-side tables
@@ -244,6 +244,56 @@ document.addEventListener('DOMContentLoaded', () => {
 
     doc.save("text_management_list.pdf");
     alert('4');
-});
+});*/
+    function generatePDF() {
+    const existingEntries = JSON.parse(localStorage.getItem('texts')) || [];
+    if (existingEntries.length === 0) {
+        showStatusMessage("No entries to display.");
+        return;
+    }
+
+    const doc = new jsPDF();
+
+    // Group entries by type
+    const groupedEntries = existingEntries.reduce((acc, entry) => {
+        const type = entry.type.toLowerCase();
+        if (!acc[type]) {
+            acc[type] = [];
+        }
+        acc[type].push(entry);
+        return acc;
+    }, {});
+
+    let pageOffset = 10;
+    const pageHeight = doc.internal.pageSize.height;
+
+    Object.keys(groupedEntries).forEach((type, index) => {
+        if (index > 0) {
+            doc.addPage();
+            pageOffset = 10; // Reset offset for new page
+        }
+
+        doc.setFontSize(16);
+        doc.text(`Type: ${type.charAt(0).toUpperCase() + type.slice(1)}`, 10, pageOffset);
+        pageOffset += 10;
+
+        const tableData = groupedEntries[type].map((entry, idx) => [
+            (idx + 1).toString(),
+            entry.content.charAt(0).toUpperCase() + entry.content.slice(1),
+        ]);
+
+        doc.autoTable({
+            head: [['No.', 'Location']],
+            body: tableData,
+            startY: pageOffset,
+            margin: { top: 10 },
+            styles: { overflow: 'linebreak', cellWidth: 'wrap' }
+        });
+
+        pageOffset += doc.previousAutoTable.finalY + 10;
+    });
+
+    doc.save('entries.pdf');
+}
     updateDatalist();
 });
