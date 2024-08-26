@@ -169,4 +169,4 @@ function generatePDF() {
 
 // Initial setup
 updateTypeOptions();
-displayEntries();
+//displayEntries();
