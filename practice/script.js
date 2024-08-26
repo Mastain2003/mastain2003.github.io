@@ -165,52 +165,51 @@ document.addEventListener('DOMContentLoaded', () => {
 
     generatePdfButton.addEventListener('click', () => {
     const { jsPDF } = window.jspdf;
-    const doc = new jsPDF();
+    const doc = new jsPDF('landscape'); // Switch to landscape mode to better fit side-by-side tables
+    const pageWidth = doc.internal.pageSize.getWidth();
+    let currentX = 14;
+    let currentY = 20;
+    const margin = 10; // Margin between tables
 
-    // Get unique types from the texts
     const uniqueTypes = [...new Set(texts.map(text => text.type))];
 
-    // Set initial vertical position
-    let currentY = 16;
-
-    // Loop through each unique type to create a separate table
-    uniqueTypes.forEach((type) => {
-        // Filter texts by current type
+    uniqueTypes.forEach((type, index) => {
         const filteredTexts = texts.filter(text => text.type === type);
-
-        // Skip if there are no entries for this type
         if (filteredTexts.length === 0) return;
 
-        // Add type title
-        doc.setFontSize(18);
-        doc.text(capitalizeWords(type) + " Entries", 14, currentY);
-        currentY += 10;
-
-        // Prepare the table data
         const tableData = filteredTexts.map((text, index) => [
             index + 1,
-            capitalizeWords(text.content),
-            capitalizeWords(text.type)
+            capitalizeWords(text.content)
         ]);
 
-        // Set table headers
-        const headers = ['#', 'Entry', 'Type'];
+        const headers = ['#', 'Entry'];
 
-        // Add table for this type
+        // Measure the width of the table to see if it fits
+        const tableWidth = doc.getStringUnitWidth(headers.join(' ') + ' ' + tableData.map(row => row.join(' ')).join(' ')) * doc.internal.getFontSize();
+
+        if (currentX + tableWidth + margin > pageWidth) {
+            currentX = 14; // Reset X position to the left margin
+            currentY += 70; // Move down to the next row
+        }
+
+        doc.setFontSize(14);
+        doc.text(capitalizeWords(type) + " Entries", currentX, currentY - 5);
+
         doc.autoTable({
             startY: currentY,
+            startX: currentX,
             head: [headers],
             body: tableData,
             theme: 'grid',
             headStyles: {
-                fillColor: [0, 4, 109], // Header color matching the theme color
+                fillColor: [0, 4, 109],
                 textColor: [255, 255, 255]
             },
             bodyStyles: {
-                fillColor: [240, 240, 240], // Light grey for table rows
+                fillColor: [240, 240, 240],
             },
             alternateRowStyles: {
-                fillColor: [255, 255, 255] // White for alternate rows
+                fillColor: [255, 255, 255]
             },
             styles: {
                 fontSize: 12,
@@ -219,13 +218,17 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Update currentY to the position after the table
-        currentY = doc.lastAutoTable.finalY + 10;
+        const lastY = doc.lastAutoTable.finalY;
+        const lastX = doc.lastAutoTable.finalX;
+        currentX = lastX + margin; // Move to the right of the current table
+
+        if (currentX + tableWidth + margin > pageWidth) {
+            currentX = 14; // Reset X position to the left margin
+            currentY = lastY + 20; // Move down to the next row
+        }
     });
 
-    // Save the PDF
     doc.save("text_management_list.pdf");
 });
-
     updateDatalist();
 });
