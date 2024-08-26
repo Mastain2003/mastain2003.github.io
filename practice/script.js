@@ -244,7 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const lastX = (doc as any ).lastAutoTable.finalX;
         currentX = lastX+ margin; // Move to the right of the current table
          alert(typeof(lastX));
-        alert('margin');
+        alert('margin any');
         alert(typeof(margin));
         if (currentX + tableWidth + margin > pageWidth) {
             currentX = 14; // Reset X position to the left margin
