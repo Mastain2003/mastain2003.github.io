@@ -16,8 +16,14 @@ function saveTexts() {
     localStorage.setItem('texts', JSON.stringify(texts));
 }
 
-function showStatusMessage(message) {
+function showStatusMessage(message, timeout = 3000) {
     statusMessage.textContent = message;
+    statusMessage.style.visibility = 'visible';
+
+    setTimeout(() => {
+        statusMessage.style.visibility = 'hidden';
+        statusMessage.textContent = '';
+    }, timeout);
 }
 
 function displayTexts() {
@@ -28,7 +34,6 @@ function displayTexts() {
         return;
     }
 
-    // Add table headers
     textList.innerHTML = `
         <tr>
             <th>#</th>
@@ -52,7 +57,6 @@ function displayTexts() {
         textList.appendChild(row);
     });
 
-    // Show PDF button only if there are entries
     generatePdfButton.style.display = texts.length > 0 ? 'block' : 'none';
 }
 
@@ -65,7 +69,6 @@ addButton.addEventListener('click', () => {
         return;
     }
 
-    // Check for duplicates
     if (texts.some(text => text.content === content && text.type === type)) {
         showStatusMessage('Duplicate entry.');
         return;
@@ -93,20 +96,16 @@ deleteSelectedButton.addEventListener('click', () => {
         return;
     }
 
-    const idsToDelete = [];
+    const idsToDelete = Array.from(checkedBoxes).map(checkbox => checkbox.dataset.id);
     const deletedEntries = [];
 
-    checkedBoxes.forEach(checkbox => {
-        const id = checkbox.dataset.id;
-        idsToDelete.push(id);
-
-        const entry = texts.find(text => text.id === id);
-        if (entry) {
-            deletedEntries.push(capitalizeWords(entry.content));
+    texts = texts.filter(text => {
+        if (idsToDelete.includes(text.id)) {
+            deletedEntries.push(capitalizeWords(text.content));
+            return false;
         }
+        return true;
     });
-
-    texts = texts.filter(text => !idsToDelete.includes(text.id));
 
     saveTexts();
     displayTexts();
@@ -119,29 +118,38 @@ showListButton.addEventListener('click', displayTexts);
 
 generatePdfButton.addEventListener('click', () => {
     const { jsPDF } = window.jspdf;
-    const doc = new jsPDF();
+    const doc = new jsPDF('landscape');
+    const pageWidth = doc.internal.pageSize.getWidth();
+    let currentX = 14;
+    let currentY = 20;
+    const margin = 10;
 
     const uniqueTypes = [...new Set(texts.map(text => text.type))];
-    let currentY = 16;
 
-    uniqueTypes.forEach(type => {
+    uniqueTypes.forEach((type, index) => {
         const filteredTexts = texts.filter(text => text.type === type);
         if (filteredTexts.length === 0) return;
 
-        doc.setFontSize(18);
-        doc.text(capitalizeWords(type) + " Entries", 14, currentY);
-        currentY += 10;
-
         const tableData = filteredTexts.map((text, index) => [
             index + 1,
-            capitalizeWords(text.content),
-            capitalizeWords(text.type)
+            capitalizeWords(text.content)
         ]);
 
-        const headers = ['#', 'Entry', 'Type'];
+        const headers = ['#', 'Entry'];
+
+        const tableWidth = doc.getStringUnitWidth(headers.join(' ') + ' ' + tableData.map(row => row.join(' ')).join(' ')) * doc.internal.getFontSize();
+
+        if (currentX + tableWidth + margin > pageWidth) {
+            currentX = 14;
+            currentY += 70;
+        }
+
+        doc.setFontSize(14);
+        doc.text(capitalizeWords(type) + " Entries", currentX, currentY - 5);
 
         doc.autoTable({
             startY: currentY,
+            startX: currentX,
             head: [headers],
             body: tableData,
             theme: 'grid',
@@ -162,7 +170,14 @@ generatePdfButton.addEventListener('click', () => {
             }
         });
 
-        currentY = doc.lastAutoTable.finalY + 10;
+        const lastY = doc.lastAutoTable.finalY;
+        const lastX = doc.lastAutoTable.finalX;
+        currentX = lastX + margin;
+
+        if (currentX + tableWidth + margin > pageWidth) {
+            currentX = 14;
+            currentY = lastY + 20;
+        }
     });
 
     doc.save("text_management_list.pdf");
