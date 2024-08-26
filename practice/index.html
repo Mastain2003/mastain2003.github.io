@@ -4,31 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#00046d">
-    <link rel="manifest" href="/manifest.json">
-    <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Text Management App">
-    <title>Text Management App</title>
+    <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="styles.css">
+    <title>Text Management App</title>
 </head>
 <body>
-    <h1>Text Management App</h1>
-
-    <div id="inputContainer">
-        <input type="text" id="entryInput" placeholder="Enter text" required>
-        <input type="text" id="typeInput" placeholder="Enter type" required>
-        <button id="addButton">Add</button>
-    </div>
-
-    <button id="showListButton">Show List</button>
-    <button id="deleteSelectedButton" style="display: none;">Delete Selected</button>
-    <button id="generatePdfButton" style="display: none;">Download as PDF</button>
-
-    <table id="textList"></table>
-
-    <div id="statusContainer">
-        <p id="statusMessage"></p>
+    <div class="container">
+        <h1>Text Management App</h1>
+        <input type="text" id="entryInput" placeholder="Enter text">
+        <input type="text" id="typeInput" placeholder="Enter type">
+        <button id="addButton">Add Entry</button>
+        <button id="deleteSelectedButton" class="secondary" style="display:none;">Delete Selected</button>
+        <button id="showListButton">Show List</button>
+        <button id="generatePdfButton" style="display:none;">Download as PDF</button>
+        <div id="statusContainer">
+          <p class="status-message" id="statusMessage"></p>
+        </div>
+        <table id="textList">
+            <!-- Table headers will be dynamically added -->
+        </table>
     </div>
 
     <script src="script.js"></script>
