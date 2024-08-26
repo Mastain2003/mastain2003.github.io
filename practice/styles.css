@@ -4,6 +4,7 @@ body {
     color: #333;
     margin: 0;
     padding: 20px;
+    box-sizing: border-box;
 }
 
 h1 {
@@ -14,20 +15,23 @@ h1 {
 
 #inputContainer {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    margin-bottom: 20px;
     gap: 10px;
+    margin-bottom: 20px;
 }
 
 #inputContainer input, 
 #inputContainer button {
     padding: 10px;
     font-size: 16px;
+    box-sizing: border-box;
 }
 
 #entryInput, 
 #typeInput {
-    width: 250px;
+    flex: 1 1 200px;
+    min-width: 200px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
@@ -38,7 +42,9 @@ h1 {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    width: 120px;
+    flex: 0 1 120px;
+    min-width: 120px;
+    text-align: center;
 }
 
 #addButton:hover {
@@ -49,7 +55,7 @@ h1 {
 #deleteSelectedButton,
 #generatePdfButton {
     display: block;
-    margin: 0 auto 10px auto;
+    margin: 10px auto;
     padding: 10px 20px;
     font-size: 16px;
     background-color: #00046d;
@@ -57,7 +63,7 @@ h1 {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    width: 200px;
+    width: auto;
     text-align: center;
 }
 
@@ -74,9 +80,11 @@ h1 {
 
 table {
     width: 100%;
-    max-width: 800px;
+    max-width: 100%;
     margin: 0 auto;
     border-collapse: collapse;
+    table-layout: fixed;
+    word-wrap: break-word;
 }
 
 th, 
@@ -84,7 +92,6 @@ td {
     padding: 10px;
     text-align: left;
     border-bottom: 1px solid #ddd;
-    word-wrap: break-word;
 }
 
 th {
