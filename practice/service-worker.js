@@ -1,4 +1,4 @@
-const CACHE_NAME = 'text-manager-cache-v6';
+const CACHE_NAME = 'text-manager-cache-v1';
 const urlsToCache = [
   '/',
   '/index.html',
