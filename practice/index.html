@@ -8,7 +8,7 @@
     <title>Text Manager</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.13/jspdf.plugin.autotable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.13/jspdf.plugin.autotable.min.js"></script>
 </head>
 <body>
     <h1>Text Manager</h1>
@@ -21,24 +21,19 @@
     </div>
 
     <div id="filterContainer">
-        <label for="filterType">Filter by Type:</label>
-        <input type="text" id="filterType" list="typeOptions" placeholder="All">
-        
-        <label for="filterStatus">Filter by Status:</label>
+       <select id="filterType">
+            <option value="">All Types</option>
+       </select>
         <select id="filterStatus">
             <option value="all">All</option>
             <option value="unread">Unread</option>
             <option value="read">Read</option>
         </select>
-
-        <label for="filterLimit">Limit Entries:</label>
         <select id="filterLimit">
             <option value="all">All</option>
             <option value="10">10</option>
             <option value="20">20</option>
         </select>
-
-        <label for="randomizeOrder">Randomize:</label>
         <input type="checkbox" id="randomizeOrder">
         
         <button id="showListButton">Show List</button>
