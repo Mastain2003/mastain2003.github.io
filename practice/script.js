@@ -239,12 +239,13 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
        // alert(currentX);
-        // alert('8');
+        alert(typeof(doc.lastAutoTable));
+         alert('8');
         const lastY =doc.lastAutoTable.finalY;
         const lastX = doc.lastAutoTable.finalX;
         currentX = lastX+ margin; // Move to the right of the current table
          alert(typeof(doc.lastAutoTable.finalX));
-        alert('margin any 5');
+        alert('margin any 6');
        // alert(typeof(margin));
         if (currentX + tableWidth + margin > pageWidth) {
             currentX = 14; // Reset X position to the left margin
