@@ -165,58 +165,6 @@ function showStatusMessage(message) {
 
 function generatePDF() {
     // PDF generation logic here
-    const { jsPDF } = window.jspdf;
-    const doc = new jsPDF();
-
-    const uniqueTypes = [...new Set(texts.map(text => text.type))];
-    let currentY = 16;
-
-    uniqueTypes.forEach(type => {
-        const filteredTexts = texts.filter(text => text.type === type);
-        if (filteredTexts.length === 0) return;
-
-        doc.setFontSize(18);
-        doc.text(capitalizeWords(type) + " Entries", 14, currentY);
-        currentY += 10;
-
-        const tableData = filteredTexts.map((text, index) => [
-            index + 1,
-            capitalizeWords(text.content),
-        ]);
-
-        const headers = ['#', 'Entry'];
-
-        doc.autoTable({
-            startY: currentY,
-            head: [headers],
-            body: tableData,
-            theme: 'grid',
-            headStyles: {
-                fillColor: [0, 4, 109],
-                textColor: [255, 255, 255]
-            },
-            bodyStyles: {
-                fillColor: [240, 240, 240],
-            },
-            alternateRowStyles: {
-                fillColor: [255, 255, 255]
-            },
-            styles: {
-                fontSize: 12,
-                cellPadding: 3,
-                valign: 'middle'
-            }
-        });
-
-        currentY = doc.lastAutoTable.finalY + 10;
-    });
-
-    doc.save("text_management_list.pdf");
-});
-
-textList.addEventListener('change', () => {
-    const checkedBoxes = document.querySelectorAll('#textList input[type="checkbox"]:checked');
-    deleteSelectedButton.style.display = checkedBoxes.length > 0 ? 'block' : 'none';
 }
 
 // Initial setup
