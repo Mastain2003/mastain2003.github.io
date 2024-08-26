@@ -207,10 +207,11 @@ document.addEventListener('DOMContentLoaded', () => {
             currentX = 14; // Reset X position to the left margin
             currentY += 70; // Move down to the next row
         }
-
+        alert('7.1');
         doc.setFontSize(14);
+        alert('7.2');
         doc.text(capitalizeWords(type) + " Entries", currentX, currentY - 5);
-
+        alert('7.3');
         doc.autoTable({
             startY: currentY,
             startX: currentX,
@@ -233,6 +234,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 valign: 'middle'
             }
         });
+        alert('7.4');
          alert('8');
         const lastY = doc.lastAutoTable.finalY;
         const lastX = doc.lastAutoTable.finalX;
