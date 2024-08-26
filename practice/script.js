@@ -227,7 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 textColor: [255, 255, 255]
             },
             bodyStyles: {
-                fillColor: [240, 240, 240],
+                fillColor: [240, 240, 240]
             },
             alternateRowStyles: {
                 fillColor: [255, 255, 255]
