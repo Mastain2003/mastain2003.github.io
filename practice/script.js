@@ -174,9 +174,10 @@ document.addEventListener('DOMContentLoaded', () => {
         //showStatusMessage('Selected entries deleted.');
     });
 
-    /*generatePdfButton.addEventListener('click', () => {
+    generatePdfButton.addEventListener('click', () => {
         alert('1');
-    const { jsPDF } = window.jspdf;
+        generatePDF();
+    /*const { jsPDF } = window.jspdf;
     const doc = new jsPDF('landscape'); // Switch to landscape mode to better fit side-by-side tables
     const pageWidth = doc.internal.pageSize.getWidth();
     let currentX = 14;
@@ -243,8 +244,8 @@ document.addEventListener('DOMContentLoaded', () => {
     alert('3');
 
     doc.save("text_management_list.pdf");
-    alert('4');
-});*/
+    alert('4');*/
+});
     function generatePDF() {
     const existingEntries = JSON.parse(localStorage.getItem('texts')) || [];
     if (existingEntries.length === 0) {
