@@ -175,6 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     generatePdfButton.addEventListener('click', () => {
+        alert('1');
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF('landscape'); // Switch to landscape mode to better fit side-by-side tables
     const pageWidth = doc.internal.pageSize.getWidth();
@@ -183,6 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const margin = 10; // Margin between tables
 
     const uniqueTypes = [...new Set(texts.map(text => text.type))];
+        alert('2');
 
     uniqueTypes.forEach((type, index) => {
         const filteredTexts = texts.filter(text => text.type === type);
@@ -238,8 +240,10 @@ document.addEventListener('DOMContentLoaded', () => {
             currentY = lastY + 20; // Move down to the next row
         }
     });
+    alert('3');
 
     doc.save("text_management_list.pdf");
+    alert('4');
 });
     updateDatalist();
 });
