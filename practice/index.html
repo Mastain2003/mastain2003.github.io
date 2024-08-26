@@ -3,64 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Text Management App</title>
-    
-    <!-- Theme color for PWA -->
     <meta name="theme-color" content="#00046d">
-    
-    <!-- Link to the PWA manifest -->
-    <link rel="manifest" href="manifest.json">
-    
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Text Management App">
+    <title>Text Management App</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.13/jspdf.plugin.autotable.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <h1>Text Management App</h1>
-        <form id="textForm">
-            <input id="textInput" type="text" placeholder="Enter text" required>
-            <input id="customTextType" list="textTypeList" placeholder="Enter type" required>
-            <datalist id="textTypeList"></datalist>
-            <button type="submit" class="primary-button">Add Entry</button>
-        </form>
+    <h1>Text Management App</h1>
 
-        <div id="filters">
-            <select id="filterType">
-                <option value="">All Types</option>
-            </select>
-            <select id="filterStatus">
-                <option value="">All Status</option>
-                <option value="unread">Unread</option>
-                <option value="read">Read</option>
-            </select>
-            <select id="limitEntries">
-                <option value="0">All</option>
-                <option value="10">10</option>
-                <option value="20">20</option>
-            </select>
-            <label>
-                <input type="checkbox" id="randomizeCheckbox"> Randomize List
-            </label>
-            <button id="showListButton" class="primary-button">Show List</button>
-        </div>
+    <div id="inputContainer">
+        <input type="text" id="entryInput" placeholder="Enter text" required>
+        <input type="text" id="typeInput" placeholder="Enter type" required>
+        <button id="addButton">Add</button>
+    </div>
 
-        <table id="textTable" style="display: none;">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Text</th>
-                    <th>Type</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody id="textList"></tbody>
-        </table>
+    <button id="showListButton">Show List</button>
+    <button id="deleteSelectedButton" style="display: none;">Delete Selected</button>
+    <button id="generatePdfButton" style="display: none;">Download as PDF</button>
 
-        <button id="deleteSelectedButton" class="secondary-button" style="display: none;">Delete Selected</button>
-        <button id="generatePdfButton" class="primary-button" style="display: none;">Download as PDF</button>
+    <table id="textList"></table>
 
-        <div id="statusMessage" style="display: none;"></div>
+    <div id="statusContainer">
+        <p id="statusMessage"></p>
     </div>
 
     <script src="script.js"></script>
