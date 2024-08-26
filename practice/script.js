@@ -240,8 +240,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         alert(currentX);
          alert('8');
-        const lastY = doc.lastAutoTable.finalY;
-        const lastX = doc.lastAutoTable.finalX;
+        const lastY =( doc as any).lastAutoTable.finalY;
+        const lastX = (doc as any ).lastAutoTable.finalX;
         currentX = lastX+ margin; // Move to the right of the current table
          alert(typeof(lastX));
         alert('margin');
