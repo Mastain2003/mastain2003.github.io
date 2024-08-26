@@ -210,7 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
        // alert('7.1');
         doc.setFontSize(14);
        // alert('7.2');
-     alert(currentX);
+    // alert(currentX);
       // alert(capitalizeWords(type));
         //alert(currentY-5);
         
@@ -238,25 +238,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 valign: 'middle'
             }
         });
-        alert(currentX);
-         alert('8');
+       // alert(currentX);
+        // alert('8');
         const lastY =doc.lastAutoTable.finalY;
         const lastX = doc.lastAutoTable.finalX;
         currentX = lastX+ margin; // Move to the right of the current table
          alert(typeof(lastX));
         alert('margin any');
-        alert(typeof(margin));
+       // alert(typeof(margin));
         if (currentX + tableWidth + margin > pageWidth) {
             currentX = 14; // Reset X position to the left margin
             currentY = lastY + 20; // Move down to the next row
         }
-        alert(currentX);
-        alert('9');
+        //alert(currentX);
+        //alert('9');
     });
-    alert('3');
+   // alert('3');
 
     doc.save("text_management_list.pdf");
-    alert('4');
+    //alert('4');
 });
     /*function generatePDF() {
     const existingEntries = JSON.parse(localStorage.getItem('texts')) || [];
