@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     generatePdfButton.addEventListener('click', () => {
-        alert('1');
+        //alert('1');
        // generatePDF();
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF('landscape'); // Switch to landscape mode to better fit side-by-side tables
@@ -185,10 +185,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const margin = 10; // Margin between tables
 
     const uniqueTypes = [...new Set(texts.map(text => text.type))];
-        alert('2');
+       // alert('2');
 
     uniqueTypes.forEach((type, index) => {
-        alert('5');
+        //alert('5');
         const filteredTexts = texts.filter(text => text.type === type);
         if (filteredTexts.length === 0) return;
 
@@ -196,20 +196,24 @@ document.addEventListener('DOMContentLoaded', () => {
             index + 1,
             capitalizeWords(text.content)
         ]);
-        alert('6');
+       // alert('6');
 
         const headers = ['#', 'Entry'];
 
         // Measure the width of the table to see if it fits
         const tableWidth = doc.getStringUnitWidth(headers.join(' ') + ' ' + tableData.map(row => row.join(' ')).join(' ')) * doc.internal.getFontSize();
-         alert('7');
+         //alert('7');
         if (currentX + tableWidth + margin > pageWidth) {
             currentX = 14; // Reset X position to the left margin
             currentY += 70; // Move down to the next row
         }
-        alert('7.1');
+       // alert('7.1');
         doc.setFontSize(14);
-        alert('7.2');
+       // alert('7.2');
+     alert(currentX);
+       alert(capitalizeWords(type));
+        alert(currentY-5);
+        
         doc.text(capitalizeWords(type) + " Entries", currentX, currentY - 5);
         alert('7.3');
         doc.autoTable({
