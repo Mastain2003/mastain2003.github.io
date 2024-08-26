@@ -115,39 +115,28 @@ showListButton.addEventListener('click', displayTexts);
 
 generatePdfButton.addEventListener('click', () => {
     const { jsPDF } = window.jspdf;
-    const doc = new jsPDF('landscape'); // Switch to landscape mode to better fit side-by-side tables
-    const pageWidth = doc.internal.pageSize.getWidth();
-    let currentX = 14;
-    let currentY = 20;
-    const margin = 10; // Margin between tables
+    const doc = new jsPDF();
 
     const uniqueTypes = [...new Set(texts.map(text => text.type))];
+    let currentY = 16;
 
-    uniqueTypes.forEach((type, index) => {
+    uniqueTypes.forEach(type => {
         const filteredTexts = texts.filter(text => text.type === type);
         if (filteredTexts.length === 0) return;
 
+        doc.setFontSize(18);
+        doc.text(capitalizeWords(type) + " Entries", 14, currentY);
+        currentY += 10;
+
         const tableData = filteredTexts.map((text, index) => [
             index + 1,
-            capitalizeWords(text.content)
+            capitalizeWords(text.content),
         ]);
 
         const headers = ['#', 'Entry'];
 
-        // Measure the width of the table to see if it fits
-        const tableWidth = doc.getStringUnitWidth(headers.join(' ') + ' ' + tableData.map(row => row.join(' ')).join(' ')) * doc.internal.getFontSize();
-
-        if (currentX + tableWidth + margin > pageWidth) {
-            currentX = 14; // Reset X position to the left margin
-            currentY += 70; // Move down to the next row
-        }
-
-        doc.setFontSize(14);
-        doc.text(capitalizeWords(type) + " Entries", currentX, currentY - 5);
-
         doc.autoTable({
             startY: currentY,
-            startX: currentX,
             head: [headers],
             body: tableData,
             theme: 'grid',
@@ -168,14 +157,7 @@ generatePdfButton.addEventListener('click', () => {
             }
         });
 
-        const lastY = doc.lastAutoTable.finalY;
-        const lastX = doc.lastAutoTable.finalX;
-        currentX = lastX + margin; // Move to the right of the current table
-
-        if (currentX + tableWidth + margin > pageWidth) {
-            currentX = 14; // Reset X position to the left margin
-            currentY = lastY + 20; // Move down to the next row
-        }
+        currentY = doc.lastAutoTable.finalY + 10;
     });
 
     doc.save("text_management_list.pdf");
