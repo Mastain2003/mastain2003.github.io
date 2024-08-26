@@ -3,29 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#00046d">
-    <link rel="manifest" href="/manifest.json">
-    <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Text Management App">
-    <title>Text Management App</title>
+    <meta name="theme-color" content="#110011">
+    <link rel="manifest" href="manifest.json">
+    <title>Text Manager</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Text Management App</h1>
+    <h1>Text Manager</h1>
 
     <div id="inputContainer">
         <input type="text" id="entryInput" placeholder="Enter text" required>
-        <input type="text" id="typeInput" placeholder="Enter type" required>
-        <button id="addButton">Add</button>
+        <input type="text" id="typeInput" list="typeOptions" placeholder="Enter type" required>
+        <datalist id="typeOptions"></datalist>
+        <button id="addButton">Add Entry</button>
     </div>
 
-    <button id="showListButton">Show List</button>
-    <button id="deleteSelectedButton" style="display: none;">Delete Selected</button>
-    <button id="generatePdfButton" style="display: none;">Download as PDF</button>
+    <div id="filterContainer">
+        <label for="filterType">Filter by Type:</label>
+        <input type="text" id="filterType" list="typeOptions" placeholder="All">
+        
+        <label for="filterStatus">Filter by Status:</label>
+        <select id="filterStatus">
+            <option value="all">All</option>
+            <option value="unread">Unread</option>
+            <option value="read">Read</option>
+        </select>
 
-    <table id="textList"></table>
+        <label for="filterLimit">Limit Entries:</label>
+        <select id="filterLimit">
+            <option value="all">All</option>
+            <option value="10">10</option>
+            <option value="20">20</option>
+        </select>
+
+        <label for="randomizeOrder">Randomize:</label>
+        <input type="checkbox" id="randomizeOrder">
+        
+        <button id="showListButton">Show List</button>
+    </div>
+
+    <table id="entryTable">
+        <!-- Table headers will be dynamically inserted here -->
+    </table>
+
+    <button id="deleteSelectedButton">Delete Selected</button>
+    <button id="generatePdfButton">Download as PDF</button>
 
     <div id="statusContainer">
         <p id="statusMessage"></p>
