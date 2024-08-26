@@ -1,158 +1,91 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const textInput = document.getElementById('textInput');
-    const customTextTypeInput = document.getElementById('customTextType');
-    const textList = document.getElementById('textList');
-    const textTypeList = document.getElementById('textTypeList');
-    const textForm = document.getElementById('textForm');
-    const filterType = document.getElementById('filterType');
-    const filterStatus = document.getElementById('filterStatus');
-    const limitEntries = document.getElementById('limitEntries');
-    const deleteSelectedButton = document.getElementById('deleteSelectedButton');
-    const showListButton = document.getElementById('showListButton');
-    const generatePdfButton = document.getElementById('generatePdfButton');
-    const statusMessage = document.getElementById('statusMessage');
-    const textTable = document.getElementById('textTable');
-    const randomizeCheckbox = document.getElementById('randomizeCheckbox');
+let texts = JSON.parse(localStorage.getItem('texts')) || [];
+const entryInput = document.getElementById('entryInput');
+const typeInput = document.getElementById('typeInput');
+const addButton = document.getElementById('addButton');
+const deleteSelectedButton = document.getElementById('deleteSelectedButton');
+const showListButton = document.getElementById('showListButton');
+const generatePdfButton = document.getElementById('generatePdfButton');
+const textList = document.getElementById('textList');
+const statusMessage = document.getElementById('statusMessage');
 
-    let texts = JSON.parse(localStorage.getItem('texts')) || [];
+function capitalizeWords(str) {
+    return str.replace(/\b\w/g, c => c.toUpperCase());
+}
 
-    const saveTexts = () => {
-        localStorage.setItem('texts', JSON.stringify(texts));
-    };
+function saveTexts() {
+    localStorage.setItem('texts', JSON.stringify(texts));
+}
 
-    const updateDatalist = () => {
-        const uniqueTypes = [...new Set(texts.map(text => text.type))];
-        textTypeList.innerHTML = '';
-        filterType.innerHTML = '<option value="">All Types</option>';
-        uniqueTypes.forEach(type => {
-            const option = document.createElement('option');
-            option.value = type;
-            option.textContent = capitalizeWords(type);
-            textTypeList.appendChild(option);
-            filterType.appendChild(option.cloneNode(true));
-        });
-    };
+function showStatusMessage(message) {
+    statusMessage.textContent = message;
+}
 
-    const capitalizeWords = (str) => {
-        return str.replace(/\b\w/g, (char) => char.toUpperCase());
-    };
+function displayTexts() {
+    textList.innerHTML = '';
+    
+    if (texts.length === 0) {
+        textList.innerHTML = '<tr><td class="no-entries" colspan="4">Nothing to display</td></tr>';
+        return;
+    }
 
-    const shuffleArray = (array) => {
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
-        }
-        return array;
-    };
+    // Add table headers
+    textList.innerHTML = `
+        <tr>
+            <th>#</th>
+            <th>Entry</th>
+            <th>Type</th>
+            <th>Select</th>
+        </tr>
+    `;
 
-    const displayTexts = () => {
-        textList.innerHTML = '';
+    texts.forEach((text, index) => {
+        const row = document.createElement('tr');
+        row.className = text.read ? 'highlight' : '';
 
-        // Filter texts based on type and status
-        let filteredTexts = texts.filter(text => {
-            const typeMatch = !filterType.value || text.type === filterType.value;
-            const statusMatch = !filterStatus.value || text.status === filterStatus.value;
-            return typeMatch && statusMatch;
-        });
+        row.innerHTML = `
+            <td>${index + 1}</td>
+            <td>${capitalizeWords(text.content)}</td>
+            <td>${capitalizeWords(text.type)}</td>
+            <td><input type="checkbox" data-id="${text.id}"></td>
+        `;
 
-        // Check if randomization is enabled
-        if (randomizeCheckbox.checked) {
-            filteredTexts = shuffleArray(filteredTexts);
-        }
-
-        // Apply limit to the number of entries displayed
-        filteredTexts = limitEntries.value === '0' ? filteredTexts : filteredTexts.slice(0, parseInt(limitEntries.value));
-
-        if (filteredTexts.length === 0) {
-            const row = document.createElement('tr');
-            const cell = document.createElement('td');
-            cell.colSpan = 4;
-            cell.textContent = 'Nothing to show';
-            row.appendChild(cell);
-            textList.appendChild(row);
-            textTable.style.display = 'none';
-            generatePdfButton.style.display = 'none';
-            return;
-        }
-
-        // Display the filtered (and possibly randomized) texts
-        filteredTexts.forEach((text, index) => {
-            const row = document.createElement('tr');
-            row.className = text.status === 'read' ? 'read-row' : '';
-
-            const numberCell = document.createElement('td');
-            numberCell.textContent = index + 1;
-            row.appendChild(numberCell);
-
-            const textCell = document.createElement('td');
-            textCell.textContent = capitalizeWords(text.content);
-            row.appendChild(textCell);
-
-            const typeCell = document.createElement('td');
-            typeCell.textContent = capitalizeWords(text.type);
-            row.appendChild(typeCell);
-
-            const checkboxCell = document.createElement('td');
-            const checkbox = document.createElement('input');
-            checkbox.type = 'checkbox';
-            checkbox.dataset.id = text.id;  // Using a unique ID for each entry
-            checkboxCell.appendChild(checkbox);
-            row.appendChild(checkboxCell);
-
-            textList.appendChild(row);
-
-            // Mark as read
-            text.status = 'read';
-        });
-
-        // Update the display status of the table and buttons
-        textTable.style.display = 'table';
-        generatePdfButton.style.display = 'inline-block';
-        deleteSelectedButton.style.display = 'none';  // Initially hide delete button
-        saveTexts();
-    };
-
-    const showStatusMessage = (message) => {
-        statusMessage.textContent = message;
-        statusMessage.style.display = 'block';
-        setTimeout(() => {
-            statusMessage.style.display = 'none';
-        }, 2000);
-    };
-
-    textForm.addEventListener('submit', (event) => {
-        event.preventDefault();
-        const textContent = textInput.value.trim().toLowerCase();
-        const textType = customTextTypeInput.value.trim().toLowerCase();
-
-        if (texts.some(text => text.content === textContent && text.type === textType)) {
-            showStatusMessage('Duplicate entry not allowed.');
-            return;
-        }
-
-        const newText = {
-            id: Date.now(),  // Unique ID for each entry
-            content: textContent,
-            type: textType,
-            status: 'unread'
-        };
-
-        texts.push(newText);
-        saveTexts();
-        updateDatalist();
-        textInput.value = '';
-        customTextTypeInput.value = '';
-        showStatusMessage('Entry added successfully.');
+        textList.appendChild(row);
     });
 
-    showListButton.addEventListener('click', displayTexts);
+    // Show PDF button only if there are entries
+    generatePdfButton.style.display = texts.length > 0 ? 'block' : 'none';
+}
 
-    textList.addEventListener('change', (event) => {
-        const checkedBoxes = document.querySelectorAll('#textList input[type="checkbox"]:checked');
-        deleteSelectedButton.style.display = checkedBoxes.length > 0 ? 'inline-block' : 'none';
-    });
+addButton.addEventListener('click', () => {
+    const content = entryInput.value.trim();
+    const type = typeInput.value.trim();
 
-    deleteSelectedButton.addEventListener('click', () => {
+    if (!content || !type) {
+        showStatusMessage('Both fields are required.');
+        return;
+    }
+
+    // Check for duplicates
+    if (texts.some(text => text.content === content && text.type === type)) {
+        showStatusMessage('Duplicate entry.');
+        return;
+    }
+
+    const newText = {
+        id: Date.now().toString(),
+        content: content,
+        type: type,
+        read: false
+    };
+
+    texts.push(newText);
+    saveTexts();
+    showStatusMessage(`Added: ${capitalizeWords(content)}`);
+    entryInput.value = '';
+    typeInput.value = '';
+});
+
+deleteSelectedButton.addEventListener('click', () => {
     const checkedBoxes = document.querySelectorAll('#textList input[type="checkbox"]:checked');
     
     if (checkedBoxes.length === 0) {
@@ -160,79 +93,73 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    // Collect IDs of selected entries and their names
-    const idsToDelete = [];
+    const idsToDelete = Array.from(checkedBoxes).map(checkbox => checkbox.dataset.id);
     const deletedEntries = [];
 
-    checkedBoxes.forEach(checkbox => {
-        const id = checkbox.dataset.id;
-        idsToDelete.push(id);
-        
-        const entry = texts.find(text => text.id === id);
-        if (entry) {
-            deletedEntries.push(capitalizeWords(entry.content));
+    texts = texts.filter(text => {
+        if (idsToDelete.includes(text.id)) {
+            deletedEntries.push(capitalizeWords(text.content));
+            return false;
         }
+        return true;
     });
-
-    // Remove the selected entries from the texts array
-    texts = texts.filter(text => !idsToDelete.includes(text.id));
 
     saveTexts();
     displayTexts();
     deleteSelectedButton.style.display = 'none';
 
-    // Display the status message with the names of the deleted entries
     showStatusMessage(`Deleted: ${deletedEntries.join(', ')}`);
 });
 
-    generatePdfButton.addEventListener('click', () => {
-    const { jsPDF } = window.jspdf;
-    const doc = new jsPDF();
+showListButton.addEventListener('click', displayTexts);
 
-    // Get unique types from the texts
+generatePdfButton.addEventListener('click', () => {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF('landscape'); // Switch to landscape mode to better fit side-by-side tables
+    const pageWidth = doc.internal.pageSize.getWidth();
+    let currentX = 14;
+    let currentY = 20;
+    const margin = 10; // Margin between tables
+
     const uniqueTypes = [...new Set(texts.map(text => text.type))];
 
-    // Set initial vertical position
-    let currentY = 16;
-
-    // Loop through each unique type to create a separate table
-    uniqueTypes.forEach((type) => {
-        // Filter texts by current type
+    uniqueTypes.forEach((type, index) => {
         const filteredTexts = texts.filter(text => text.type === type);
-
-        // Skip if there are no entries for this type
         if (filteredTexts.length === 0) return;
 
-        // Add type title
-        doc.setFontSize(18);
-        doc.text(capitalizeWords(type) + " Entries", 14, currentY);
-        currentY += 10;
-
-        // Prepare the table data
         const tableData = filteredTexts.map((text, index) => [
             index + 1,
-            capitalizeWords(text.content),
-            capitalizeWords(text.type)
+            capitalizeWords(text.content)
         ]);
 
-        // Set table headers
-        const headers = ['#', 'Entry', 'Type'];
+        const headers = ['#', 'Entry'];
 
-        // Add table for this type
+        // Measure the width of the table to see if it fits
+        const tableWidth = doc.getStringUnitWidth(headers.join(' ') + ' ' + tableData.map(row => row.join(' ')).join(' ')) * doc.internal.getFontSize();
+
+        if (currentX + tableWidth + margin > pageWidth) {
+            currentX = 14; // Reset X position to the left margin
+            currentY += 70; // Move down to the next row
+        }
+
+        doc.setFontSize(14);
+        doc.text(capitalizeWords(type) + " Entries", currentX, currentY - 5);
+
         doc.autoTable({
             startY: currentY,
+            startX: currentX,
             head: [headers],
             body: tableData,
             theme: 'grid',
             headStyles: {
-                fillColor: [0, 4, 109], // Header color matching the theme color
+                fillColor: [0, 4, 109],
                 textColor: [255, 255, 255]
             },
             bodyStyles: {
-                fillColor: [240, 240, 240], // Light grey for table rows
+                fillColor: [240, 240, 240],
             },
             alternateRowStyles: {
-                fillColor: [255, 255, 255] // White for alternate rows
+                fillColor: [255, 255, 255]
             },
             styles: {
                 fontSize: 12,
@@ -241,13 +168,20 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Update currentY to the position after the table
-        currentY = doc.lastAutoTable.finalY + 10;
+        const lastY = doc.lastAutoTable.finalY;
+        const lastX = doc.lastAutoTable.finalX;
+        currentX = lastX + margin; // Move to the right of the current table
+
+        if (currentX + tableWidth + margin > pageWidth) {
+            currentX = 14; // Reset X position to the left margin
+            currentY = lastY + 20; // Move down to the next row
+        }
     });
 
-    // Save the PDF
     doc.save("text_management_list.pdf");
 });
 
-    updateDatalist();
+textList.addEventListener('change', () => {
+    const checkedBoxes = document.querySelectorAll('#textList input[type="checkbox"]:checked');
+    deleteSelectedButton.style.display = checkedBoxes.length > 0 ? 'block' : 'none';
 });
