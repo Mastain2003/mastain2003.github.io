@@ -211,11 +211,11 @@ document.addEventListener('DOMContentLoaded', () => {
         doc.setFontSize(14);
        // alert('7.2');
      alert(currentX);
-       alert(capitalizeWords(type));
-        alert(currentY-5);
+      // alert(capitalizeWords(type));
+        //alert(currentY-5);
         
         doc.text(capitalizeWords(type) + " Entries", currentX, currentY - 5);
-        alert('7.3');
+        //alert('7.3');
         doc.autoTable({
             startY: currentY,
             startX: currentX,
@@ -238,16 +238,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 valign: 'middle'
             }
         });
-        alert('7.4');
+        alert(currentX);
          alert('8');
         const lastY = doc.lastAutoTable.finalY;
         const lastX = doc.lastAutoTable.finalX;
         currentX = lastX + margin; // Move to the right of the current table
-
+         alert(currentX);
         if (currentX + tableWidth + margin > pageWidth) {
             currentX = 14; // Reset X position to the left margin
             currentY = lastY + 20; // Move down to the next row
         }
+        alert(currentX);
         alert('9');
     });
     alert('3');
