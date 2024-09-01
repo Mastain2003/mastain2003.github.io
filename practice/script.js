@@ -13,12 +13,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const statusMessage = document.getElementById('statusMessage');
     const textTable = document.getElementById('textTable');
     const randomizeCheckbox = document.getElementById('randomizeCheckbox');
-
+    const offlineWarning = document.getElementById('offline-warning');
+    
     let texts = JSON.parse(localStorage.getItem('texts')) || [];
 
     const saveTexts = () => {
         localStorage.setItem('texts', JSON.stringify(texts));
     };
+    function updateOnlineStatus() {
+        if (navigator.onLine) {
+            offlineWarning.classList.add('hidden');
+            document.body.classList.remove('offline-mode');
+        } else {
+            offlineWarning.classList.remove('hidden');
+            document.body.classList.add('offline-mode');
+        }
+    }
+
+    window.addEventListener('online', updateOnlineStatus);
+    window.addEventListener('offline', updateOnlineStatus);
+    
+    // Initial status check
+    updateOnlineStatus();
 
     const updateDatalist = () => {
         const uniqueTypes = [...new Set(texts.map(text => text.type))];
