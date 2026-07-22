@@ -1,5 +1,5 @@
-const ACCESS_TOKEN = "YOUR_ACCESS_TOKEN";
-const PHONE_NUMBER_ID = "YOUR_PHONE_NUMBER_ID";
+const ACCESS_TOKEN = "EAASZB1cCOVccBSFZCrY9MJDZBNkxBRAShm68mzYMuRaVxIXCSQ9vulq5pmlukzJkVHoBgVZBpfu3UviZCHvkyAjI6hSpJbHB7RHZC2CrpMUckAgXU1lGbSwhHdyS5MGKEZBzblBSnB0zkK7uZClSSX9xstK8aaPf7x2ZBWJa3cajz5agLOGzCUMVTXqNwJ4bDXW2hGvZAr8yBZBkfVWT1di8xTeo0uRcUIXi2K4wUp6jCy9409IsJOKgzVt9t7jBlFuZC4ZCQrmiE0tRAnrzL1AN0PAg2bnQn";
+const PHONE_NUMBER_ID = "1169100286293064";
 
 async function sendMessage() {
 
@@ -13,10 +13,10 @@ async function sendMessage() {
             },
             body: JSON.stringify({
                 messaging_product: "whatsapp",
-                to: "919876543210",
+                to: "919955160127",
                 type: "template",
                 template: {
-                    name: "YOUR_TEMPLATE_NAME",
+                    name: "independence_day_offer",
                     language: {
                         code: "en"
                     },
@@ -26,7 +26,7 @@ async function sendMessage() {
                             parameters: [
                                 {
                                     type: "text",
-                                    text: "1001"
+                                    text: "Prakhar Mastain"
                                 },
                                 {
                                     type: "text",
