@@ -1,7 +1,7 @@
 
 const ACCESS_TOKEN = "EAASZB1cCOVccBSFZCrY9MJDZBNkxBRAShm68mzYMuRaVxIXCSQ9vulq5pmlukzJkVHoBgVZBpfu3UviZCHvkyAjI6hSpJbHB7RHZC2CrpMUckAgXU1lGbSwhHdyS5MGKEZBzblBSnB0zkK7uZClSSX9xstK8aaPf7x2ZBWJa3cajz5agLOGzCUMVTXqNwJ4bDXW2hGvZAr8yBZBkfVWT1di8xTeo0uRcUIXi2K4wUp6jCy9409IsJOKgzVt9t7jBlFuZC4ZCQrmiE0tRAnrzL1AN0PAg2bnQn";
 const PHONE_NUMBER_ID = "1169100286293064";
-
+alert("hi");
 async function sendMessage() {
 
     const response = await fetch(
