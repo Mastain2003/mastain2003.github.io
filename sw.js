@@ -1,4 +1,4 @@
-var CACHE_NAME = 'portFolio-v1';
+var CACHE_NAME = 'portFolio-v11';
 var FilesToCache = [
 					'/',
 					'index.html',
